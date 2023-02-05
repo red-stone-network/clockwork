@@ -3,7 +3,7 @@
 </p>
 
 <h4 align="center">
-  A cool bookmarklet, that acts like an operating system!
+  A cool bookmarklet that unblocks stuff!
 </h4>
 
 <!-- ABOUT SECTION -->
