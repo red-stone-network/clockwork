@@ -16,7 +16,7 @@ ExampleIFrame.id = id;
 ExampleIFrame.src = "about:blank";
 
 ExampleLink.href = "javascript:openapp('"+ ExampleIFrame.id +"','" + link + "');" ;
-ExampleLink.innerHTML = "Example"; 
+ExampleLink.innerHTML = title; 
 ExampleLink.uninstallId = uninstallId;
 ExampleLink.addEventListener('dblclick', (e) => {
   uninstallApp(ExampleLink.uninstallId, [ExampleLink,ExampleIFrame]);
