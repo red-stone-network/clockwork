@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  Clockwork is a bookmarklet made to work as a way to play unblocked games, use Discord, and more!
+  Clockwork is a bookmarklet made inspired by Inject0r, and works as a way to use unblocked games, apps, and more!
   Once it's done, it'll have all these features:<br><br>
   • Support for unblocked apps, like Discord, Twitter, and Youtube.<br>
   • A window cloaker, to hide Clockwork from your teachers.<br>
