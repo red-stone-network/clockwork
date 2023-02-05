@@ -24,3 +24,14 @@
 <h6 align="center">
   Clockwork is made to work on Chrome, and usually supports Firefox. No other browser is supported.<br>Clockwork should not be used with extensions that edit the look of websites, such as Dark Reader.
 </h6>
+
+<!-- ABOUT SECTION -->
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/91223726/216842392-8707df04-bb35-4e4a-ac6f-49650ac5032e.png" align="center">
+</p>
+
+<p align="center">
+  1. Copy the contents of the "bookmarklet.js" file.
+  2. Create a new bookmark and paste the code into the URL field.
+  3. Click on it (mostly) anywhere to load Clockwork.
+</p>
