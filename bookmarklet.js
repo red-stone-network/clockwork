@@ -8,5 +8,5 @@ myWindow.document.title = document.title;
 var link = document.createElement('link');
 link.rel = 'icon';
 myWindow.document.head.appendChild(link);
-link.href = document.querySelector("link[rel~='icon']").href; //document.querySelector("link[rel~='icon']").href
+link.href = document.querySelector("link[rel~='icon']").href;
 document.location.reload();
