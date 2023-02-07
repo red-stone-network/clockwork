@@ -4,7 +4,7 @@
 
 <h4 align="center">
   A cool bookmarklet that unblocks stuff!<br>
-  <a href="https://gitlab.com/lukasexists/redstone-nw.netlify.app/-/tree/main/clockwork-app">SOURCE</a> - <a href="https://redstone-nw.netlify.app/clockwork/index.html">WEBSITE</a>
+  <a href="https://gitlab.com/lukasexists/redstone-nw.netlify.app/-/tree/main/clockwork-app">SOURCE</a> - <a href="https://redstone-nw.netlify.app/clockwork/index.html">WEBSITE</a><br>
 </h4>
 
 <!-- ABOUT SECTION -->
