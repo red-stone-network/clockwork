@@ -1,11 +1,12 @@
 function start() {
+  
+  ////MADE FOR VERSION 0.12.0 SCRIPT SYSTEM////
 
   ////CONFIG////
 
-  var link = "https://example.com/index.html"; // link to app webpage
-  var id = "ExampleIFrame"; // a UNIQUE id to identify the frame for your app
-  var title = "Example App"; // title shown in navbar
-  var uninstallId = "insert url location here"; // set this to the url location of your script
+  var link = "https://lukasexists.netlify.app/notepad/index.html"; // link to app webpage
+  var title = "Notepad"; // title shown in navbar
+  var id = "https://redstone-nw.netlify.app/clockwork-app/notepad.js"; // set this to the url location of your script
   
   ////SCRIPT////
   
@@ -19,10 +20,9 @@ function start() {
   
   ExampleLink.href = "javascript:openapp('"+ ExampleIFrame.id +"','" + link + "');" ;
   ExampleLink.innerHTML = title; 
-  ExampleLink.uninstallId = uninstallId;
   ExampleLink.className = id; 
   ExampleLink.addEventListener('dblclick', (e) => {
-    uninstallApp(ExampleLink.uninstallId, ExampleLink.className);
+    uninstallApp(ExampleIFrame.id);
   });
   
   document.getElementById("navbar").appendChild(ExampleLink);
