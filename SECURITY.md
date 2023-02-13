@@ -4,4 +4,4 @@
 
 ## Reporting a Vulnerability
 
-Send an email to toasterpanic@gmail.com.
+Send an email to redstone-network@courvix.com.
