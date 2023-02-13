@@ -15,15 +15,16 @@
 <p align="center">
   Clockwork is a bookmarklet inspired by Inject0r, and works as a way to use unblocked games, apps, and more!
   What can it do? Well, here are its features:<br><br>
-  • Support for unblocked apps, like Discord and Twitter.<br>
-  • An auto-cloaker.<br>
+  • An app library, filled with all the apps you need.<br>
+  • [WIP] An auto-cloaker built into the bookmarklet.<br>
   • A bunch of games - both HTML5 and Flash!<br>
   • Support for custom apps.<br>
   • And possibly more!
 </p>
 
 <h6 align="center">
-  Clockwork is made to work on Chrome, and usually supports Firefox. No other browser is supported.<br>Clockwork should not be used with extensions that edit the look of websites, such as Dark Reader.
+  Clockwork is made to work on Chrome, and usually supports Firefox. No other browser is supported.
+  <br>Clockwork should not be used with extensions that edit the look of websites, such as Dark Reader.
 </h6>
 
 <!-- ABOUT SECTION -->
