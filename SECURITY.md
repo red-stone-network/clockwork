@@ -4,4 +4,4 @@
 
 ## Reporting a Vulnerability
 
-Send an email to toasterpanic@courvix.com.
+Send an email to toasterpanic@gmail.com.
