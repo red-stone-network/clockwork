@@ -33,7 +33,10 @@
 </p>
 
 <p align="center">
-  1. Copy the contents of the "bookmarklet.js" file.<br>
+  1. Copy the contents of the "bookmarklet.js" file listed below.<br>
+  ```javascript
+  javascript:var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='//redstone-nw.netlify.app/assets/clockwork-bookmarklet.js';
+  ```
   2. Create a new bookmark and paste the code into the URL field.<br>
   3. Click on it (mostly) anywhere to load Clockwork.
 </p>
