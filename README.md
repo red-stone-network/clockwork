@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-  1. Copy the contents of the "bookmarklet.js" file.<br>
+  1. Copy the contents of the <a href="https://raw.githubusercontent.com/red-stone-network/clockwork/main/bookmarklet.js">bookmarklet.js</a> file.<br>
   2. Create a new bookmark and paste the code into the URL field.<br>
   3. Click on it (mostly) anywhere to load Clockwork.
 </p>
