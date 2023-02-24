@@ -32,8 +32,19 @@
   <img src="https://user-images.githubusercontent.com/91223726/216842392-8707df04-bb35-4e4a-ac6f-49650ac5032e.png" align="center">
 </p>
 
+<h2 align="center">
+  METHOD 1 - BOOKMARKLETS
+</h2>
 <p align="center">
   1. Copy the contents of the <a href="https://raw.githubusercontent.com/red-stone-network/clockwork/main/bookmarklet.js">bookmarklet.js</a> file.<br>
   2. Create a new bookmark and paste the code into the URL field.<br>
   3. Click on it (mostly) anywhere to load Clockwork.
+</p>
+
+<h2 align="center">
+  METHOD 2 - HTML
+</h2>
+<p align="center">
+  1. Download the <a href="https://raw.githubusercontent.com/red-stone-network/clockwork/main/clock.html">clock.html</a> file.<br>
+  2. Open it in the Files app.
 </p>
