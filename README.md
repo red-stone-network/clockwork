@@ -42,9 +42,19 @@
 </p>
 
 <h2 align="center">
-  METHOD 2 - HTML
+  METHOD 2 - WEBSITE
 </h2>
 <p align="center">
-  1. Download the <a href="https://raw.githubusercontent.com/red-stone-network/clockwork/main/clock.html" download>clock.html</a> file.<br>
-  2. Open it in the Files app.
+  <a href="https://red-stone-network.github.io/clockwork/">Go here.</a>
+</p>
+
+<h2 align="center">
+  METHOD 3 - MANUAL HTML
+</h2>
+<p align="center">
+  1. Go <a href="https://github.com/red-stone-network/clockwork/raw/html-site/index.html">here</a> and copy the contents. (CTRL+A then CTRL+C)<br>
+  2A. Go to <a href="https://liveweave.com/">this website</a> and replace everything in the top-left box with the file you just copied.
+  2B. If that website is blocked, go to <a href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_phrase_samp">this website</a>
+  and replace everything in the text box on the left with the file you just copied, then click Run.
+  2C. If that website is also blocked, go to <a href="https://www.tutorialspoint.com/online_html_editor.php">this website</a> and replace everything in the text box on the left with the file you just copied.
 </p>
