@@ -55,6 +55,6 @@
   1. Go <a href="https://github.com/red-stone-network/clockwork/raw/html-site/index.html">here</a> and copy the contents. (CTRL+A then CTRL+C)<br>
   2A. Go to <a href="https://liveweave.com/">this website</a> and replace everything in the top-left box with the file you just copied.
   2B. If that website is blocked, go to <a href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_phrase_samp">this website</a>
-  and replace everything in the text box on the left with the file you just copied, then click Run.
+  and replace everything in the text box on the left with the file you just copied, then click Run.<br>
   2C. If that website is also blocked, go to <a href="https://www.tutorialspoint.com/online_html_editor.php">this website</a> and replace everything in the text box on the left with the file you just copied.
 </p>
