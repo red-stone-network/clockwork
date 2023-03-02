@@ -38,10 +38,10 @@
 <p align="center">
   1. Copy the contents of the <a href="https://raw.githubusercontent.com/red-stone-network/clockwork/main/bookmarklet.js" download>bookmarklet.js</a> file.<br>
   2. Create a new bookmark and paste the code into the URL field.<br>
-  3. Click on it (mostly) anywhere to load Clockwork.
-  
-  THE BOOKMARKLET ONLY WORKS ON CERTAIN WEBSITES - you may need to experiment to find what works!
-  Try [Clever](https://clever.com/) or [example.com](https://example.com).
+  3. Click on it (mostly) anywhere to load Clockwork.<br>
+  <br>
+  THE BOOKMARKLET ONLY WORKS ON CERTAIN WEBSITES - you may need to experiment to find what works!<br>
+  Try  <a href="https://clever.com/">Clever</a> or  <a href="https://example.com">example.com</a>.
 </p>
 
 <h2 align="center">
