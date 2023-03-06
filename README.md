@@ -48,7 +48,8 @@
   METHOD 2 - WEBSITE
 </h2>
 <p align="center">
-  <a href="https://red-stone-network.github.io/clockwork/">Go here.</a>
+  <a href="https://red-stone-network.github.io/clockwork/">Go here.</a><br>
+  YOU MAY NEED TO RETRY A FEW TIMES!
 </p>
 
 <h2 align="center">
@@ -59,5 +60,6 @@
   2A. Go to <a href="https://liveweave.com/">this website</a> and replace everything in the top-left box with the file you just copied.<br>
   2B. If that website is blocked, go to <a href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_phrase_samp">this website</a>
   and replace everything in the text box on the left with the file you just copied, then click Run.<br>
-  2C. If that website is also blocked, go to <a href="https://www.tutorialspoint.com/online_html_editor.php">this website</a> and replace everything in the text box on the left with the file you just copied.
+  2C. If that website is also blocked, go to <a href="https://www.tutorialspoint.com/online_html_editor.php">this website</a> and replace everything in the text box on the left with the file you just copied.<br>
+  YOU MAY NEED TO RETRY A FEW TIMES!
 </p>
