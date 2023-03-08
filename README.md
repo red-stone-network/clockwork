@@ -48,7 +48,7 @@
   METHOD 2 - WEBSITE
 </h2>
 <p align="center">
-  <a href="https://red-stone-network.github.io/clockwork/">Go here.</a><br>
+  <a href="https://idi0t.glitch.me/clockwork">Go here.</a><br>
   YOU MAY NEED TO RETRY A FEW TIMES!
 </p>
 
