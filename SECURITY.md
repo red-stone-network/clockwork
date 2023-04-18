@@ -1,6 +1,6 @@
 # Security Policy
 
-## ONLY THE LATEST VERSION IS SUPPORTED.
+Only the latest minor/patch versions of each major version are supported.
 
 ## Reporting a Vulnerability
 
