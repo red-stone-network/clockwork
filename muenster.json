@@ -5,5 +5,6 @@
   "encodedUrl": "yes",
   "icon": "https://redstone-nw.netlify.app/assets/app-images/muenster.png",
   "version": "v2.0.0",
+  "author": "LukasExists",
   "permissions": "notifications"
 }
