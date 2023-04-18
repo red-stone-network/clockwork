@@ -25,7 +25,7 @@
 <h6 align="center">
   Clockwork is made to work on Chrome, and usually supports Firefox. No other browser is supported.
   <br>Clockwork should not be used with extensions that edit the look of websites, such as Dark Reader.<br>
-  Note that Clockwork is being revamped right now, and info will change as soon as we switch to v2 being the main version.
+  <i>Clockwork © 2022 Redstone Network</i>
 </h6>
 
 <!-- ABOUT SECTION -->
