@@ -15,9 +15,9 @@ class Clockwork {
     this.isEmbedded = (window !== window.parent);
   }
   installApp(url) {
-    window.parent.postMessage(["install_app","installApp",url,clockwork_my_id], "*");
+    window.parent.postMessage(["installApp","installApp",url,clockwork_my_id], "*");
   }
-  installTheme(url) {
-    window.parent.postMessage(["install_app","installApp",url,clockwork_my_id], "*");
+  sendNotification(description) {
+    window.parent.postMessage(["notifications","sendNotification",description,clockwork_my_id], "*");
   }
 }
