@@ -4,7 +4,7 @@
 
 <h4 align="center">
   It's like an operating system in your browser!<br>
-  <a href="https://gitlab.com/lukasexists/redstone-nw.netlify.app/-/tree/main/clockwork-app">SOURCE</a> - <a href="https://redstone-nw.netlify.app/clockwork/index.html">WEBSITE</a><br>
+  <a href="https://gitlab.com/lukasexists/redstone-nw.netlify.app/-/tree/main/clockwork-app">SOURCE</a> - <a href="https://redstone-nw.netlify.app/clockwork/index.html">WEBSITE</a> - <a href="//discord.gg/Sb8NzVbqX8">DISCORD</a><br>
 </h4>
 
 <!-- ABOUT SECTION -->
