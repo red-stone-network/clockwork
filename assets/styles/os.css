@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&family=Varela+Round&display=swap');
+
+
+@keyframes fadeoutlock {
+  from   {bottom: 0; filter: opacity(100%);}
+  to  {bottom: 100vh; filter: opacity(0%);}
+}
+
+@keyframes fadein {
+  from   {top: 100vh; filter: opacity(0%);}
+  to  {top: 0vh; filter: opacity(100%);}
+}
+@keyframes animnotif {
+  from {
+    right: -220px; 
+    filter: opacity(0%);
+  }
+  to {
+    right: 0; 
+    filter: opacity(100%);
+  }
+}
+
+h1 {
+  font-family: 'Varela Round', sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.clockwork-notification {
+  z-index: 99;
+  position: fixed;
+  width: 200px;
+  background-color: #222;
+  bottom: 48px;
+  right: 0;
+  color: white;
+  padding: 4px;
+  box-sizing: border-box;
+  padding-bottom: 1px;  
+  filter: opacity(100%);
+  animation-name: animnotif;
+  animation-duration: 0.2s;
+  transition: 0.2s;
+}
+.clockwork-notification.hide {
+  transition: 0.2s;
+  right: -220px; 
+  filter: opacity(0%);
+}
+#clockwork-notification-panel {
+  z-index: 100;
+  position: fixed;
+  width: 200px;
+  max-height: 300px;
+  min-height: 128px;
+  background-color: #222;
+  bottom: 48px;
+  right: -200px;
+  color: white;
+  padding: 4px;
+  box-sizing: border-box;
+  padding-bottom: 1px; 
+  filter: opacity(0%);
+  transition: 0.2s;
+}
+#clockwork-notification-panel.visible {
+  right: 0px;
+  filter: opacity(100%);
+  transition: 0.2s;  
+}
+
+#clockwork-notification-panel > t {
+  font-weight: 1000;
+  border-bottom: 1px solid gray;
+  display: block;
+  width: 100%;
+}
+#clockwork-notification-items {
+  overflow-y: auto;
+  display: block;
+  max-height: 50vh;
+}
+
+#clockwork-notification-items > div.hide {
+  filter: opacity(100%);
+  transition: 0.2s;  
+}
+
+#clockwork-notification-items > div.hide {
+  filter: opacity(0%);
+  transition: 0.2s;  
+}
+
+#clockwork-notification-items > div > b > img, #clockwork-notification-panel > t > img {
+  height: 1em;
+  float: right;
+}
+
+#clockwork-notification-items > div > b {
+  display: block;
+  width: 100%;
+}
+
+btn, select {
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+  background-color: #222;
+  color: #fff;
+  padding: 4px 4px;
+  border-radius: 4px;
+}
+progress {
+  width: 80%;
+  height: 10px;
+  border-radius: 2px;
+}
+progress::-webkit-progress-bar {
+  background-color: #111;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+progress::-webkit-progress-value {
+  background-color: #f00;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+#contextmenu {
+  position: fixed;
+  width: 120px;
+  background-color: #111;
+  z-index: 999;
+  color: white;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  filter: opacity(0%);
+  transition: 0.2s;  
+}
+#contextmenu.visible {
+  filter: opacity(100%);
+  transition: 0.2s;  
+}
+#contextmenu>btn {
+  width: 100%;
+  transition: 0.2s;
+  border-radius: 5px;
+  padding: 0;
+  background-color: #222;
+}
+.clockwork-panel {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0vh;
+  filter: opacity(100%);
+}
+.clockwork-panel-fadeout{
+  z-index: 99;
+  animation-name: fadeoutlock;
+  animation-duration: 0.3s;
+  bottom: 100vh;
+  background-color: black;
+}
+.clockwork-panel-fadein{
+  z-index: 99;
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  top: 0vh;
+  background-color: black;
+}
+.clockwork-panel > div {
+  text-align: center;
+  position: fixed;
+  font-size: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+}
+#contextmenu > btn:hover {
+  background-color: #444;
+  transition: 0.2s;
+}
+
+#apppanel {
+  width: 100%; 
+  height: calc(100vh - 48px);
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0;
+}
+
+input,select {
+  border: none;
+  font-family: "Roboto Flex", sans-serif;
+  background-color: #222;
+  padding: 1px 2px;
+}
+
+input {
+  color: #fff;
+  text-align: center;
+  max-width: 120px;
+  font-family: "Roboto Flex", sans-serif;
+  border-radius: 4px;
+}
+
+.clockwork-panel > div > input {
+  font-size: 30px;
+}
+
+.app {
+  width: 100%; 
+  height: calc(100vh - 48px);
+  background-color: black;
+  position: fixed;
+  top: 0;
+  color: white;
+  display: none;
+}
+div.app {
+  padding: 5px;
+}
+.appopen {
+  display: block;
+}
+btn>.appbtnopen {
+  border-bottom: 6px solid red;
+}
+#appsidebar {
+  width: 256px;
+  height: 48px;
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0px;
+  display: flex;
+  justify-content: right;
+}
+#appsidebar > div {
+  font-size: 21px;
+  height: 24px;
+  color: white;
+  margin-left: 0;
+  margin-right: 4px;
+  user-select: none;
+} 
+#appsidebar > btn {
+  width: 24px;
+  height: 24px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  transition: 0.2s;
+  user-select: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 4px;
+}
+#appsidebar > btn:hover {
+  background-color: #444;
+}
+#appsidebar > btn > img {
+  width: 24px;
+  height: 24px;
+  filter: none;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+
+#appbar {
+  width: calc(100% - 256px);
+  height: 48px;
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  font-size: 0px;
+  display: flex;
+  overflow-y: auto;
+}
+
+#appbar > btn {
+  width: 48px;
+  height: 48px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  word-break: break-all;
+  vertical-align: middle;
+  transition: 0.2s;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 4px;
+}
+#appbar > btn > img {
+  width: 48px;
+  height: 48px;
+  filter: none;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+#appbar > btn:hover > img {
+  transition: 0.2s;
+  filter: opacity(80%);
+}
+#appbar > btn:hover {
+  background-color: #888;
+  transition: 0.2s;
+}
+iframe {
+  border: none;
+  background-color: white;
+}
+
+a {
+  color: red;
+}
+
+a:link {
+  color: red;
+}
+
+a:hover {
+  color: #f66
+}
+
+.mngappspnl > summary > img {
+  width: 32px; 
+  height: 32px;
+  vertical-align: middle;
+}
+.mngappspnl > summary > span, .mngthmspnl > summary > span {
+  font-size: 20px;
+}

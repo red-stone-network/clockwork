@@ -1,0 +1,10 @@
+{
+  "name": "Copper Games",
+  "desc": "The official game site of Redstone Network - play high-quality games anywhere",
+  "url": "https://copper-games-redstone-network.vercel.app/copper/",  
+  "encodedUrl": "no",
+  "icon": "https://www.metalsdepot.com/assets/files/Catalog_Photos/copper-round-bar.webp",
+  "version": "1.0.0",
+  "author": "LukasExists",
+  "permissions": []
+}
