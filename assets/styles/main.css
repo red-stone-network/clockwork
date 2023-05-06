@@ -29,6 +29,13 @@ body {
   font-size: 20px;
   padding-top: 6px;
 }
+.navbar {
+  width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #111;
+}
 p {
   padding-left: 25vw;
   padding-right: 25vw;
@@ -72,4 +79,21 @@ div.withimgright > div {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+}
+a {
+  color: red;
+}
+a:link {
+  color: red;
+  transition: 0.2s;
+}
+a:hover {
+  color: #f88;
+  transition: 0.2s;
+}
+.letsgo {
+  font-size: 7vw;
+  padding: 0;
+  text-align: center;
+  font-family: "Varela Round", Arial, sans-serif;
 }
