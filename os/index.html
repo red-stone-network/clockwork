@@ -1,209 +1,212 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<title>Clockwork V2 Beta</title>
-<script src="https://redstonenw.vercel.app/clockwork-app/enc-dec.js"></script>
-<link rel="stylesheet" href="/assets/styles/os.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="/clockwork-beta/clockwork-icon.png">
-<meta name="description" content="The newest version of Clockwork">
-<meta name="slingcode-tags" content="beta,redstone,redstone-network">
+  <title>Clockwork V2 Beta</title>
+  <script src="https://redstonenw.vercel.app/clockwork-app/enc-dec.js"></script>
+  <link rel="stylesheet" href="/assets/styles/os.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/clockwork-beta/clockwork-icon.png">
+  <meta name="description" content="The newest version of Clockwork">
+  <meta name="slingcode-tags" content="beta,redstone,redstone-network">
 
-<stylesheets>
+  <stylesheets>
 
-</stylesheets>
+  </stylesheets>
 
 </head>
+
 <body>
 
-<span id="clockwork-loading" class="clockwork-panel">
+  <span id="clockwork-loading" class="clockwork-panel">
 
-<div>
-<h1>
-CLOCKWORK
-</h1>
-If this doesn't load in a few seconds, reload.<br>
-<progress id="cw-load-bar" value="0" max="100"> 32% </progress>
-</div>
-    
-</span>
+    <div>
+      <h1>
+        CLOCKWORK
+      </h1>
+      If this doesn't load in a few seconds, reload.<br>
+      <progress id="cw-load-bar" value="0" max="100"> 32% </progress>
+    </div>
 
-<span id="clockwork-prmpt" class="clockwork-panel" style="display: none;">
+  </span>
 
-<div>
-<h1 class="prmpt-title">
-App installation confirmation
-</h1>
-<span class="prmpt-text"></span><br>
-<btn class="prmpt-yes">Yes</btn> <btn class="prmpt-no">No</btn>
-</div>
-      
-</span>
+  <span id="clockwork-prmpt" class="clockwork-panel" style="display: none;">
 
-<span id="clockwork-lock" class="clockwork-panel" style="display: none;">
+    <div>
+      <h1 class="prmpt-title">
+        App installation confirmation
+      </h1>
+      <span class="prmpt-text"></span><br>
+      <btn class="prmpt-yes">Yes</btn>
+      <btn class="prmpt-no">No</btn>
+    </div>
 
-<div>
-<h1>
-Welcome.
-</h1>
-For your security, please enter your passcode.<br><br>
-<input type="password" maxlength="4" id="passcode">
-</div>
-      
-</span>
+  </span>
 
-<span id="clockwork-content" style="display: none;">
+  <span id="clockwork-lock" class="clockwork-panel" style="display: none;">
 
-<div id="contextmenu" class="invisible" style="display: none;">
-<btn id="cm:closeapp">Close app</btn>
-<btn id="cm:uninstallapp">Uninstall app</btn>
-<btn id="cm:mleft">Move left</btn>
-<btn id="cm:mright">Move right</btn>
-</div>
-<div id="apppanel">
-  <div class="app appopen" id="apppanel:sys_home">
-    <h1>
-    Welcome to Clockwork
-    </h1>
-    <p>
-      Clockwork is like an operating system in your browser, where you can install apps and themes, and do pretty much anything!
-    </p>
-    <p>
-      This version of Clockwork is in BETA. Features may be missing or non-functional. 
-    </p>
-    <p>
-      Welcome to beta10! This is a smaller update, but an important one - you can now upload and install themes from the Clockwork Store!
-    </p>
-    <p>
-      HEY THERE! If you aren't seeing the App Store, you might need to clear your cookies for sub64.netlify.app for 
-      <a href="https://www.makeuseof.com/clear-chrome-firefox-edge-cookies-specific-site/?newsletter_popup=0#use-the-padlock-icon-to-clear-cookies-for-specific-websites-in-chrome">
-      Chrome</a>
-      or
-      <a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox#w_clear-cookies-for-the-current-website">Firefox</a>.
-    </p>
-  </div>
-  <div class="app" id="apppanel:sys_settings">
-    <h1>
-    Settings
-    </h1>
-    <h3>
-      <a href="javascript:openApp('sys_settings_apps')">Manage Apps</a><br>
-      <a href="javascript:openApp('sys_settings_themes')">Manage Themes</a><br>
-      <a href="javascript:openApp('sys_settings_control')">Control Center</a><br>
-      <a href="javascript:openApp('sys_settings_passcode')">Passcode Settings</a><br>
-      <a href="javascript:openApp('sys_settings_proxy')">Proxy Settings</a><br>
-      <a href="javascript:openApp('sys_about')">About Clockwork</a><br>
-      <a href="javascript:openApp('sys_devtools')">Developer Tools</a>
-    </h3>
-  </div>
-  <div class="app" id="apppanel:sys_settings_control">
-    <h1>
-    Control Center Settings <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    Clock type: <select id="set_clockchange" onchange="settings.clockType = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
-      <option value="12h">12-hour</option>
-      <option value="24h">24-hour</option>
-    </select>
-  </div>
-  <div class="app" id="apppanel:sys_settings_passcode">
-    <h1>
-    Passcode Settings <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    Current passcode: <input type="password" maxlength="4" id="cpc">
-    <h3>Add or change passcode</h3>
-    New passcode: <input type="password" maxlength="4" id="npc1"><br>
-    Confirm passcode: <input type="password" maxlength="4" id="npc2"><br>
-    <btn onclick="passcodeSettingChange('change')">Change it!</btn>
-    <h3>Remove passcode</h3>
-    <btn onclick="passcodeSettingChange('remove')">Remove it!</btn>
-  </div>
+    <div>
+      <h1>
+        Welcome.
+      </h1>
+      For your security, please enter your passcode.<br><br>
+      <input type="password" maxlength="4" id="passcode">
+    </div>
 
-  <div class="app" id="apppanel:sys_settings_proxy">
-    <h1>
-    Proxy Settings <a target="_blank" href="https://github.com/red-stone-network/clockwork/wiki/User-Guide#use-an-ultraviolet-proxy-with-clockwork-apps">(read me)</a> 
-    <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    Proxy: <select id="set_proxy" 
-    onchange="settings.proxy = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
-      <option value="none">Don't use a proxy</option>
-      <option value="uv">Use an Ultraviolet proxy</option>
-    </select><br>
-    Proxy URL: <input id="set_proxyurl" placeholder="Using a default proxy..." 
-    onchange="settings.proxyUrl = this.value; localStorage.setItem('settings', JSON.stringify(settings));"
-    style="max-width: 999px;text-align: left;">
-  </div>
+  </span>
 
-  <div class="app" id="apppanel:sys_devtools">
-    <h1>
-    Devtools <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    <b>WARNING:</b> Don't mess with anything here unless you know what you're doing!
-    We are not liable for any damages caused to Clockwork by this menu.<br>
-    <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', -1)">
-      moveApp(muenster, -1)
-    </a>
-    <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', 1)">
-      moveApp(muenster, 1)
-    </a>
-    <a onclick="installApp();">Click me to install an external app.</a>
-    <details>
-      <summary><b>OBSOLETED BUTTONS:</b> Buttons made for Clockwork developer testing, now no longer used</summary>
-      <a onclick="installTheme('/clockwork-beta/restyle.css')">Click me to install test theme.</a>
-      <a onclick="changeSetting('lock.enabled', true);">Click me to turn on passcode.</a>
-      <a onclick="settings.lock.enabled = true; localStorage.setItem('settings', JSON.stringify(settings));">Click me to turn on passcode2.</a><br>
-    </details>
-  </div>
-  <div class="app" id="apppanel:sys_about">
-    <h1>
-    About Clockwork <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    <h3>Clockwork v<span id="versiontxt"></span></h3>
-    <a href="https://icons8.com/">Icons by Icons8</a>
-    <a href="https://redstonenetwrk.vercel.app/">Made by Redstone Network</a>
-  </div>
-  <div class="app" id="apppanel:sys_settings_apps">
-    <h1>
-    Manage Apps <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    <span id="cw_manageapps_span">
+  <span id="clockwork-content" style="display: none;">
 
-    </span>
-  </div>
-  <div class="app" id="apppanel:sys_settings_themes">
-    <h1>
-    Manage Themes <a href="javascript:reloadThemes();">(reload themes)</a> <a href="javascript:openApp('sys_settings')">(back)</a>
-    </h1>
-    <span id="cw_managethemes_span">
+    <div id="contextmenu" class="invisible" style="display: none;">
+      <btn id="cm:closeapp">Close app</btn>
+      <btn id="cm:uninstallapp">Uninstall app</btn>
+      <btn id="cm:mleft">Move left</btn>
+      <btn id="cm:mright">Move right</btn>
+    </div>
+    <div id="apppanel">
+      <div class="app appopen" id="apppanel:sys_home">
+        <h1>
+          Welcome to Clockwork
+        </h1>
+        <p>
+          Clockwork is like an operating system in your browser, where you can install apps and themes, and do pretty much anything!
+        </p>
+        <p>
+          This version of Clockwork is in BETA. Features may be missing or non-functional.
+        </p>
+        <p>
+          Welcome to beta10! This is a smaller update, but an important one - you can now upload and install themes from the Clockwork Store!
+        </p>
+        <p>
+          HEY THERE! If you aren't seeing the App Store, you might need to clear your cookies for sub64.netlify.app for
+          <a href="https://www.makeuseof.com/clear-chrome-firefox-edge-cookies-specific-site/?newsletter_popup=0#use-the-padlock-icon-to-clear-cookies-for-specific-websites-in-chrome">
+            Chrome</a>
+          or
+          <a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox#w_clear-cookies-for-the-current-website">Firefox</a>.
+        </p>
+      </div>
+      <div class="app" id="apppanel:sys_settings">
+        <h1>
+          Settings
+        </h1>
+        <h3>
+          <a href="javascript:openApp('sys_settings_apps')">Manage Apps</a><br>
+          <a href="javascript:openApp('sys_settings_themes')">Manage Themes</a><br>
+          <a href="javascript:openApp('sys_settings_control')">Control Center</a><br>
+          <a href="javascript:openApp('sys_settings_passcode')">Passcode Settings</a><br>
+          <a href="javascript:openApp('sys_settings_proxy')">Proxy Settings</a><br>
+          <a href="javascript:openApp('sys_about')">About Clockwork</a><br>
+          <a href="javascript:openApp('sys_devtools')">Developer Tools</a>
+        </h3>
+      </div>
+      <div class="app" id="apppanel:sys_settings_control">
+        <h1>
+          Control Center Settings <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        Clock type: <select id="set_clockchange" onchange="settings.clockType = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
+          <option value="12h">12-hour</option>
+          <option value="24h">24-hour</option>
+        </select>
+      </div>
+      <div class="app" id="apppanel:sys_settings_passcode">
+        <h1>
+          Passcode Settings <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        Current passcode: <input type="password" maxlength="4" id="cpc">
+        <h3>Add or change passcode</h3>
+        New passcode: <input type="password" maxlength="4" id="npc1"><br>
+        Confirm passcode: <input type="password" maxlength="4" id="npc2"><br>
+        <btn onclick="passcodeSettingChange('change')">Change it!</btn>
+        <h3>Remove passcode</h3>
+        <btn onclick="passcodeSettingChange('remove')">Remove it!</btn>
+      </div>
 
-    </span>
-  </div>
-</div>
+      <div class="app" id="apppanel:sys_settings_proxy">
+        <h1>
+          Proxy Settings <a target="_blank" href="https://github.com/red-stone-network/clockwork/wiki/User-Guide#use-an-ultraviolet-proxy-with-clockwork-apps">(read me)</a>
+          <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        Proxy: <select id="set_proxy" onchange="settings.proxy = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
+          <option value="none">Don't use a proxy</option>
+          <option value="uv">Use an Ultraviolet proxy</option>
+        </select><br>
+        Proxy URL: <input id="set_proxyurl" placeholder="Using a default proxy..." onchange="settings.proxyUrl = this.value; localStorage.setItem('settings', JSON.stringify(settings));" style="max-width: 999px;text-align: left;">
+      </div>
 
-<div id="appbar">
-  <btn id="appbar:home" onclick="openApp('sys_home');">
-    <img src="https://redstonenw.vercel.app/assets/clockwork/home.png"> 
-  </btn>
-  <btn id="appbar:settings" onclick="openApp('sys_settings');">
-    <img src="https://redstonenw.vercel.app/assets/clockwork/settings.png">
-  </btn>
-</div>
-<div id="appsidebar">
-  <div id="appsidebar-clock">DE:EZ:NU TS</div>
-   <btn onclick="openNotificationPanel();">
-    <img id="appsidebar:notifs" src="https://redstonenw.vercel.app/assets/clockwork/notifs.png">
-  </btn>
-</div>
-<div id="clockwork-notification-panel" class="visible"><t>Notifications 
-  <img src="https://redstonenw.vercel.app/assets/clockwork/trash.png" 
-  onclick="clearAllNotifs();"></t>
-  <span id="clockwork-notification-items">You're all caught up!</div>
-</div>
- 
+      <div class="app" id="apppanel:sys_devtools">
+        <h1>
+          Devtools <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        <b>WARNING:</b> Don't mess with anything here unless you know what you're doing!
+        We are not liable for any damages caused to Clockwork by this menu.<br>
+        <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', -1)">
+          moveApp(muenster, -1)
+        </a>
+        <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', 1)">
+          moveApp(muenster, 1)
+        </a>
+        <a onclick="installApp();">Click me to install an external app.</a>
+        <details>
+          <summary><b>OBSOLETED BUTTONS:</b> Buttons made for Clockwork developer testing, now no longer used</summary>
+          <a onclick="installTheme('/clockwork-beta/restyle.css')">Click me to install test theme.</a>
+          <a onclick="changeSetting('lock.enabled', true);">Click me to turn on passcode.</a>
+          <a onclick="settings.lock.enabled = true; localStorage.setItem('settings', JSON.stringify(settings));">Click me to turn on passcode2.</a><br>
+        </details>
+      </div>
+      <div class="app" id="apppanel:sys_about">
+        <h1>
+          About Clockwork <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        <h3>Clockwork v<span id="versiontxt"></span></h3>
+        <a href="https://icons8.com/">Icons by Icons8</a>
+        <a href="https://redstonenetwrk.vercel.app/">Made by Redstone Network</a>
+      </div>
+      <div class="app" id="apppanel:sys_settings_apps">
+        <h1>
+          Manage Apps <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        <span id="cw_manageapps_span">
 
-</span>
+        </span>
+      </div>
+      <div class="app" id="apppanel:sys_settings_themes">
+        <h1>
+          Manage Themes <a href="javascript:reloadThemes();">(reload themes)</a> <a href="javascript:openApp('sys_settings')">(back)</a>
+        </h1>
+        <span id="cw_managethemes_span">
 
-<script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>
+        </span>
+      </div>
+    </div>
+
+    <div id="appbar">
+      <btn id="appbar:home" onclick="openApp('sys_home');">
+        <img src="https://redstonenw.vercel.app/assets/clockwork/home.png">
+      </btn>
+      <btn id="appbar:settings" onclick="openApp('sys_settings');">
+        <img src="https://redstonenw.vercel.app/assets/clockwork/settings.png">
+      </btn>
+    </div>
+    <div id="appsidebar">
+      <div id="appsidebar-clock">DE:EZ:NU TS</div>
+      <btn onclick="openNotificationPanel();">
+        <img id="appsidebar:notifs" src="https://redstonenw.vercel.app/assets/clockwork/notifs.png">
+      </btn>
+    </div>
+    <div id="clockwork-notification-panel" class="visible">
+      <t>Notifications
+        <img src="https://redstonenw.vercel.app/assets/clockwork/trash.png" onclick="clearAllNotifs();">
+      </t>
+      <span id="clockwork-notification-items">You're all caught up!
+    </div>
+    </div>
+
+
+  </span>
+
+  <script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>
 </body>
+
 </html>
 <script src="/assets/scripts/os.js"></script>
