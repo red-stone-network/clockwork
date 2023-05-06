@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&family=Varela+Round&display=swap');
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://clockwork-os.vercel.app/assets/images/banner.png");
+  background-color: red;
+  background-size: cover;
+  background-position: 50%;
+}
+.banner > span {
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Varela Round", Arial, sans-serif;
+  font-size: 3vw;
+}
+.content {
+  font-size: 20px;
+  padding-top: 6px;
+}
+p {
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+div.withimgleft,div.withimgright {
+  display: block;
+  padding: 6px 10px;
+  position: relative;
+  height: 100vh;
+}
+div.withimgleft > img {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  max-height: 100vh;
+  object-fit: cover;
+  transform: translateY(-50%);
+}
+div.withimgleft > div {
+  width: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+div.withimgright > img {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  max-height: 100vh;
+  object-fit: cover;
+  transform: translateY(-50%);
+}
+div.withimgright > div {
+  width: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
