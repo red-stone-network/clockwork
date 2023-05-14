@@ -346,3 +346,75 @@ a:hover {
 .mngappspnl > summary > span, .mngthmspnl > summary > span {
   font-size: 20px;
 }
+
+.finder {
+  position: fixed;
+  left: 50vw;
+  bottom: 10px;
+  padding: 5px;
+  transform: translateX(-50%);
+  border: 1px solid gray;
+  background-color: #222;
+  border-radius: 8px;
+  color: white;
+  width: 256px;
+  max-width: 256px;
+  text-align: left;
+  z-index: 99999;
+  filter: opacity(100%);
+  transition: 0.2s;
+}
+.finder.invisible {
+  filter: opacity(0%);
+  transition: 0.2s;
+}
+.finder:focus {
+  outline: none;
+}
+.finder-box.invisible {
+  filter: opacity(0%);
+  transition: 0.2s;
+}
+.finder-box {
+  position: fixed;
+  left: 50vw;
+  bottom: 36px;
+  height: 100px;
+  transform: translateX(-50%);
+  border: 1px solid gray;
+  background-color: #222;
+  border-radius: 8px 8px 0 0;
+  color: white;
+  width: 240px;
+  max-width: 240px;
+  text-align: left;
+  z-index: 99999;
+  overflow-y: auto;
+  overflow-x: hidden;
+  filter: opacity(100%);
+  transition: 0.2s;
+}
+
+.finder-box > div {
+  padding: 5px;
+  border-radius: 0;
+  border-bottom: 1px solid gray;
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+.finder-box > div > img {
+  height: 20px;
+  width: 20px;
+  float: left;
+}
+.finder-box > div:first-child {
+  border-radius: 8px 8px 0px 0px;
+}
+.finder-box > div:last-child {
+  border-bottom: none;
+}
+.finder-box > div:hover {
+  background-color: gray;
+  transition: 0.2s;
+}

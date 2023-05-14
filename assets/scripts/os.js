@@ -2,6 +2,8 @@ const contextMenu = document.getElementById("contextmenu")
 const appPanel = document.getElementById("apppanel");
 const appBar = document.getElementById("appbar");
 const loadBar = document.getElementById("cw-load-bar");
+const finder = document.querySelector(".finder");
+const finderBox = document.querySelector(".finder-box");
 const yes = true;
 const no = false;
 
@@ -30,11 +32,64 @@ var themes = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta10";
+var version = "2.0.0.0-beta11";
 
 document.getElementById("versiontxt").innerText = version;
 
 contextMenu.style.display = "none";
+
+// The stuff that you can search up using the Finder
+const searchables = [
+  {
+    searchText: ["apps","manage apps","uninstall apps"],
+    name: "Manage Apps",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_settings_apps');
+    },
+  },
+  {
+    searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes"],
+    name: "Manage Themes",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_settings_themes');
+    },
+  },
+  {
+    searchText: ["proxy settings","unblock settings","unblocking settings","ultraviolet settings"],
+    name: "Proxy Settings",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_settings_proxy');
+    },
+  },
+  {
+    searchText: ["passcode settings","password settings","lock settings"],
+    name: "Passcode Settings",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_settings_passcode');
+    },
+  },
+  {
+    searchText: ["control center settings","time settings","24-hour time","12-hour time"],
+    name: "Control Center Settings",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_settings_control');
+    },
+  },
+  {
+    searchText: ["about clockwork","version clockwork","clockwork version"],
+    name: "About Clockwork",
+    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    onclick: function(){
+      openApp('sys_about');
+    },
+  },
+]
+
 
 // ULTRAVIOLET ENCODING AND DECODING
 // THIS IS REQUIRED FOR USING A PROXY
@@ -134,6 +189,7 @@ document.getElementById("clockwork-content").style = "display: none;";
 // loading screen
 function checkForFinish() {
   if (loadBar.max == loadBar.value) {
+    checkFinder();
   	document.getElementById("clockwork-loading").style = "display: none;";
 		if (settings.lock.enabled == true || settings.lock.enabled == "true") {
       document.getElementById("clockwork-lock").style = "";
@@ -205,7 +261,21 @@ async function installApp(url,params) {
         encodedUrl: json.encodedUrl,
         permissions: json.permissions,
       }
+      var finderTerms = json?.finderTerms;
+      var myFinderData = {
+        searchText: (function(){
+          if (finderTerms == null) {
+            return [json.name.toLowerCase()];
+          } else {
+            return [json.name.toLowerCase()].concat(finderTerms);
+          }
+        })(),
+        name: json.name,
+        icon: json.icon,
+        onclick: `openApp('${url}','${json.url}',${json.encodedUrl});`
+      }
       appData.push(myAppData);
+      searchables.unshift(myFinderData);
       
 	    appBar.innerHTML += `<btn id="appbar:${url}" 
       onclick="openApp('${url}','${json.url}',${json.encodedUrl})" 
@@ -276,6 +346,10 @@ async function promptInstallApp(url,params) {
 	if (response.ok) {
     let json = await response.text();
     json = JSON.parse(json);
+
+    if (json.permissions.includes("noUninstall")) {
+      throw "invalidAppPermissionError";
+    }
 
     var prompt = document.getElementById("clockwork-prmpt").cloneNode(true);
     prompt.id = "installprompt-"+(Math.ceil(Math.random()*9999999));
@@ -386,6 +460,15 @@ function uninstallApp(app) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
   }
+  var entry = appData.find(function(o) {
+    return o.url == app
+  });
+
+  if (entry.permissions.includes("noUninstall")) {
+    alert("This is a system app, which means you cannot uninstall it.");
+    throw "noUninstallAppError";
+  }
+
   var ask = confirm("Are you sure you want to uninstall this app?");
   if (ask == true) {
     let index = apps.indexOf(app);
@@ -394,9 +477,6 @@ function uninstallApp(app) {
       document.getElementById("apppanel:"+app).remove();
       document.getElementById("appbar:"+app).remove();
       document.getElementById("mngapps:"+app).remove();
-      var entry = appData.find(function(o) {
-          return o.url == app
-        })
       if (entry){
         appData.splice(appData.indexOf(entry), 1);
       }
@@ -627,15 +707,24 @@ const notificationPanel = document.getElementById("clockwork-notification-panel"
 notificationPanel.className = "";
 
 //onclick
-document.querySelector("body").addEventListener("click", (event) => {
+function onClick(event) {
   contextMenu.className = "invisible";
   setTimeout(function() {
     contextMenu.style.display = "none";
   }, 250);
-  if (!notificationPanel.contains(event.target.offsetParent) && notificationPanel.className == "visible") {
+  if ((event.isFake || !notificationPanel.contains(event.target.offsetParent)) && notificationPanel.className == "visible") {
     openNotificationPanel();
   }
-})
+  if (event.isFake || !finderBox.contains(event.target.offsetParent)) {
+    finder.className = "finder invisible";
+    finderBox.className = "finder-box invisible";
+    setTimeout(function() {
+      finder.style = "display: none;";
+      finderBox.style = "display: none;";
+    }, 250);
+  }
+}
+document.querySelector("body").addEventListener("click", onClick)
 
 //more notif sys
 
@@ -704,6 +793,100 @@ function clearAllNotifs() {
   }, 750);
 }
 
+
+
+// onkeypress
+function onKeyPress(e) {
+  if (e.ctrlKey && e.key == "/") {
+    if (!e.isFake) e.preventDefault();
+    if (finder.className == "finder") {
+      finder.className = "finder invisible";
+      finderBox.className = "finder-box invisible";
+      setTimeout(function() {
+        finder.style = "display: none;";
+        finderBox.style = "display: none;";
+      }, 250);
+      finder.blur();
+    } else {
+      finder.className = "finder"
+      finderBox.className = "finder-box"
+      finder.style = "display: block;"
+      finderBox.style = "display: block;"
+      finder.focus();
+    }
+    
+  }
+}
+document.body.onkeydown = function(e) { 
+  onKeyPress(e);
+};
+
+// finder system
+function checkFinder(str) {
+  var match = [];
+  if (typeof str != "string" || str.length < 1) {
+    match = searchables
+  } else {
+    for (let i=0; i<searchables.length;) {
+      for (let i2=0; i2<searchables[i].searchText.length;) {
+        var sub = str.slice(0, str.length)
+        if (searchables[i].searchText[i2].includes(sub)) {
+          match.push(searchables[i]);
+          break;
+        }
+        ++i2;
+      }
+      ++i;
+    }
+  }
+  
+  finderBox.innerHTML = "";
+  for (let i=0; i<match.length&&i<12;) {
+    var div = document.createElement("div");
+    div.innerHTML = `${match[i].name}${(function(){
+      if (typeof match[i].icon == "string") {
+        if (match[i].icon.length > 4) {
+          return `<img src="${match[i].icon}">`;
+        } else {
+          return "";
+        }
+        
+      } else {
+        return "";
+      }
+    })()}`
+
+    // holy fucking shit WORK DAMN YOU
+    // never have i been so inclined to inflict such violence onto a piece of code before
+    // fucking hell
+    
+    var func = match[i].onclick;
+    if (typeof func == "string") {
+      //alert(func);
+      div.addEventListener("click", Function(func));
+    } else {
+      div.addEventListener("click", func);
+    }
+    div.addEventListener("click", function() {
+      finder.className = "finder invisible";
+      finderBox.className = "finder-box invisible";
+      setTimeout(function() {
+        finder.style = "display: none;";
+        finderBox.style = "display: none;";
+      }, 250);
+      finder.blur();
+    });
+    finderBox.appendChild(div);
+    ++i;
+  }
+  if (finderBox.innerHTML == "") {
+    finderBox.innerHTML = "No results - try a less specific search"
+  }
+}
+finder.oninput = function() {
+  checkFinder(finder.value.toLowerCase());
+}
+
 // clockwork.js functions
 window.addEventListener('message', function(event) {
   if (event.data.length > 1) {
@@ -736,6 +919,19 @@ window.addEventListener('message', function(event) {
         if (event.data[1] == "sendNotification") {
           sendNotification(app.name, event.data[2]);
         }
+      }
+    }
+    if (event.data[0] == "baseFunc") {
+      if (event.data[1] == "openFinder") {
+        onKeyPress({
+          ctrlKey: true,
+          key: "/",
+          isFake: true
+        })
+      } else if (event.data[1] == "onClick") {
+        onClick({
+          isFake: true
+        })
       }
     }
   }
