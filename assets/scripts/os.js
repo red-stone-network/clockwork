@@ -41,9 +41,25 @@ contextMenu.style.display = "none";
 // The stuff that you can search up using the Finder
 const searchables = [
   {
+    searchText: ["prefs","preferences"],
+    name: "Settings",
+    icon: "/assets/images/settings.png",
+    onclick: function(){
+      openApp('sys_settings');
+    },
+  },
+  {
+    searchText: ["chat"],
+    name: "Chat on Discord",
+    icon: "/assets/images/discord.png",
+    onclick: function(){
+      window.open("https://discord.gg/Sb8NzVbqX8","_blank");
+    },
+  },
+  {
     searchText: ["apps","manage apps","uninstall apps"],
     name: "Manage Apps",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_apps');
     },
@@ -51,7 +67,7 @@ const searchables = [
   {
     searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes"],
     name: "Manage Themes",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_themes');
     },
@@ -59,7 +75,7 @@ const searchables = [
   {
     searchText: ["proxy settings","unblock settings","unblocking settings","ultraviolet settings"],
     name: "Proxy Settings",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_proxy');
     },
@@ -67,7 +83,7 @@ const searchables = [
   {
     searchText: ["passcode settings","password settings","lock settings"],
     name: "Passcode Settings",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_passcode');
     },
@@ -75,7 +91,7 @@ const searchables = [
   {
     searchText: ["control center settings","time settings","24-hour time","12-hour time"],
     name: "Control Center Settings",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_control');
     },
@@ -83,7 +99,7 @@ const searchables = [
   {
     searchText: ["about clockwork","version clockwork","clockwork version"],
     name: "About Clockwork",
-    icon: "https://redstonenw.vercel.app/assets/clockwork/settings.png",
+    icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_about');
     },
@@ -830,7 +846,11 @@ function checkFinder(str) {
     for (let i=0; i<searchables.length;) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
         var sub = str.slice(0, str.length)
-        if (searchables[i].searchText[i2].includes(sub)) {
+        if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
+          match.push(searchables[i]);
+          break;
+        }
+        if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
