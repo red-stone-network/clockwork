@@ -11,12 +11,26 @@ if (document.location.pathname.startsWith("/get-started")) {
   <html>
   <body>
   <iframe src="about:blank" id="${btoa(url)}"></iframe>
-  <style>* {margin: 0;padding: 0;overflow-y: hidden;}iframe {width: 100%;height: 100vh;border: none;}</style>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+  }
+  </style>
   <script>
-  document.querySelector("iframe").src = atob(document.querySelector("iframe").id);
+  document.querySelector("iframe").src = atob(
+    document.querySelector("iframe").id
+  );
   </script>
   </body>
-  </html>`
+  </html>`.replace(/\n/g,"").replace(/  /g,"");
+  
   const aboutBlanker = `javascript:
   var win = window.open("","_blank","popup=yes");
   win.location.origin = 'https://google.com';
