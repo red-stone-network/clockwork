@@ -37,6 +37,10 @@ class Clockwork {
     window.parent.postMessage(["installTheme","installTheme",url,clockwork_my_id], "*");
     return true;
   }
+  installPlugin(url) {
+    window.parent.postMessage(["installPlugin","installPlugin",url,clockwork_my_id], "*");
+    return true;
+  }
   sendNotification(description) {
     window.parent.postMessage(["notifications","sendNotification",description,clockwork_my_id], "*");
     return true;
