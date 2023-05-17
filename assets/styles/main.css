@@ -140,3 +140,13 @@ textarea {
   outline: none;
   font-family: 'Courier New', Courier, monospace;
 }
+
+input {
+  background-color: #111;
+  color: white;
+  border: 1px solid #222;
+  border-radius: 0;
+  width: 100%;
+  outline: none;
+  font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
+}
