@@ -7,7 +7,14 @@ document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Sb8Nz
 // for /converter/
 function generateV2Code() {
   var v1c = document.querySelector("textarea").value;
-  var appName = v1c.match(/title {0,1}= {0,1}"([^"]+)"/)[1]
+
+  var appName = v1c.match(/title {0,1}= {0,1}"([^"]+)"/);
+  if (appName) appName = appName[1];
+
+  var appLink = v1c.match(/link {0,1}= {0,1}"([^"]+)"/);
+  if (appLink) appLink = appLink[1];
+
+  alert(appName);
   alert(appName);
 }
 
