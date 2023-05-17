@@ -132,3 +132,10 @@ summary::marker {
   text-align: center;
   font-family: "Varela Round", Arial, sans-serif;
 }
+textarea {
+  background-color: #111;
+  color: white;
+  border: 1px solid white;
+  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+}
