@@ -1,7 +1,9 @@
 /* Used across the Clockwork main pages */
+
 document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Sb8NzVbqX8">Discord</a> | 
 © 2023 <a href="https://redstone-network.vercel.app/">Redstone Network</a>`
 
+// for /get-started/
 if (document.location.pathname.startsWith("/get-started")) {
   const url = "https://"+document.location.hostname+"/os/"
   const htmlPage = `
@@ -9,9 +11,7 @@ if (document.location.pathname.startsWith("/get-started")) {
   <html>
   <body>
   <iframe src="about:blank" id="${btoa(url)}"></iframe>
-  <style>
-  * {margin: 0; padding: 0;}iframe {width: 100%;height: 100vh;border: none;}
-  </style>
+  <style>* {margin: 0;padding: 0;overflow-y: hidden;}iframe {width: 100%;height: 100vh;border: none;}</style>
   <script>
   document.querySelector("iframe").src = atob(document.querySelector("iframe").id);
   </script>
@@ -24,9 +24,7 @@ if (document.location.pathname.startsWith("/get-started")) {
   <html>
   <body>
   <iframe src="\${atob('${btoa(url)}')}"></iframe>
-  <style>
-  * {margin: 0; padding: 0;}iframe {width: 100%;height: 100vh;border: none;}
-  </style>
+  <style>* {margin: 0;padding: 0;overflow-y: hidden;}iframe {width: 100%;height: 100vh;border: none;}</style>
   </body>
   </html>\`);`
   document.querySelector("#blanker").href = aboutBlanker;
