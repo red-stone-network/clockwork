@@ -137,6 +137,7 @@ textarea {
   color: white;
   border: 1px solid #222;
   width: 100%;
+  height: 400px;
   outline: none;
   font-family: 'Courier New', Courier, monospace;
 }
