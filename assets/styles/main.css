@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&family=Varela+Round&display=swap');
+@keyframes detailsopen {
+  0%    {opacity: 0; left: -10px}
+  100%  {opacity: 1; left: 0px}
+}
 
 body {
   background-color: black;
@@ -7,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
 }
-.banner {
+.home-banner {
   width: 100%;
   height: 100vh;
   background-image: url("/assets/images/banner.svg");
@@ -15,7 +19,7 @@ body {
   background-size: cover;
   background-position: 50%;
 }
-.banner > span {
+.home-banner > span {
   margin: 0;
   position: absolute;
   top: 10px;
@@ -28,6 +32,7 @@ body {
 .content {
   font-size: 20px;
   padding-top: 6px;
+  min-height: calc(100vh - 37px);
 }
 .navbar {
   width: 100%;
@@ -35,6 +40,16 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   background-color: #111;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Varela Round", Arial, sans-serif;
+  text-align: center;
+}
+h1 {
+  color: red;
+}
+h2 {
+  color: #f88;
 }
 p {
   padding-left: 25vw;
@@ -90,6 +105,26 @@ a:link {
 a:hover {
   color: #f88;
   transition: 0.2s;
+}
+details[open] summary ~ * {
+  position: relative;
+  animation: detailsopen .5s ease-in-out;
+}
+details > summary {
+  display: block;
+  color: #f88;
+  text-align: center;
+  font-size: 30px;
+  user-select: none;
+  font-family: "Varela Round", Arial, sans-serif;
+  transition: 0.2s;
+}
+details[open] > summary {
+  color: red;
+  transition: 0.2s;
+}
+summary::marker {
+  content: "";
 }
 .letsgo {
   font-size: 7vw;

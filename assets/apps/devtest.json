@@ -1,0 +1,10 @@
+{
+  "name": "Developer Tester",
+  "desc": "A tool for Clockwork devs - not useful for most other users.",
+  "url": "/devtest/",  
+  "encodedUrl": "no",
+  "icon": "/assets/images/icon.png",
+  "version": "1.0.0",
+  "author": "LukasExists",
+  "permissions": ["installPlugin"]
+}

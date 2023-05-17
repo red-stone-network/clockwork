@@ -4,6 +4,7 @@ const appBar = document.getElementById("appbar");
 const loadBar = document.getElementById("cw-load-bar");
 const finder = document.querySelector(".finder");
 const finderBox = document.querySelector(".finder-box");
+
 const yes = true;
 const no = false;
 
@@ -12,6 +13,7 @@ var currentApp = "home";
 var apps = null;
 var appData = [];
 var themes = null;
+var plugins = null;
 
 // Version numbers for v1 use BASE.FEATURE.PATCH, with FEATURE combining MAJOR and MINOR.
 
@@ -32,7 +34,7 @@ var themes = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta11";
+var version = "2.0.0.0-beta12-indev";
 
 document.getElementById("versiontxt").innerText = version;
 
@@ -171,10 +173,18 @@ document.getElementById("set_proxyurl").value = settings.proxyUrl;
 
 // get themes
 if (localStorage.getItem("themes") == null || localStorage.getItem("themes") == "!!reset") {
-  localStorage.setItem("themes", JSON.stringify(new Array()));
+  localStorage.setItem("themes", JSON.stringify([]));
   themes = [];
 } else {
   themes = JSON.parse(localStorage.getItem("themes"));
+}
+
+// get plugins
+if (localStorage.getItem("plugins") == null || localStorage.getItem("plugins") == "!!reset") {
+  localStorage.setItem("plugins", JSON.stringify([]));
+  plugins = [];
+} else {
+  plugins = JSON.parse(localStorage.getItem("plugins"));
 }
 
 // get apps
@@ -190,13 +200,18 @@ if (localStorage.getItem("apps") == null || localStorage.getItem("apps") == "!!r
   apps = JSON.parse(localStorage.getItem("apps"));
 }
 
-loadBar.max = apps.length + themes.length;
+loadBar.max = apps.length + themes.length + plugins.length;
 loadBar.value = 0;
 for (let i = 0; i < apps.length; i++) {
   installApp(apps[i], {start: true});
 }
 for (let i = 0; i < themes.length; i++) {
   installTheme(themes[i]);
+  ++loadBar.value;
+}
+
+for (let i = 0; i < plugins.length; i++) {
+  installPlugin(plugins[i]);
   ++loadBar.value;
 }
 
@@ -246,6 +261,33 @@ sideBarClock();
 setInterval(sideBarClock, 500);
 
 // main stuff
+
+// plugins
+function installPlugin(url) {
+  var script = document.createElement("script");
+  script.src = url;
+  document.body.appendChild(script);
+  document.getElementById("cw_manageplugins_span").innerHTML += `${url} - <a onclick="uninstallPlugin('${url}')">Uninstall</a><br>`
+  if (!plugins.includes(url)) {
+    plugins.push(url);
+    localStorage.setItem("plugins", JSON.stringify(plugins));
+  }
+}
+
+function uninstallPlugin(url) {
+  var found = plugins.indexOf(url);
+  if (typeof found == "number") {
+    if (confirm("Are you sure you would like to uninstall this plugin? Clockwork will have to restart!")) {
+      plugins.splice(found, 1);
+      localStorage.setItem("plugins", JSON.stringify(plugins));
+      document.location.reload();
+    }
+  } else {
+    alert("ERROR: Plugin does not exist!")
+  }
+}
+
+// apps
 async function installApp(url,params) {
   if (url === null | url === undefined) {
     url = prompt("ID is undefined or null, enter a URL (or leave blank to cancel)");
@@ -927,6 +969,21 @@ window.addEventListener('message', function(event) {
       }).permissions.includes("installTheme")) {
         if (event.data[1] == "installTheme") {
           promptInstallTheme(event.data[2])
+        }
+      }
+    }
+    if (event.data[0] == "installPlugin") {
+      alert("aaa")
+      // event.source.frameElement.id.slice(9)
+      var app = appData.find(function(o) {
+        return o.url == event.data[3]
+      });
+      alert(app)
+      if (app.permissions.includes("installPlugin")) {
+        if (event.data[1] == "installPlugin") {
+          if (confirm("An app wants to install a plugin on Clockwork. Plugins have FULL ACCESS to EVERYTHING on Clockwork - only install plugins from this app if you truly trust it.\n\nWould you like to install the plugin at:\n"+event.data[2]+"\nThe app trying to install it is named "+app.name+".")) {
+            installPlugin(event.data[2])
+          }
         }
       }
     }
