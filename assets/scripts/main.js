@@ -14,8 +14,22 @@ function generateV2Code() {
   var appLink = v1c.match(/link {0,1}= {0,1}"([^"]+)"/);
   if (appLink) appLink = appLink[1];
 
-  alert(appName);
-  alert(appName);
+  if (!appName || !appLink) {
+    alert("Invalid app!");
+    throw "InvalidApp";
+  }
+
+  var v2c = `{
+  "name": "${appName}",
+  "desc": "Converted from v1 to v2",
+  "url": "${appLink}",
+  "encodedUrl": "no",
+  "icon": "https://redstone-nw.netlify.app/assets/icon.png",
+  "author": "Type your name here",
+  "permissions": []
+}`;
+
+  document.querySelector("textarea").value = v2c;
 }
 
 // for /get-started/
