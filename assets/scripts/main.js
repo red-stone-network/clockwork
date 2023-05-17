@@ -3,6 +3,14 @@
 document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Sb8NzVbqX8">Discord</a> | 
 © 2023 <a href="https://redstone-network.vercel.app/">Redstone Network</a>`
 
+
+// for /converter/
+function generateV2Code() {
+  var v1c = document.querySelector("textarea").value;
+  var appName = v1c.match(/title {0,1}= {0,1}"([^"]+)"/)[1]
+  alert(appName);
+}
+
 // for /get-started/
 if (document.location.pathname.startsWith("/get-started")) {
   const url = "https://"+document.location.hostname+"/os/"
