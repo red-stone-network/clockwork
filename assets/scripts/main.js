@@ -30,6 +30,7 @@ function generateV2Code() {
 }`;
 
   document.querySelector("textarea").value = v2c;
+  document.querySelector("#instruction").innerHTML = "Now, you can copy the contents of the textarea into a .JSON file and save it somewhere. Make sure the service you use serves the correct Content-Type headers for .JSON files, such as Github Pages or Vercel.";
 }
 
 // for /get-started/
