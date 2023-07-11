@@ -910,6 +910,8 @@ function checkFinder(str) {
       ++i;
     }
   }
+
+  console.log(match);
   
   finderBox.innerHTML = "";
   for (let i=0; i<match.length&&i<12;) {
