@@ -872,6 +872,7 @@ function onKeyPress(e) {
       finderBox.style = "display: block;"
       finder.focus();
       finder.value = "";
+      checkFinder();
     }
     
   }
