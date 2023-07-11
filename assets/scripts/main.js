@@ -6,6 +6,7 @@ document.querySelector(".navbar").innerHTML = `<a href="/">Home</a> |
 <a href="/legal#privacy">Privacy Policy</a> | 
 <a href="https://discord.gg/Sb8NzVbqX8">Discord</a> | 
 <a href="/converter">Convert v1 apps to v2</a> |
+<a href="mailto:support@mail.redstonenetwork.rit.cl">Contact Support</a> |
 © 2023 <a href="https://redstone-network.vercel.app/">Redstone Network</a>`
 
 
