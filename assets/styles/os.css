@@ -410,6 +410,7 @@ a:hover {
 }
 .finder-box > div:first-child {
   border-radius: 8px 8px 0px 0px;
+  background-color: #444;
 }
 .finder-box > div:last-child {
   border-bottom: none;
