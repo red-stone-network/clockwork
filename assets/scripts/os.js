@@ -871,6 +871,7 @@ function onKeyPress(e) {
       finder.style = "display: block;"
       finderBox.style = "display: block;"
       finder.focus();
+      finder.value = "";
     }
     
   }
@@ -888,12 +889,13 @@ function checkFinder(str) {
     for (let i=0; i<searchables.length;) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
         var sub = str.slice(0, str.length)
+
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
         
-        if (searchables[i].name.startsWith(sub)) {
+        if (searchables[i].name.startsWith(sub)) { // Puts items that start with the text at higher relevance
           match.unshift(searchables[i]);
           break;
         }
