@@ -911,7 +911,7 @@ function checkFinder(str) {
     }
   }
 
-  console.log(match);
+  alert(match);
   
   finderBox.innerHTML = "";
   for (let i=0; i<match.length&&i<12;) {
