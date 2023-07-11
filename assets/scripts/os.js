@@ -906,10 +906,10 @@ function checkFinder(str) {
   for (let i=0; i<match.length&&i<12;) {
     var div = document.createElement("div");
 
-    if (i==0 && str != null) div.className = "best"; // Best result will not turn gray without this!
+    if (i==0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
 
     div.innerHTML = `${match[i].name}${(function(){
-      if (i==0 && str != null)
+      if (i==0 && str != null && str != "")
         return ' <span style="font-size:8px">Best result</span>'
         else return "";
     })()}${(function(){
