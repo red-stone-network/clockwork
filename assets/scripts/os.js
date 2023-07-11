@@ -896,6 +896,10 @@ function checkFinder(str) {
           match.push(searchables[i]);
           break;
         }
+        if (searchables[i].name.startsWith(sub)) {
+          match.unshift(searchables[i]);
+          break;
+        }
         ++i2;
       }
       ++i;
