@@ -905,6 +905,7 @@ function checkFinder(str) {
   finderBox.innerHTML = "";
   for (let i=0; i<match.length&&i<12;) {
     var div = document.createElement("div");
+    if (str!=null) div.className = "best"
     div.innerHTML = `${match[i].name}${(function(){
       if (i==0 && str!=null)
         return ' <span style="font-size:8px">Best result</span>'

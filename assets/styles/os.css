@@ -408,7 +408,7 @@ a:hover {
   width: 20px;
   float: left;
 }
-.finder-box > div:first-child {
+.finder-box > div.best {
   border-radius: 8px 8px 0px 0px;
   background-color: #444;
 }
