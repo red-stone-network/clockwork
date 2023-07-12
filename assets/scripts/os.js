@@ -863,6 +863,7 @@ function clearAllNotifs() {
 
 // onkeypress
 function onKeyPress(e) {
+  alert(e.key)
   if (e.ctrlKey && e.key == "/") {
     if (!e.isFake) e.preventDefault();
     if (finder.className == "finder") {
