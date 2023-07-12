@@ -395,6 +395,10 @@ a:hover {
   transition: 0.2s;
 }
 
+#apppanel\:sys_settings .left .selections {
+
+}
+
 .finder-box > div {
   padding: 5px;
   border-radius: 0;
