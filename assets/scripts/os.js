@@ -909,15 +909,16 @@ function checkFinder(str) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
         var sub = str.toLowerCase()
 
+        if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
+          priorityLevel2.push(searchables[i]);
+          break;
+        }
+
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
         
-        if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
-          priorityLevel2.push(searchables[i]);
-          break;
-        }
         if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
