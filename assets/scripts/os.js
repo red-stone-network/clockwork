@@ -91,8 +91,8 @@ const searchables = [
     },
   },
   {
-    searchText: ["control center settings","time settings","24-hour time","12-hour time"],
-    name: "Control Center Settings",
+    searchText: ["control center settings","time settings","24-hour time","12-hour time","hide settings icon","hide finder icon","show icon","hide icon"],
+    name: "Taskbar Settings",
     icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings_control');
