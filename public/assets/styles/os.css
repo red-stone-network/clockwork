@@ -448,6 +448,8 @@ a:hover {
   width: 84vw; height: calc(100vh - 49px);
   position: fixed;
   top: 0px; right: 0px;
+  padding: 6px;
+  box-sizing: border-box;
 }
 
 .finder-box > div {
