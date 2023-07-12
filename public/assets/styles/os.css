@@ -401,8 +401,9 @@ a:hover {
 #apppanel\:sys_settings .left {
   position: fixed;
   width: 16vw;
+  border-bottom: 1px gray solid;
   border-right: 1px gray solid;
-  height: 100%;
+  height: calc(100vh - 48px);
   min-width: 160px;
   background-color: #222;
 }
