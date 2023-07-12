@@ -51,11 +51,19 @@ const searchables = [
     },
   },
   {
-    searchText: ["chat"],
+    searchText: ["chat","discord"],
     name: "Chat on Discord",
     icon: "/assets/images/discord.png",
     onclick: function(){
       window.open("https://discord.gg/Sb8NzVbqX8","_blank");
+    },
+  },
+  {
+    searchText: ["email","support"],
+    name: "Contact Support",
+    icon: "/assets/images/support.png",
+    onclick: function(){
+      window.open("mailto:support@mail.redstonenetwork.rit.cl","_blank");
     },
   },
   {
