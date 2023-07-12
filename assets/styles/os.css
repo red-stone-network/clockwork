@@ -357,8 +357,8 @@ a:hover {
   background-color: #222;
   border-radius: 8px;
   color: white;
-  width: 256px;
-  max-width: 256px;
+  width: 500px;
+  max-width: 50vw;
   text-align: left;
   z-index: 99999;
   filter: opacity(100%);
@@ -385,8 +385,8 @@ a:hover {
   background-color: #222;
   border-radius: 8px 8px 0 0;
   color: white;
-  width: 240px;
-  max-width: 240px;
+  width: 484px;
+  max-width: calc(50vw - 32px);
   text-align: left;
   z-index: 99999;
   overflow-y: auto;

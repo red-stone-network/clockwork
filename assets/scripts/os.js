@@ -942,11 +942,7 @@ function checkFinder(str) {
 
     if (i==0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
 
-    div.innerHTML = `${match[i].name}${(function(){
-      if (i==0 && str != null && str != "")
-        return ' <span style="font-size:8px">Best result</span>'
-        else return "";
-    })()}${(function(){
+    div.innerHTML = `${(function(){
       if (typeof match[i].icon == "string") {
         if (match[i].icon.length > 4) {
           return `<img src="${match[i].icon}">`;
@@ -957,6 +953,10 @@ function checkFinder(str) {
       } else {
         return "";
       }
+    })()}${match[i].name}${(function(){
+      if (i==0 && str != null && str != "")
+        return ' <span style="font-size:8px">Best result</span>'
+        else return "";
     })()}`
 
     // holy fucking shit WORK DAMN YOU
