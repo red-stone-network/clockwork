@@ -108,6 +108,10 @@ function loadSettingsScreen(screen) {
       }
       dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting)
       dropdown.class = "dropdown";
+      dropdown.onchange = (e) => {
+        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = " + this.value); 
+        localStorage.setItem('settings', JSON.stringify(settings));
+      }
 
       div.appendChild(dropdown);
     }
