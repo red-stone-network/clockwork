@@ -67,7 +67,7 @@ const searchables = [
     },
   },
   {
-    searchText: ["apps","manage apps","uninstall apps"],
+    searchText: ["apps","manage apps","uninstall apps","app settings"],
     name: "Manage Apps",
     icon: "/assets/images/app-window.png",
     onclick: function(){
@@ -75,7 +75,7 @@ const searchables = [
     },
   },
   {
-    searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes"],
+    searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes","theme settings"],
     name: "Manage Themes",
     icon: "/assets/images/paintbrush.png",
     onclick: function(){
