@@ -885,10 +885,10 @@ function onKeyPress(e) {
     }
     
   }
-  if (e.key == "enter") {
+  if (e.key == "Enter") {
     if (!e.isFake) e.preventDefault();
     if (document.activeElement == finder) {
-      if (finderBox.children.length == 0) {
+      if (finderBox.children.length != 0) {
         finderBox.children.item(0).click();
       }
     }
