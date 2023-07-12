@@ -92,7 +92,7 @@ function loadSettingsScreen(screen) {
       textbox.class = "text";
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
       textbox.onchange = (e) => {
-        eval(e.target.dataset.linked + " = " + this.value); 
+        eval(e.target.dataset.linked + " = " + e.target.value); 
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
@@ -107,7 +107,7 @@ function loadSettingsScreen(screen) {
         dropdown.appendChild(option);
         ++j;
       }
-      dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting)
+      dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       dropdown.class = "dropdown";
       dropdown.onchange = (e) => {
         eval(settingsMenu[screen].screenContents[i].linkedSetting + " = " + this.value); 
