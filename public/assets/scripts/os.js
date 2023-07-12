@@ -105,7 +105,7 @@ function loadSettingsScreen(screen) {
       for (let j=0; j<settingsMenu[screen].screenContents[i].values.length;) {
         let option = document.createElement("option");
         option.value = settingsMenu[screen].screenContents[i].values[j][0]
-        option.value = settingsMenu[screen].screenContents[i].values[j][1]
+        option.innerText = settingsMenu[screen].screenContents[i].values[j][1]
         dropdown.appendChild(option);
         ++j;
       }
