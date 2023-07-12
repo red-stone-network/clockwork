@@ -49,30 +49,29 @@ const settingsMenu = [
     screenIcon: "/assets/images/key.png",
     screenContents: [
       {
-        label: "Test textbox",
-        type: "text",
-        linkedSetting: "settings.testSetting",
-        fallbackSetting: "",
-        placeholderText: "Type here"
-      },
-      {
         label: "Clock type",
         type: "dropdown",
         linkedSetting: "settings.clockType",
         values: [["12h","12-hour"],["24h", "24-hour"]]
-      }
+      },
     ]
   },
   {
-    screenName: "Test screen 2",
-    screenIcon: "/assets/images/home.png",
+    screenName: "Proxy Settings",
+    screenIcon: "/assets/images/ultraviolet.png",
     screenContents: [
       {
-        label: "Test textbox",
+        label: "Proxy",
+        type: "dropdown",
+        linkedSetting: "settings.proxy",
+        values: [["none","Don't use a proxy"],["uv", "Use an Ultraviolet proxy"]]
+      },
+      {
+        label: "Proxy URL",
         type: "text",
-        linkedSetting: "settings.testSetting",
+        linkedSetting: "settings.proxyUrl",
         fallbackSetting: "",
-        placeholderText: "Type here"
+        placeholderText: "Leave blank to use a public proxy."
       }
     ]
   },
