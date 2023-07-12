@@ -93,7 +93,7 @@ const searchables = [
   {
     searchText: ["passcode settings","password settings","lock settings"],
     name: "Passcode Settings",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/key.png",
     onclick: function(){
       openApp('sys_settings_passcode');
     },
