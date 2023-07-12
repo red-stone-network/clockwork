@@ -58,7 +58,7 @@ const settingsMenu = [
   },
   {
     screenName: "Test screen 2",
-    screenIcon: "/assets/images/house.png",
+    screenIcon: "/assets/images/home.png",
     screenContents: [
       {
         label: "Test textbox",
