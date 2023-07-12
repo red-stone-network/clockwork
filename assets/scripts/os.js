@@ -897,18 +897,18 @@ function checkFinder(str) {
   } else {
     for (let i=0; i<searchables.length;) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
-        //var sub = str.slice(0, str.length)
+        var sub = str.toLowerCase()
 
-        if (searchables[i].searchText[i2].toLowerCase().includes(str)) {
+        if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
         
-        if (searchables[i].name.startsWith(str)) { // Puts items that start with the text at higher relevance
+        if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
           match.unshift(searchables[i]);
           break;
         }
-        if (searchables[i].name.toLowerCase().includes(str)) {
+        if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
