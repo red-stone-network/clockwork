@@ -51,19 +51,11 @@ const searchables = [
     },
   },
   {
-    searchText: ["chat","discord"],
+    searchText: ["chat"],
     name: "Chat on Discord",
     icon: "/assets/images/discord.png",
     onclick: function(){
       window.open("https://discord.gg/Sb8NzVbqX8","_blank");
-    },
-  },
-  {
-    searchText: ["email","support"],
-    name: "Contact Support",
-    icon: "/assets/images/support.png",
-    onclick: function(){
-      window.open("mailto:support@mail.redstonenetwork.rit.cl","_blank");
     },
   },
   {
@@ -137,6 +129,8 @@ var defaultSettings = {
     passcode: "0000",
   },
   clockType: "12h",
+  showSettingsIcon: "y",
+  showFinderIcon: "y",
   // Proxy settings
   proxy: "none",
   proxyUrl: "",
@@ -178,6 +172,13 @@ if (!settings.proxy) {
 }
 document.getElementById("set_proxy").value = settings.proxy;
 document.getElementById("set_proxyurl").value = settings.proxyUrl;
+
+if (!settings.showSettingsIcon) {
+  settings.showSettingsIcon = "y";
+  settings.showFinderIcon = "n";
+  localStorage.setItem("settings", JSON.stringify(settings));
+}
+document.getElementById("set_settingsicon").value = settings.showSettingsIcon;
 
 // get themes
 if (localStorage.getItem("themes") == null || localStorage.getItem("themes") == "!!reset") {
@@ -879,18 +880,8 @@ function onKeyPress(e) {
       finder.style = "display: block;"
       finderBox.style = "display: block;"
       finder.focus();
-      finder.value = "";
-      checkFinder();
     }
     
-  }
-  if (e.key == "Enter") {
-    if (!e.isFake) e.preventDefault();
-    if (document.activeElement == finder) {
-      if (finderBox.children.length != 0) {
-        finderBox.children.item(0).click();
-      }
-    }
   }
 }
 document.body.onkeydown = function(e) { 
@@ -903,50 +894,27 @@ function checkFinder(str) {
   if (typeof str != "string" || str.length < 1) {
     match = searchables
   } else {
-    var priorityLevel2 = [];
-    var priorityLevel3 = [];
     for (let i=0; i<searchables.length;) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
-        var sub = str.toLowerCase()
-
-        if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
-          priorityLevel2.push(searchables[i]);
-          break;
-        }
-
+        var sub = str.slice(0, str.length)
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
-        
         if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
-        
         ++i2;
       }
       ++i;
     }
-    for (let i=0; i<priorityLevel2.length;) {
-      match.unshift(priorityLevel2[i]);
-      ++i;
-    }
   }
-
-  console.error(match);
   
   finderBox.innerHTML = "";
   for (let i=0; i<match.length&&i<12;) {
     var div = document.createElement("div");
-
-    if (i==0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
-
     div.innerHTML = `${match[i].name}${(function(){
-      if (i==0 && str != null && str != "")
-        return ' <span style="font-size:8px">Best result</span>'
-        else return "";
-    })()}${(function(){
       if (typeof match[i].icon == "string") {
         if (match[i].icon.length > 4) {
           return `<img src="${match[i].icon}">`;

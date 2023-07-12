@@ -79,10 +79,10 @@
           This version of Clockwork is in BETA. Features may be missing or non-functional.
         </p>
         <p>
-          Welcome to beta13! This update adds upgrades for the Finder, making it easier to understand and use.
+          Welcome to beta12! This update adds the plugins system, which allows you to run scripts directly in Clockwork! It also adds methods of hiding Clockwork easier. If you're viewing the Clockwork OS page directly, we suggest you use <a href="/get-started/">one of the methods here</a> to keep us from getting blocked.
         </p>
         <p>
-          HEY THERE! If you aren't seeing the App Store or another app, you might need to clear your cookies for this website on
+          HEY THERE! If you aren't seeing the App Store, you might need to clear your cookies for sub64.netlify.app for
           <a href="https://www.makeuseof.com/clear-chrome-firefox-edge-cookies-specific-site/?newsletter_popup=0#use-the-padlock-icon-to-clear-cookies-for-specific-websites-in-chrome">
             Chrome</a>
           or
@@ -97,7 +97,7 @@
           <a href="javascript:openApp('sys_settings_apps')">Manage Apps</a><br>
           <a href="javascript:openApp('sys_settings_themes')">Manage Themes</a><br>
           <a href="javascript:openApp('sys_settings_plugins')">Manage Plugins</a><br>
-          <a href="javascript:openApp('sys_settings_control')">Control Center</a><br>
+          <a href="javascript:openApp('sys_settings_control')">Taskbar Settings</a><br>
           <a href="javascript:openApp('sys_settings_passcode')">Passcode Settings</a><br>
           <a href="javascript:openApp('sys_settings_proxy')">Proxy Settings</a><br>
           <a href="javascript:openApp('sys_about')">About Clockwork</a><br>
@@ -106,11 +106,15 @@
       </div>
       <div class="app" id="apppanel:sys_settings_control">
         <h1>
-          Control Center Settings <a href="javascript:openApp('sys_settings')">(back)</a>
+          Taskbar Settings <a href="javascript:openApp('sys_settings')">(back)</a>
         </h1>
         Clock type: <select id="set_clockchange" onchange="settings.clockType = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
           <option value="12h">12-hour</option>
           <option value="24h">24-hour</option>
+        </select>
+        Show settings icon: <select id="set_settingsicon" onchange="settings.showSettingsIcon = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
+          <option value="y">Yes</option>
+          <option value="n">No</option>
         </select>
       </div>
       <div class="app" id="apppanel:sys_settings_passcode">
@@ -217,7 +221,7 @@
 
   </span>
 
-  <!--<script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>
 </body>
 
 </html>
