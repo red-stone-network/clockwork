@@ -225,6 +225,8 @@ input {
   top: 0;
   color: white;
   display: none;
+  margin: 0px;
+  padding: 0px;
 }
 div.app {
   padding: 5px;
