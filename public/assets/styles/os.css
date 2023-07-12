@@ -420,6 +420,13 @@ a:hover {
   transform: translateY(-50%);
 }
 
+#apppanel\:sys_settings .left .selections div span {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .finder-box > div {
   padding: 5px;
   border-radius: 0;
