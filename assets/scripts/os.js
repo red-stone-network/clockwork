@@ -69,7 +69,7 @@ const searchables = [
   {
     searchText: ["apps","manage apps","uninstall apps"],
     name: "Manage Apps",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/app-window.png",
     onclick: function(){
       openApp('sys_settings_apps');
     },
@@ -77,7 +77,7 @@ const searchables = [
   {
     searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes"],
     name: "Manage Themes",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/paintbrush.png",
     onclick: function(){
       openApp('sys_settings_themes');
     },
@@ -85,7 +85,7 @@ const searchables = [
   {
     searchText: ["proxy settings","unblock settings","unblocking settings","ultraviolet settings"],
     name: "Proxy Settings",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/ultraviolet.png",
     onclick: function(){
       openApp('sys_settings_proxy');
     },
