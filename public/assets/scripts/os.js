@@ -90,8 +90,9 @@ function loadSettingsScreen(screen) {
       textbox.placeholder = settingsMenu[screen].screenContents[i]?.placeholderText;
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       textbox.class = "text";
+      textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
       textbox.onchange = (e) => {
-        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = " + this.value); 
+        eval(this.dataset.linked + " = " + this.value); 
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
