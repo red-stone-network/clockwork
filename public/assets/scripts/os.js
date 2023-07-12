@@ -88,7 +88,7 @@ function loadSettingsScreen(screen) {
       let textbox = document.createElement("input");
       textbox.placeholder = settingsMenu[screen].screenContents[i]?.placeholderText;
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
-      div.appendChild(label);
+      div.appendChild(textbox);
     }
     settingsRightBox.appendChild(div);
     ++i;
