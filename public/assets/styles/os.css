@@ -404,7 +404,6 @@ a:hover {
   border-bottom: 1px gray solid;
   border-right: 1px gray solid;
   height: calc(100vh - 49px);
-  min-width: 160px;
   background-color: #222;
   border-radius: 0 0 8px;
 }
@@ -443,6 +442,12 @@ a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+#apppanel\:sys_settings .right {
+  width: 84vw; height: calc(100vh - 49px);
+  position: fixed;
+  top: 0px; right: 0px;
 }
 
 .finder-box > div {

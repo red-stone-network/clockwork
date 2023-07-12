@@ -5,6 +5,7 @@ const loadBar = document.getElementById("cw-load-bar");
 const finder = document.querySelector(".finder");
 const finderBox = document.querySelector(".finder-box");
 const settingsLeftBox = document.querySelector("#apppanel\\:sys_settings .left .selections")
+const settingsRightBox = document.querySelector("#apppanel\\:sys_settings .right")
 
 const yes = true;
 const no = false;
@@ -76,11 +77,26 @@ const settingsMenu = [
     ]
   },
 ]
+function loadSettingsScreen(screen) {
+  for (let i=0; i<settingsMenu[screen].screenContents.length;) {
+    let div = document.createElement("div");
+    let label = document.createElement("div");
+    label.className = "label";
+    label.innerText = settingsMenu[screen].screenContents[i].label;
+    div.appendChild(label);
+    if (settingsMenu[screen].screenContents[i].type == "text") {
+      
+    }
+    settingsRightBox.appendChild(div);
+    ++i;
+  }
+}
 
 function loadSettingsMenu() { // Loads up the settings menu (shocker)
   for (let i=0; i<settingsMenu.length;) {
     let div = document.createElement("div");
     div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
+    div.onclick = "loadSettingsScreen(0)"
     settingsLeftBox.appendChild(div);
     ++i;
   }
