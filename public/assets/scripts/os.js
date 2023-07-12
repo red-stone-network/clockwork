@@ -99,7 +99,7 @@ function loadSettingsScreen(screen) {
     }
     if (settingsMenu[screen].screenContents[i].type == "dropdown") {
       let dropdown = document.createElement("select");
-      for (let j=0; j<settingsMenu[screen].screenContents[i].values[j].length;) {
+      for (let j=0; j<settingsMenu[screen].screenContents[i].values.length;) {
         let option = document.createElement("option");
         option.value = settingsMenu[screen].screenContents[i].values[j][0]
         option.value = settingsMenu[screen].screenContents[i].values[j][1]
