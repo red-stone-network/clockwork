@@ -406,6 +406,7 @@ a:hover {
   height: calc(100vh - 49px);
   min-width: 160px;
   background-color: #222;
+  border-radius: 0 0 8px;
 }
 
 #apppanel\:sys_settings .left .selections {
