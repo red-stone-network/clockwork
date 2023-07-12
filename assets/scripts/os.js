@@ -884,6 +884,14 @@ function onKeyPress(e) {
     }
     
   }
+  if (e.key == "Enter") {
+    if (!e.isFake) e.preventDefault();
+    if (document.activeElement == finder) {
+      if (finderBox.children.length == 0) {
+        finderBox.children[0].click();
+      }
+    }
+  }
 }
 document.body.onkeydown = function(e) { 
   onKeyPress(e);
@@ -920,7 +928,7 @@ function checkFinder(str) {
       ++i;
     }
     for (let i=0; i<priorityLevel2.length;) {
-      match.unshift(priorityLevel2[i])
+      match.unshift(priorityLevel2[i]);
       ++i;
     }
   }
