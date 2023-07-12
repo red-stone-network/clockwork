@@ -402,6 +402,9 @@ a:hover {
   transition: 0.2s;
   cursor: pointer;
   user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .finder-box > div > img {
   height: 20px;
