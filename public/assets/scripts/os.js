@@ -80,11 +80,12 @@ function loadSettingsScreen(screen) {
   while (settingsRightBox.firstChild) {
     settingsRightBox.removeChild(settingsRightBox.lastChild);
   }
-  for (let i=0; i<settingsMenu[screen].screenContents.length;) {
-    let h2 = document.createElement("h2");
-    h2.innerText = settingsMenu[screen].screenName;
-    settingsRightBox.appendChild(h2);
 
+  let h2 = document.createElement("h2");
+  h2.innerText = settingsMenu[screen].screenName;
+  settingsRightBox.appendChild(h2);
+
+  for (let i=0; i<settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
     let label = document.createElement("div");
     label.className = "label";
