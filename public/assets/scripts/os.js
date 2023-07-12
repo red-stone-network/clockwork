@@ -104,6 +104,7 @@ function loadSettingsScreen(screen) {
         option.value = settingsMenu[screen].screenContents[i].values[j][0]
         option.value = settingsMenu[screen].screenContents[i].values[j][1]
         dropdown.appendChild(option);
+        ++j;
       }
       dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting)
       dropdown.class = "dropdown";
