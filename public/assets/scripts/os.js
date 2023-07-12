@@ -77,7 +77,9 @@ const settingsMenu = [
   },
 ]
 function loadSettingsScreen(screen) {
-  settingsRightBox.innerHTML = "";
+  while (settingsRightBox.firstChild) {
+    settingsRightBox.removeChild(settingsRightBox.lastChild);
+  }
   for (let i=0; i<settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
     let label = document.createElement("div");
