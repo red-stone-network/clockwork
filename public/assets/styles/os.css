@@ -403,7 +403,7 @@ a:hover {
   width: 16vw;
   border-bottom: 1px gray solid;
   border-right: 1px gray solid;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 49px);
   min-width: 160px;
   background-color: #222;
 }
