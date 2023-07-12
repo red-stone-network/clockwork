@@ -91,7 +91,7 @@ function loadSettingsScreen(screen) {
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       textbox.class = "text";
       textbox.onchange = (e) => {
-        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = this.value"); 
+        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = " + this.value); 
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
@@ -109,7 +109,7 @@ function loadSettingsScreen(screen) {
       dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting)
       dropdown.class = "dropdown";
 
-      div.appendChild(textbox);
+      div.appendChild(dropdown);
     }
 
     settingsRightBox.appendChild(div);
