@@ -425,6 +425,11 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  left: 38px;
+  width: calc(100% - 38px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .finder-box > div {
