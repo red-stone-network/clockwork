@@ -401,6 +401,7 @@ a:hover {
   border-right: 1px gray solid;
   height: 100%;
   min-width: 160px;
+  background-color: #222;
 }
 
 #apppanel\:sys_settings .left .selections {
@@ -411,7 +412,7 @@ a:hover {
   border-bottom: 1px gray solid;
   height: 48px;
   position: relative;
-  background-color: black;
+  background-color: #222;
   transition: 0.2s;
 }
 
