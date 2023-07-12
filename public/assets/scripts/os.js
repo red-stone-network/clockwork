@@ -40,6 +40,23 @@ document.getElementById("versiontxt").innerText = version;
 
 contextMenu.style.display = "none";
 
+// The Settings app uses this to load its UI
+const settingsMenu = [
+  {
+    screenName: "Test screen",
+    screenIcon: "/assets/images/key.png",
+    screenContents: [
+      {
+        label: "Test textbox",
+        type: "text",
+        linkedSetting: "settings.testSetting",
+        fallbackSetting: "",
+        placeholderText: "Type here"
+      }
+    ]
+  }
+]
+
 // The stuff that you can search up using the Finder
 const searchables = [
   {
