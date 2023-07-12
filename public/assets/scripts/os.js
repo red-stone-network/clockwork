@@ -89,7 +89,7 @@ function loadSettingsScreen(screen) {
       let textbox = document.createElement("input");
       textbox.placeholder = settingsMenu[screen].screenContents[i]?.placeholderText;
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
-      textbox.class = "text";
+      textbox.className = "text";
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
 
       textbox.onchange = (e) => {
@@ -111,7 +111,7 @@ function loadSettingsScreen(screen) {
       }
 
       dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
-      dropdown.class = "dropdown";
+      dropdown.className = "dropdown";
       dropdown.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
 
       dropdown.onchange = (e) => {
