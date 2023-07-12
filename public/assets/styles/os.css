@@ -452,6 +452,14 @@ a:hover {
   box-sizing: border-box;
 }
 
+#apppanel\:sys_settings .right .div .input {
+  max-width: 100%;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+}
+
 .finder-box > div {
   padding: 5px;
   border-radius: 0;
