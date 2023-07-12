@@ -244,7 +244,7 @@ function checkForFinish() {
 }
 setTimeout(checkForFinish, 500);
 
-// sidebar clock
+// taskbar functions
 function sideBarClock() {
   const today = new Date();
   let h = today.getHours();
@@ -261,6 +261,9 @@ function sideBarClock() {
   } else {
     document.getElementById('appsidebar-clock').innerHTML =  h + ":" + m + ":" + s;
   }
+
+  if (settings.showSettingsIcon) document.getElementById('appbar:settings').style = "";
+    else document.getElementById('appbar:settings').style = "display:none;";
 }
 function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
