@@ -77,6 +77,7 @@ const settingsMenu = [
   },
 ]
 function loadSettingsScreen(screen) {
+  settingsRightBox.innerHTML = "";
   for (let i=0; i<settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
     let label = document.createElement("div");
@@ -130,7 +131,8 @@ function loadSettingsMenu() { // Loads up the settings menu (shocker)
   for (let i=0; i<settingsMenu.length;) {
     let div = document.createElement("div");
     div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
-    div.onclick = (e) => {loadSettingsScreen(0)};
+    div.dataset.num = i;
+    div.onclick = (e) => {loadSettingsScreen(e.target.dataset.num)};
     settingsLeftBox.appendChild(div);
     ++i;
   }
