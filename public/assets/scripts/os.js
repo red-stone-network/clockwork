@@ -4,6 +4,7 @@ const appBar = document.getElementById("appbar");
 const loadBar = document.getElementById("cw-load-bar");
 const finder = document.querySelector(".finder");
 const finderBox = document.querySelector(".finder-box");
+const settingsLeftBox = document.querySelector("#apppanel:sys_settings .left .selections")
 
 const yes = true;
 const no = false;
