@@ -75,6 +75,7 @@ function loadSettingsMenu() { // Loads up the settings menu (shocker)
   for (let i=0; i<settingsMenu.length;) {
     let div = document.createElement("div");
     div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
+    settingsLeftBox.appendChild(div);
     ++i;
   }
 }
