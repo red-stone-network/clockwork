@@ -144,15 +144,16 @@
         </h1>
         <b>WARNING:</b> Don't mess with anything here unless you know what you're doing!
         We are not liable for any damages caused to Clockwork by this menu.<br>
-        <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', -1)">
-          moveApp(muenster, -1)
-        </a>
-        <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', 1)">
-          moveApp(muenster, 1)
-        </a>
+        
         <a onclick="installApp();">Click me to install an external app.</a>
         <details>
-          <summary><b>OBSOLETED BUTTONS:</b> Buttons made for Clockwork developer testing, now no longer used</summary>
+          <summary><b>OBSOLETED BUTTONS:</b> Buttons made for Clockwork developer testing, now no longer used.</summary>
+          <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', -1)">
+            moveApp(muenster, -1)
+          </a>
+          <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', 1)">
+            moveApp(muenster, 1)
+          </a>
           <a onclick="installTheme('/clockwork-beta/restyle.css')">Click me to install test theme.</a>
           <a onclick="changeSetting('lock.enabled', true);">Click me to turn on passcode.</a>
           <a onclick="settings.lock.enabled = true; localStorage.setItem('settings', JSON.stringify(settings));">Click me to turn on passcode2.</a><br>
