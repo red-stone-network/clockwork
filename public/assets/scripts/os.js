@@ -92,7 +92,7 @@ function loadSettingsScreen(screen) {
       textbox.class = "text";
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
       textbox.onchange = (e) => {
-        eval(e.target.dataset.linked + " = " + e.target.value); 
+        eval(`${e.target.dataset.linked} = "${e.target.value}"`); 
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
