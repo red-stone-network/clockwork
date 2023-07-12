@@ -888,7 +888,7 @@ function onKeyPress(e) {
     if (!e.isFake) e.preventDefault();
     if (document.activeElement == finder) {
       if (finderBox.children.length == 0) {
-        finderBox.children[0].click();
+        finderBox.children.item(0).click();
       }
     }
   }
