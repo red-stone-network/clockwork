@@ -34,7 +34,7 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta12-indev";
+var version = "2.0.0.0-beta13-indev";
 
 document.getElementById("versiontxt").innerText = version;
 
