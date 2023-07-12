@@ -895,6 +895,8 @@ function checkFinder(str) {
   if (typeof str != "string" || str.length < 1) {
     match = searchables
   } else {
+    var priorityLevel2 = [];
+    var priorityLevel3 = [];
     for (let i=0; i<searchables.length;) {
       for (let i2=0; i2<searchables[i].searchText.length;) {
         var sub = str.toLowerCase()
@@ -905,7 +907,7 @@ function checkFinder(str) {
         }
         
         if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
-          match.unshift(searchables[i]);
+          priorityLevel2.push(searchables[i]);
           break;
         }
         if (searchables[i].name.toLowerCase().includes(sub)) {
@@ -915,6 +917,10 @@ function checkFinder(str) {
         
         ++i2;
       }
+      ++i;
+    }
+    for (let i=0; i<priorityLevel2.length;) {
+      match.unshift(priorityLevel2[i])
       ++i;
     }
   }
