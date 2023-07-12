@@ -44,7 +44,7 @@ contextMenu.style.display = "none";
 // The Settings app uses this to load its UI
 const settingsMenu = [
   {
-    screenName: "Test screen",
+    screenName: "Taskbar Settings",
     screenIcon: "/assets/images/key.png",
     screenContents: [
       {
@@ -53,6 +53,12 @@ const settingsMenu = [
         linkedSetting: "settings.testSetting",
         fallbackSetting: "",
         placeholderText: "Type here"
+      },
+      {
+        label: "Clock type",
+        type: "dropdown",
+        linkedSetting: "settings.clockType",
+        values: ["12h","24h"]
       }
     ]
   },
