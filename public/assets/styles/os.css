@@ -75,7 +75,7 @@ body {
   transition: 0.2s;  
 }
 
-#clockwork-notification-panel > t {
+#clockwork-notification-panel t {
   font-weight: 1000;
   border-bottom: 1px solid gray;
   display: block;
@@ -87,22 +87,22 @@ body {
   max-height: 50vh;
 }
 
-#clockwork-notification-items > div.hide {
+#clockwork-notification-items div.hide {
   filter: opacity(100%);
   transition: 0.2s;  
 }
 
-#clockwork-notification-items > div.hide {
+#clockwork-notification-items div.hide {
   filter: opacity(0%);
   transition: 0.2s;  
 }
 
-#clockwork-notification-items > div > b > img, #clockwork-notification-panel > t > img {
+#clockwork-notification-items div b img, #clockwork-notification-panel t img {
   height: 1em;
   float: right;
 }
 
-#clockwork-notification-items > div > b {
+#clockwork-notification-items div b {
   display: block;
   width: 100%;
 }
@@ -176,7 +176,7 @@ progress::-webkit-progress-value {
   top: 0vh;
   background-color: black;
 }
-.clockwork-panel > div {
+.clockwork-panel div {
   text-align: center;
   position: fixed;
   font-size: 24px;
@@ -184,7 +184,7 @@ progress::-webkit-progress-value {
   transform: translateX(-50%) translateY(-50%);
   top: 50%;
 }
-#contextmenu > btn:hover {
+#contextmenu btn:hover {
   background-color: #444;
   transition: 0.2s;
 }
@@ -213,7 +213,7 @@ input {
   border-radius: 4px;
 }
 
-.clockwork-panel > div > input {
+.clockwork-panel div input {
   font-size: 30px;
 }
 
@@ -245,7 +245,7 @@ btn>.appbtnopen {
   display: flex;
   justify-content: right;
 }
-#appsidebar > div {
+#appsidebar div {
   font-size: 21px;
   height: 24px;
   color: white;
@@ -253,7 +253,7 @@ btn>.appbtnopen {
   margin-right: 4px;
   user-select: none;
 } 
-#appsidebar > btn {
+#appsidebar btn {
   width: 24px;
   height: 24px;
   color: white;
@@ -267,10 +267,10 @@ btn>.appbtnopen {
   margin-left: 0;
   margin-right: 4px;
 }
-#appsidebar > btn:hover {
+#appsidebar btn:hover {
   background-color: #444;
 }
-#appsidebar > btn > img {
+#appsidebar btn img {
   width: 24px;
   height: 24px;
   filter: none;
@@ -289,7 +289,7 @@ btn>.appbtnopen {
   overflow-y: auto;
 }
 
-#appbar > btn {
+#appbar btn {
   width: 48px;
   height: 48px;
   background-color: #222;
@@ -305,18 +305,18 @@ btn>.appbtnopen {
   margin-left: 0;
   margin-right: 4px;
 }
-#appbar > btn > img {
+#appbar btn img {
   width: 48px;
   height: 48px;
   filter: none;
   transition: 0.2s;
   border-radius: 5px;
 }
-#appbar > btn:hover > img {
+#appbar btn:hover img {
   transition: 0.2s;
   filter: opacity(80%);
 }
-#appbar > btn:hover {
+#appbar btn:hover {
   background-color: #888;
   transition: 0.2s;
 }
@@ -337,12 +337,12 @@ a:hover {
   color: #f66
 }
 
-.mngappspnl > summary > img {
+.mngappspnl summary img {
   width: 32px; 
   height: 32px;
   vertical-align: middle;
 }
-.mngappspnl > summary > span, .mngthmspnl > summary > span {
+.mngappspnl summary span, .mngthmspnl summary span {
   font-size: 20px;
 }
 
@@ -465,7 +465,7 @@ a:hover {
   padding-left: 10px;
 }
 
-.finder-box > div {
+.finder-box div {
   padding: 5px;
   border-radius: 0;
   border-bottom: 1px solid gray;
@@ -476,23 +476,23 @@ a:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.finder-box > div > img {
+.finder-box div img {
   height: 20px;
   width: 20px;
   float: left;
 }
-.finder-box > div.best {
+.finder-box div.best {
   border-radius: 8px 8px 0px 0px;
   background-color: #444;
   font-size: 20px;
 }
-.finder-box > div.best > img {
+.finder-box div.best img {
   width: 24px; height: 24px;
 }
-.finder-box > div:last-child {
+.finder-box div:last-child {
   border-bottom: none;
 }
-.finder-box > div:hover {
+.finder-box div:hover {
   background-color: gray;
   transition: 0.2s;
 }
