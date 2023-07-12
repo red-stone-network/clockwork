@@ -91,6 +91,7 @@ function loadSettingsScreen(screen) {
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       textbox.class = "text";
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
+
       textbox.onchange = (e) => {
         eval(`${e.target.dataset.linked} = "${e.target.value}"`); 
         localStorage.setItem('settings', JSON.stringify(settings));
@@ -100,6 +101,7 @@ function loadSettingsScreen(screen) {
     }
     if (settingsMenu[screen].screenContents[i].type == "dropdown") {
       let dropdown = document.createElement("select");
+
       for (let j=0; j<settingsMenu[screen].screenContents[i].values.length;) {
         let option = document.createElement("option");
         option.value = settingsMenu[screen].screenContents[i].values[j][0]
@@ -107,10 +109,13 @@ function loadSettingsScreen(screen) {
         dropdown.appendChild(option);
         ++j;
       }
+
       dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       dropdown.class = "dropdown";
+      dropdown.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
+
       dropdown.onchange = (e) => {
-        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = " + this.value); 
+        eval(`${e.target.dataset.linked} = "${e.target.value}"`); 
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
