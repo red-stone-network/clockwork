@@ -452,10 +452,10 @@ a:hover {
   box-sizing: border-box;
 }
 
-#apppanel\:sys_settings .right div input {
+#apppanel\:sys_settings .right div .text {
   max-width: 100%;
   display: inline-block;
-  width: 100%;
+  width: calc(100% - 3px);
   font-size: 16px;
   text-align: left;
 }
