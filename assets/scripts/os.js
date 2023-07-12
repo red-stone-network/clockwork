@@ -884,7 +884,7 @@ function onKeyPress(e) {
     }
     
   }
-  if (e.key == "Enter") {
+  if (e.key == "enter") {
     if (!e.isFake) e.preventDefault();
     if (document.activeElement == finder) {
       if (finderBox.children.length == 0) {
