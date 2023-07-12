@@ -411,6 +411,13 @@ a:hover {
   border-bottom: 1px gray solid;
   height: 48px;
   position: relative;
+  background-color: black;
+  transition: 0.2s;
+}
+
+#apppanel\:sys_settings .left .selections div:hover {
+  background-color: #444;
+  transition: 0.2s;
 }
 
 #apppanel\:sys_settings .left .selections div img {
