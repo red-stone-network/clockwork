@@ -379,7 +379,7 @@ a:hover {
   position: fixed;
   left: 50vw;
   bottom: 36px;
-  height: 100px;
+  height: 160px;
   transform: translateX(-50%);
   border: 1px solid gray;
   background-color: #222;
@@ -414,6 +414,10 @@ a:hover {
 .finder-box > div.best {
   border-radius: 8px 8px 0px 0px;
   background-color: #444;
+  font-size: 20px;
+}
+.finder-box > div.best > img {
+  width: 24px; height: 24px;
 }
 .finder-box > div:last-child {
   border-bottom: none;

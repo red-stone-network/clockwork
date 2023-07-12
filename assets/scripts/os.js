@@ -953,7 +953,7 @@ function checkFinder(str) {
       } else {
         return "";
       }
-    })()}${match[i].name}${(function(){
+    })()} ${match[i].name}${(function(){
       if (i==0 && str != null && str != "")
         return ' <span style="font-size:8px">Best result</span>'
         else return "";
