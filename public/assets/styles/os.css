@@ -409,6 +409,15 @@ a:hover {
 
 #apppanel\:sys_settings .left .selections div {
   border-bottom: 1px gray solid;
+  height: 48px;
+  position: relative;
+}
+
+#apppanel\:sys_settings .left .selections div img {
+  height: 32px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .finder-box > div {
