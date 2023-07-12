@@ -134,7 +134,7 @@ function loadSettingsMenu() { // Loads up the settings menu (shocker)
     let div = document.createElement("div");
     div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
     div.dataset.num = i;
-    div.onclick = (e) => {loadSettingsScreen(e.target.dataset.num)};
+    div.onclick = (e) => {loadSettingsScreen(Number(e.target.dataset.num))};
     settingsLeftBox.appendChild(div);
     ++i;
   }
