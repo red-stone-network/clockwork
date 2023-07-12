@@ -59,7 +59,7 @@ const settingsMenu = [
         label: "Clock type",
         type: "dropdown",
         linkedSetting: "settings.clockType",
-        values: ["12h","24h"]
+        values: [["12h","12-hour"],["24h", "24-hour"]]
       }
     ]
   },
@@ -84,12 +84,33 @@ function loadSettingsScreen(screen) {
     label.className = "label";
     label.innerText = settingsMenu[screen].screenContents[i].label;
     div.appendChild(label);
+
     if (settingsMenu[screen].screenContents[i].type == "text") {
       let textbox = document.createElement("input");
       textbox.placeholder = settingsMenu[screen].screenContents[i]?.placeholderText;
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
+      textbox.class = "text";
+      textbox.onchange = (e) => {
+        eval(settingsMenu[screen].screenContents[i].linkedSetting + " = this.value"); 
+        localStorage.setItem('settings', JSON.stringify(settings));
+      }
+
       div.appendChild(textbox);
     }
+    if (settingsMenu[screen].screenContents[i].type == "dropdown") {
+      let dropdown = document.createElement("select");
+      for (let j=0; j<settingsMenu[screen].screenContents[i].values[j].length;) {
+        let option = document.createElement("option");
+        option.value = settingsMenu[screen].screenContents[i].values[j][0]
+        option.value = settingsMenu[screen].screenContents[i].values[j][1]
+        dropdown.appendChild(option);
+      }
+      dropdown.value = eval(settingsMenu[screen].screenContents[i].linkedSetting)
+      dropdown.class = "dropdown";
+
+      div.appendChild(textbox);
+    }
+
     settingsRightBox.appendChild(div);
     ++i;
   }
