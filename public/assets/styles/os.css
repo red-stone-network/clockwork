@@ -394,6 +394,10 @@ a:hover {
   transition: 0.2s;
 }
 
+#apppanel\:sys_settings {
+  background-color: #111;
+}
+
 #apppanel\:sys_settings .left {
   position: fixed;
   width: 16vw;
