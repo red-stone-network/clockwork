@@ -55,8 +55,30 @@ const settingsMenu = [
         placeholderText: "Type here"
       }
     ]
-  }
+  },
+  {
+    screenName: "Test screen 2",
+    screenIcon: "/assets/images/house.png",
+    screenContents: [
+      {
+        label: "Test textbox",
+        type: "text",
+        linkedSetting: "settings.testSetting",
+        fallbackSetting: "",
+        placeholderText: "Type here"
+      }
+    ]
+  },
 ]
+
+function loadSettingsMenu() { // Loads up the settings menu (shocker)
+  for (let i=0; i<settingsMenu.length;) {
+    let div = Document.createElement("div");
+    div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
+    ++i;
+  }
+}
+loadSettingsMenu();
 
 // The stuff that you can search up using the Finder
 const searchables = [
