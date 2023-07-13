@@ -383,15 +383,12 @@ if (!settings.clockType) {
   settings.clockType = "12h"
   localStorage.setItem("settings", JSON.stringify(settings));
 }
-document.getElementById("set_clockchange").value = settings.clockType;
 
 if (!settings.proxy) {
   settings.proxy = "none";
   settings.proxyUrl = "";
   localStorage.setItem("settings", JSON.stringify(settings));
 }
-document.getElementById("set_proxy").value = settings.proxy;
-document.getElementById("set_proxyurl").value = settings.proxyUrl;
 
 // get themes
 if (localStorage.getItem("themes") == null || localStorage.getItem("themes") == "!!reset") {
