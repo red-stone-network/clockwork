@@ -430,6 +430,7 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  left: 4px;
 }
 
 #apppanel\:sys_settings .left .selections div span {
@@ -437,8 +438,8 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 38px;
-  width: calc(100% - 38px);
+  left: 42px;
+  width: calc(100% - 42px);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
