@@ -244,7 +244,7 @@ btn>.appbtnopen {
 #appsidebar {
   width: 256px;
   height: 48px;
-  background-color: #111;
+  background-color: rgba(17,17,17,0.69);
   position: fixed;
   bottom: 0;
   right: 0;
@@ -288,7 +288,7 @@ btn>.appbtnopen {
 #appbar {
   width: calc(100% - 256px);
   height: 48px;
-  background-color: #111;
+  background-color: rgba(17,17,17,0.69);
   position: fixed;
   bottom: 0;
   font-size: 0px;
@@ -299,7 +299,7 @@ btn>.appbtnopen {
 #appbar btn {
   width: 44px;
   height: 48px;
-  background-color: #111;
+  background-color: rgba(17,17,17,0);
   color: white;
   text-align: center;
   word-break: break-all;

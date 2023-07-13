@@ -3,6 +3,7 @@
 > - ADDED: Revamped Settings app - now all in one app!
 > - ADDED: New search system for Finder 
 > - ADDED: Enter to select first item in Finder
+> - ADDED: Wallpaper system
 
 > - CHANGED: New UI for Finder, highlighting first option and making window wider
 > - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
