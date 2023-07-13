@@ -421,7 +421,8 @@ a:hover {
 }
 
 #apppanel\:sys_settings {
-  background-color: #111;
+  background-color: rgba(17,17,17,0.8);
+  backdrop-filter: blur(50px);
 }
 
 #apppanel\:sys_settings .left {
