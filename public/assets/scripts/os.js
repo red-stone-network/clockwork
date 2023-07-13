@@ -286,7 +286,8 @@ const searchables = [
     name: "Proxy Settings",
     icon: "/assets/images/ultraviolet.png",
     onclick: function(){
-      openApp('sys_settings_proxy');
+      openApp('sys_settings');
+      loadSettingsScreen("Proxy Settings");
     },
   },
   {
@@ -294,7 +295,8 @@ const searchables = [
     name: "Passcode Settings",
     icon: "/assets/images/key.png",
     onclick: function(){
-      openApp('sys_settings_passcode');
+      openApp('sys_settings');
+      loadSettingsScreen("Passcode Settings");
     },
   },
   {
@@ -302,7 +304,8 @@ const searchables = [
     name: "Taskbar Settings",
     icon: "/assets/images/settings.png",
     onclick: function(){
-      openApp('sys_settings_control');
+      openApp('sys_settings');
+      loadSettingsScreen("Taskbar Settings");
     },
   },
   {
