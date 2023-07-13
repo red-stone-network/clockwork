@@ -840,13 +840,13 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
-      if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 
       document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
         themes.push(url);
         localStorage.setItem("themes", JSON.stringify(themes));
       }
+      if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 		} else {
 		  alert("HTTP error while installing theme: " + response.status + "\nTheme url: "+url);
 		}
