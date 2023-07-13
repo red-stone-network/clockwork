@@ -95,7 +95,7 @@ const settingsMenu = [
   },
   {
     screenName: "Manage Themes",
-    screenIcon: "/assets/images/ui/paintbrush.png",
+    screenIcon: "/assets/images/ui/paintbrush-on-app-window.png",
     screenContents: [
       {
         type: "scriptbox",
