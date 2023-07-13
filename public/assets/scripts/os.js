@@ -93,6 +93,37 @@ const settingsMenu = [
     ]
   },
   {
+    screenName: "Manage Themes",
+    screenIcon: "/assets/images/paintbrush.png",
+    screenContents: [
+      {
+        type: "scriptbox",
+        value: function(div) {
+          for (let i=0; i<apps.length;) {
+            div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
+            <summary>
+            <span>${themeData[i].title}</span> `+
+            (function() {
+              if (!desc) {
+                return "No description";
+              } else {
+                return desc[1];
+              }
+            })()
+            +`
+            </summary>
+            <p>
+            <btn onclick="moveTheme('${themeData[i].url}','add',-1)">Move Up</btn> <btn onclick="moveTheme('${themeData[i].url}','add',1)">Move Down</btn><br>
+            <btn onclick="uninstallTheme('${themeData[i].url}')">Uninstall Theme</btn>
+            </p>
+            </details>`;
+            ++i;
+          }
+        }
+      },
+    ]
+  },
+  {
     screenName: "Taskbar Settings",
     screenIcon: "/assets/images/key.png",
     screenContents: [
@@ -372,6 +403,7 @@ loadBar.value = 0;
 for (let i = 0; i < apps.length; i++) {
   installApp(apps[i], {start: true});
 }
+var themeData = [];
 for (let i = 0; i < themes.length; i++) {
   installTheme(themes[i]);
   ++loadBar.value;
@@ -779,6 +811,11 @@ async function installTheme(url) {
       
       if (!title) throw "PropertyMissing";
 
+      themeData.push({
+        url: url,
+        title: title,
+        desc: desc,
+      })
       document.getElementById("cw_managethemes_span").innerHTML += `<details class="mngthmspnl" id="mngthms:${url}">
       <summary>
       <span>${title}</span> `+
