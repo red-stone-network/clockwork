@@ -3,7 +3,7 @@
 > - ADDED: Revamped Settings app - now all in one app!
 > - ADDED: New search system for Finder 
 > - ADDED: Enter to select first item in Finder
-> - ADDED: Wallpaper system
+> - ADDED: Wallpaper system, with wallpapers made by LukasExists, Quino Al
 > - ADDED: New UI design
 
 > - CHANGED: New UI for Finder, highlighting first option and making window wider
@@ -14,3 +14,4 @@
 
 > - BUGFIX: Favicon URL changed to work correctly on /os/
 > - BUGFIX: Fixed console logs not showing
+> - BUGFIX: "You're all caught up!" message would show up regardless of notification count
