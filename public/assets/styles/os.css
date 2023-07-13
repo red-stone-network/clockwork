@@ -201,6 +201,7 @@ progress::-webkit-progress-value {
   height: calc(100vh - 48px);
   background-image: url("/assets/images/wallpapers/default.png");
   background-size: 100%;
+  background-position: center;
   color: white;
   position: fixed;
   top: 0;
