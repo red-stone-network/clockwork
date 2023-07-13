@@ -563,6 +563,7 @@ async function installApp(url,params) {
       <btn onclick="uninstallApp('${url}')">Uninstall app</btn>
       </p>
       </details>`*/
+      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
 
       if (apps.includes(url) == false) {
         apps.push(url);
@@ -620,7 +621,6 @@ async function promptInstallApp(url,params) {
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}?`;
     prompt.querySelector(".prmpt-yes").onclick = function() {
       installApp(url,params);
-      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
       setTimeout(function() {prompt.style = "display: none;"}, 300)
     }
@@ -823,6 +823,7 @@ async function installTheme(url) {
         title: title,
         desc: desc,
       })
+      
       /*document.getElementById("cw_managethemes_span").innerHTML += `<details class="mngthmspnl" id="mngthms:${url}">
       <summary>
       <span>${title}</span> `+
@@ -840,6 +841,8 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
+      reloadThemes();
+
       document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
         themes.push(url);
@@ -903,7 +906,6 @@ async function promptInstallTheme(url) {
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${title}?`;
     prompt.querySelector(".prmpt-yes").onclick = function() {
       installTheme(url);
-      reloadThemes();
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
       setTimeout(function() {prompt.style = "display: none;"}, 300)
     }
