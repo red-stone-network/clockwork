@@ -453,6 +453,15 @@ a:hover {
   box-sizing: border-box;
 }
 
+#apppanel\:sys_settings .right h2 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#apppanel\:sys_settings .right div {
+  margin-bottom: 6px;
+}
+
 #apppanel\:sys_settings .right div .text {
   max-width: 100%;
   display: inline-block;
