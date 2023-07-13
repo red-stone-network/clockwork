@@ -38,6 +38,7 @@ body {
   width: 200px;
   background-color: rgba(17,17,17,0.8);
   border: 1px solid rgba(128,128,128,0.8);
+  backdrop-filter: blur(50px);
   bottom: 48px;
   right: 0;
   color: white;
@@ -70,6 +71,7 @@ body {
   filter: opacity(0%);
   background-color: rgba(17,17,17,0.8);
   border: 1px solid rgba(128,128,128,0.8);
+  backdrop-filter: blur(50px);
   border-right: none;
   border-radius: 8px 0 0 8px;
   transition: 0.2s;
