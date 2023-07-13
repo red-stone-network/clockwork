@@ -99,7 +99,7 @@ const settingsMenu = [
       {
         type: "scriptbox",
         value: function(div) {
-          for (let i=0; i<apps.length;) {
+          for (let i=0; i<themes.length;) {
             div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
             <summary>
             <span>${themeData[i].title}</span> `+
