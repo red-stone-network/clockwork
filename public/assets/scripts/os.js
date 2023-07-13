@@ -792,7 +792,6 @@ async function reloadThemes() {
   for (let i = 0; i < themes.length; i++) {
     await installTheme(themes[i]);
   }
-  if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 }
 
 async function installTheme(url) {
@@ -841,7 +840,7 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
-      reloadThemes();
+      if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 
       document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
@@ -864,11 +863,14 @@ async function moveTheme(app,type,plus) {
   if (appIndex != undefined) {
     if (type == "add") {
       themes = moveInArray(themes, appIndex, appIndex+plus);
+      themeData = moveInArray(themeData, appIndex, appIndex+plus);
     } else {
       themes = moveInArray(themes, appIndex, plus);
+      themeData = moveInArray(themeData, appIndex, plus);
     }
     
     localStorage.setItem("themes", JSON.stringify(themes));
+    if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
     await reloadThemes();
   } else {
     throw "app does not exist at";
@@ -884,6 +886,7 @@ async function uninstallTheme(app) {
     themes.splice(appIndex, 1);
     
     localStorage.setItem("themes", JSON.stringify(themes));
+    if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
     await reloadThemes();
   } else {
     throw "app does not exist at";
