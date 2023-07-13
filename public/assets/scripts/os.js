@@ -1098,7 +1098,7 @@ function sendNotification(title, content) {
   if (document.getElementById("clockwork-notification-items").innerText == "You're all caught up!") {
     document.getElementById("clockwork-notification-items").innerHTML = "";
   }
-  document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="https://redstonenw.vercel.app/assets/clockwork/close.png" 
+  document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="/assets/images/ui/x.png" 
   onclick="notifDestroy(this);"></b>\n${content}</div>`;
   if (!notifPanelOpen) {
     document.getElementById("appsidebar:notifs").src = "/assets/images/ui/ringing-bell.png"
