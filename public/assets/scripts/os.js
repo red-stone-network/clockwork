@@ -133,6 +133,12 @@ const settingsMenu = [
         values: [["12h","12-hour"],["24h", "24-hour"]]
       },
       {
+        label: "Clock font",
+        type: "dropdown",
+        linkedSetting: "settings.clockFont",
+        values: [["varela","Display"],["asap", "Body"],["mono","Monospace"]]
+      },
+      {
         label: "Wallpaper",
         type: "scriptbox",
         value: function(div) {
@@ -409,6 +415,7 @@ var defaultSettings = {
     passcode: "0000",
   },
   clockType: "12h",
+  clockFont: "asap",
   // Proxy settings
   proxy: "none",
   proxyUrl: "",
@@ -439,7 +446,8 @@ if (localStorage.getItem("settings") == null || localStorage.getItem("settings")
 
 // make sure all required settings for clockwork are there
 if (!settings.wallpaper) {
-  settings.wallpaper = "/assets/images/wallpapers/default.png"
+  settings.wallpaper = "/assets/images/wallpapers/default.png";
+  settings.clockFont = "asap";
   localStorage.setItem("settings", JSON.stringify(settings));
 }
 
@@ -523,6 +531,11 @@ function sideBarClock() {
   let s = today.getSeconds();
   m = checkTime(m);
   s = checkTime(s);
+  
+  if (settings.clockFont == "asap") document.getElementById('appsidebar-clock').style.fontFamily = '"Asap", sans-serif'
+  else if (settings.clockFont = "varela") document.getElementById('appsidebar-clock').style.fontFamily = '"Varela Round", sans-serif'
+  else document.getElementById('appsidebar-clock').style.fontFamily = 'monospace'
+
   if (settings.clockType == "12h") {
     if (h > 12) {
    	  document.getElementById('appsidebar-clock').innerHTML =  (h - 12) + ":" + m + ":" + s + " PM";
