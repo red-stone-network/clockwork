@@ -529,6 +529,7 @@ async function installApp(url,params) {
       let myIframe = document.createElement("IFRAME");
       myIframe.src = "about:blank";
       myIframe.id = "apppanel:"+url;
+      myIframe.className = "app";
       appPanel.appendChild(myIframe);
       var myAppData = {
         name: json.name,
