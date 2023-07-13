@@ -125,7 +125,7 @@ const settingsMenu = [
   },
   {
     screenName: "Taskbar Settings",
-    screenIcon: "/assets/images/key.png",
+    screenIcon: "/assets/images/settings.png",
     screenContents: [
       {
         label: "Clock type",
