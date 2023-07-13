@@ -78,11 +78,14 @@ body {
   transition: 0.2s;  
 }
 
-#clockwork-notification-panel t {
+t {
   font-weight: 1000;
+  font-family: "Varela Round", sans-serif;
+}
+
+#clockwork-notification-panel t {
   border-bottom: 1px solid gray;
   display: block;
-  font-family: "Varela Round", sans-serif;
   width: 100%;
 }
 #clockwork-notification-items {
