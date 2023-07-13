@@ -538,6 +538,9 @@ a:hover {
   border-radius: 8px;
   width: 200px;
   height: 90px;
+  background-image: url("/assets/images/wallpapers/default.png");
+  background-size: cover;
+  background-position: center center;
 }
 
 .finder-box div {

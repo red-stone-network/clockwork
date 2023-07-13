@@ -142,7 +142,7 @@ const settingsMenu = [
           var defaultWallpapers = ["/assets/images/wallpapers/default.png"]
           for (let i=0; i<defaultWallpapers.length;) {
             var paper = document.createElement("DIV");
-            paper.innerHTML = "test";
+            paper.style.backgroundImage = `url(${defaultWallpapers[i]})`;
             div.appendChild(paper);
             ++i;
           }
