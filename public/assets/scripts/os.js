@@ -620,6 +620,7 @@ async function promptInstallApp(url,params) {
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}?`;
     prompt.querySelector(".prmpt-yes").onclick = function() {
       installApp(url,params);
+      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
       setTimeout(function() {prompt.style = "display: none;"}, 300)
     }
@@ -631,8 +632,6 @@ async function promptInstallApp(url,params) {
     prompt.style = "";
 
     document.body.appendChild(prompt);
-
-    if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
   } else {
     var retry = confirm("HTTP error while getting app data: " + response.status + "\nApp url: "+url+"\nRetry?");
     if (retry == true) {
@@ -750,7 +749,7 @@ function uninstallApp(app) {
     openApp("sys_home")
   }
 
-  if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
+  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
 }
 
 // context menu when u right click an app icon
@@ -793,7 +792,7 @@ async function reloadThemes() {
   for (let i = 0; i < themes.length; i++) {
     await installTheme(themes[i]);
   }
-  if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
+  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 }
 
 async function installTheme(url) {
@@ -841,7 +840,7 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
-      reloadThemes();
+      document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
         themes.push(url);
         localStorage.setItem("themes", JSON.stringify(themes));
@@ -904,6 +903,7 @@ async function promptInstallTheme(url) {
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${title}?`;
     prompt.querySelector(".prmpt-yes").onclick = function() {
       installTheme(url);
+      reloadThemes();
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
       setTimeout(function() {prompt.style = "display: none;"}, 300)
     }
