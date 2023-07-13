@@ -104,10 +104,10 @@ const settingsMenu = [
             <summary>
             <span>${themeData[i].title}</span> `+
             (function() {
-              if (!desc) {
+              if (!themeData[i].desc) {
                 return "No description";
               } else {
-                return desc[1];
+                return themeData[i].desc;
               }
             })()
             +`
