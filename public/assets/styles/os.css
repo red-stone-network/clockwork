@@ -165,12 +165,16 @@ progress::-webkit-progress-value {
 #contextmenu btn {
   width: 100%;
   transition: 0.2s;
-  border-radius: 5px;
   padding: 0;
   background-color: #111;
   border-bottom: 1px solid gray;
 }
-#contextmenu btn:last-child {
+#contextmenu btn:first-child {  
+  border-radius: 5px 5px 0;
+  border-bottom: none;
+}
+#contextmenu btn:last-child {  
+  border-radius: 0 0 5px 5px;
   border-bottom: none;
 }
 .clockwork-panel {
