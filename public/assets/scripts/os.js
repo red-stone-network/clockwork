@@ -136,6 +136,18 @@ const settingsMenu = [
     ]
   },
   {
+    screenName: "Passcode Settings",
+    screenIcon: "/assets/images/key.png",
+    screenContents: [
+      {
+        type: "scriptbox",
+        value: function(div) {
+          div.innerText = "We're working on it..."
+        }
+      },
+    ]
+  },
+  {
     screenName: "Proxy Settings",
     screenIcon: "/assets/images/ultraviolet.png",
     screenContents: [
