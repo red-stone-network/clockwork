@@ -82,6 +82,7 @@ body {
   font-weight: 1000;
   border-bottom: 1px solid gray;
   display: block;
+  font-family: "Varela Round", sans-serif;
   width: 100%;
 }
 #clockwork-notification-items {
