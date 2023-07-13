@@ -158,6 +158,7 @@ const settingsMenu = [
 var settingsCurrentScreen = null;
 
 function loadSettingsScreen(screen) {
+  if (typeof screen == "string") screen = settingsMenu.find((me) => me.screenName == screen);
   settingsCurrentScreen = screen;
   while (settingsRightBox.firstChild) {
     settingsRightBox.removeChild(settingsRightBox.lastChild);
@@ -264,7 +265,8 @@ const searchables = [
     name: "Manage Apps",
     icon: "/assets/images/app-window.png",
     onclick: function(){
-      openApp('sys_settings_apps');
+      openApp('sys_settings');
+      loadSettingsScreen("Manage Apps");
     },
   },
   {
@@ -272,7 +274,8 @@ const searchables = [
     name: "Manage Themes",
     icon: "/assets/images/paintbrush.png",
     onclick: function(){
-      openApp('sys_settings_themes');
+      openApp('sys_settings');
+      loadSettingsScreen("Manage Themes");
     },
   },
   {
