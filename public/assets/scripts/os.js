@@ -45,6 +45,18 @@ contextMenu.style.display = "none";
 // The Settings app uses this to load its UI
 const settingsMenu = [
   {
+    screenName: "Manage Apps",
+    screenIcon: "/assets/images/app-window.png",
+    screenContents: [
+      {
+        type: "scriptbox",
+        value: function(div) {
+          div.innerHTML = "test!!!";
+        }
+      },
+    ]
+  },
+  {
     screenName: "Taskbar Settings",
     screenIcon: "/assets/images/key.png",
     screenContents: [
@@ -127,6 +139,9 @@ function loadSettingsScreen(screen) {
       }
 
       div.appendChild(dropdown);
+    }
+    if (settingsMenu[screen].screenContents[i].type == "scriptbox") {
+      settingsMenu[screen].screenContents[i].value(div);
     }
 
     settingsRightBox.appendChild(div);
