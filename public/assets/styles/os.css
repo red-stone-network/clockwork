@@ -168,10 +168,10 @@ progress::-webkit-progress-value {
   padding: 0;
   background-color: #111;
   border-bottom: 1px solid gray;
+  border-radius: none;
 }
 #contextmenu btn:first-child {  
-  border-radius: 5px 5px 0;
-  border-bottom: none;
+  border-radius: 5px 5px 0 0;
 }
 #contextmenu btn:last-child {  
   border-radius: 0 0 5px 5px;
