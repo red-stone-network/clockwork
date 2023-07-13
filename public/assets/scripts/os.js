@@ -139,10 +139,20 @@ const settingsMenu = [
         type: "scriptbox",
         value: function(div) {
           div.id = "settings-wallpaper-box";
-          var defaultWallpapers = ["/assets/images/wallpapers/default.png"]
+          var defaultWallpapers = [
+            {
+              title: "Default",
+              url: "/assets/images/wallpapers/default.png"
+            }
+          ]
           for (let i=0; i<defaultWallpapers.length;) {
             var paper = document.createElement("DIV");
-            paper.style.backgroundImage = `url(${defaultWallpapers[i]})`;
+            paper.innerText = defaultWallpapers[i].title;
+            paper.style.backgroundImage = `url(${defaultWallpapers[i].url})`;
+            paper.onclick = function(e) {
+              settings.wallpaper = e.target.style.backgroundImage;
+              localStorage.setItem("settings", JSON.stringify(settings));
+            }
             div.appendChild(paper);
             ++i;
           }
