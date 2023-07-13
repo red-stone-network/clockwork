@@ -427,7 +427,7 @@ a:hover {
   transition: 0.2s;
 }
 
-#apppanel\:sys_settings .open {
+#apppanel\:sys_settings .appopen {
   filter: opacity(100%);
   transition: 0.2s;
 }
