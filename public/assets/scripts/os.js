@@ -448,6 +448,7 @@ function checkForFinish() {
       pcodeInput.focus();
     } else {
       document.getElementById("clockwork-content").style = "";
+      sendNotification("Welcome to Clockwork", "Clockwork is currently running "+version)
     }
   } else {
     setTimeout(checkForFinish, 500);
@@ -974,7 +975,8 @@ pcodeInput.oninput = function() {
     if (pcodeInput.value == settings.lock.passcode) {
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadeout";
       document.getElementById("clockwork-content").style = "";
-      setTimeout(function() {document.getElementById("clockwork-lock").style = "display: none;"}, 300)
+      setTimeout(function() {document.getElementById("clockwork-lock").style = "display: none;"}, 300);
+      sendNotification("Welcome to Clockwork", "Clockwork is currently running "+version)
     } else {
       pcodeInput.value = "";
     }
@@ -1284,8 +1286,6 @@ window.addEventListener('message', function(event) {
     }
   }
 });
-
-setTimeout(sendNotification, 1000, "Welcome to Clockwork", "Clockwork is currently running "+version);
 
 console.log("%cSTOP!", "color: red; font-family: sans-serif; font-size: 69px;"); 
 console.log("%cThis is a browser feature %conly intended for developers. %cPasting code here could give bad people access to the entirety of Clockwork, which may even include account credentials! Don't put anything here if you don't know what it does.", "font-family: sans-serif; font-size: 20px;", "color: red; font-family: sans-serif; font-size: 20px;", "font-family: sans-serif; font-size: 20px;"); 
