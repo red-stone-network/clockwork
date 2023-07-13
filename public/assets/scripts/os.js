@@ -563,7 +563,7 @@ async function installApp(url,params) {
       <btn onclick="uninstallApp('${url}')">Uninstall app</btn>
       </p>
       </details>`*/
-      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
+      if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
 
       if (apps.includes(url) == false) {
         apps.push(url);
@@ -749,7 +749,7 @@ function uninstallApp(app) {
     openApp("sys_home")
   }
 
-  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
+  if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
 }
 
 // context menu when u right click an app icon
@@ -792,7 +792,7 @@ async function reloadThemes() {
   for (let i = 0; i < themes.length; i++) {
     await installTheme(themes[i]);
   }
-  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
+  if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 }
 
 async function installTheme(url) {
