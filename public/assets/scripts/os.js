@@ -354,6 +354,7 @@ var defaultSettings = {
   // Proxy settings
   proxy: "none",
   proxyUrl: "",
+  wallpaper: "/assets/images/wallpapers/default.png",
 }
 var settings = null;
 
@@ -379,8 +380,8 @@ if (localStorage.getItem("settings") == null || localStorage.getItem("settings")
 }
 
 // make sure all required settings for clockwork are there
-if (!settings.clockType) {
-  settings.clockType = "12h"
+if (!settings.wallpaper) {
+  settings.wallpaper = "/assets/images/wallpapers/default.png"
   localStorage.setItem("settings", JSON.stringify(settings));
 }
 
@@ -473,6 +474,7 @@ function sideBarClock() {
   } else {
     document.getElementById('appsidebar-clock').innerHTML =  h + ":" + m + ":" + s;
   }
+  document.querySelector('#clockwork-content').style.backgroundImage = `url(${settings.wallpaper})`
 }
 function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
