@@ -63,7 +63,7 @@ contextMenu.style.display = "none";
 const settingsMenu = [
   {
     screenName: "Manage Apps",
-    screenIcon: "/assets/images/app-window.png",
+    screenIcon: "/assets/images/ui/app-window.png",
     screenContents: [
       {
         type: "scriptbox",
@@ -95,7 +95,7 @@ const settingsMenu = [
   },
   {
     screenName: "Manage Themes",
-    screenIcon: "/assets/images/paintbrush.png",
+    screenIcon: "/assets/images/ui/paintbrush.png",
     screenContents: [
       {
         type: "scriptbox",
@@ -126,7 +126,7 @@ const settingsMenu = [
   },
   {
     screenName: "Personalization",
-    screenIcon: "/assets/images/paintbrush.png",
+    screenIcon: "/assets/images/ui/paintbrush.png",
     screenContents: [
       {
         label: "Clock type",
@@ -170,7 +170,7 @@ const settingsMenu = [
   },
   {
     screenName: "Passcode Settings",
-    screenIcon: "/assets/images/key.png",
+    screenIcon: "/assets/images/ui/key.png",
     screenContents: [
       {
         type: "scriptbox",
@@ -182,7 +182,7 @@ const settingsMenu = [
   },
   {
     screenName: "Proxy Settings",
-    screenIcon: "/assets/images/ultraviolet.png",
+    screenIcon: "/assets/images/ui/ultraviolet.png",
     screenContents: [
       {
         label: "Proxy",
@@ -201,7 +201,7 @@ const settingsMenu = [
   },
   {
     screenName: "About Clockwork",
-    screenIcon: "/assets/images/icon.png",
+    screenIcon: "/assets/images/ui/clockwork.png",
     screenContents: [
       {
         type: "scriptbox",
@@ -1101,7 +1101,7 @@ function sendNotification(title, content) {
   document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="https://redstonenw.vercel.app/assets/clockwork/close.png" 
   onclick="notifDestroy(this);"></b>\n${content}</div>`;
   if (!notifPanelOpen) {
-    document.getElementById("appsidebar:notifs").src = "/assets/images/ringing-bell.png"
+    document.getElementById("appsidebar:notifs").src = "/assets/images/ui/ringing-bell.png"
   }
 }
 
@@ -1113,7 +1113,7 @@ function openNotificationPanel() {
       notificationPanel.className = "visible";
       console.log(notificationPanel.className);
     },10)
-    document.getElementById("appsidebar:notifs").src = "/assets/images/bell.png"
+    document.getElementById("appsidebar:notifs").src = "/assets/images/ui/bell.png"
     notifPanelOpen = true;
   } else {
     notificationPanel.className = "invisible";
