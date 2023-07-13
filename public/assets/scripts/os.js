@@ -147,8 +147,12 @@ const settingsMenu = [
               url: "/assets/images/wallpapers/mountains.png"
             },
             {
-              title: "Sunset",
+              title: "Sunset by Quino Al",
               url: "/assets/images/wallpapers/sunset.png"
+            },
+            {
+              title: "Grand Canyon by Bernard Spragg",
+              url: "/assets/images/wallpapers/grand-canyon.png"
             }
           ]
           for (let i=0; i<defaultWallpapers.length;) {
@@ -213,6 +217,7 @@ const settingsMenu = [
           hellscaped<br>
           stolas<br>
           Quino Al<br>
+          Bernard Spragg<br>
           and you for using our stuff`
         }
       }
