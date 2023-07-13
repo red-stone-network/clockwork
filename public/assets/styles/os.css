@@ -387,7 +387,7 @@ a:hover {
 .finder {
   position: fixed;
   left: 50vw;
-  bottom: 10px;
+  bottom: 40px;
   padding: 5px;
   transform: translateX(-50%);
   border: 1px solid rgba(128,128,128,0.8);
@@ -416,7 +416,7 @@ a:hover {
 .finder-box {
   position: fixed;
   left: 50vw;
-  bottom: 36px;
+  bottom: 76px;
   height: 160px;
   transform: translateX(-50%);
   border: 1px solid rgba(128,128,128,0.8);
