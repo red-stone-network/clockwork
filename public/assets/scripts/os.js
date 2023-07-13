@@ -107,7 +107,7 @@ const settingsMenu = [
               if (!themeData[i].desc) {
                 return "No description";
               } else {
-                return themeData[i].desc;
+                return themeData[i].desc[1];
               }
             })()
             +`
