@@ -199,7 +199,8 @@ progress::-webkit-progress-value {
 #apppanel {
   width: 100%; 
   height: calc(100vh - 48px);
-  background-color: black;
+  background-image: url("/assets/images/wallpapers/default.png");
+  background-size: 100%;
   color: white;
   position: fixed;
   top: 0;
@@ -227,7 +228,6 @@ input {
 .app {
   width: 100%; 
   height: calc(100vh - 48px);
-  background-color: black;
   position: fixed;
   top: 0;
   color: white;
