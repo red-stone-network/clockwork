@@ -152,7 +152,7 @@ const settingsMenu = [
             },
             {
               title: "Grand Canyon by Bernard Spragg",
-              url: "/assets/images/wallpapers/grand-canyon.png"
+              url: "/assets/images/wallpapers/grand-canyon.jpg"
             }
           ]
           for (let i=0; i<defaultWallpapers.length;) {

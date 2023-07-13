@@ -542,6 +542,7 @@ a:hover {
   background-size: cover;
   background-position: center center;
   display: inline-block;
+  vertical-align: top;
 }
 
 .finder-box div {
