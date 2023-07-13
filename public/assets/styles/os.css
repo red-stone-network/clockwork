@@ -390,8 +390,9 @@ a:hover {
   bottom: 10px;
   padding: 5px;
   transform: translateX(-50%);
-  border: 1px solid gray;
-  background-color: #222;
+  border: 1px solid rgba(128,128,128,0.8);
+  background-color: rgba(17,17,17,0.8);
+  backdrop-filter: blur(50px);
   border-radius: 8px;
   color: white;
   width: 500px;
@@ -418,8 +419,9 @@ a:hover {
   bottom: 36px;
   height: 160px;
   transform: translateX(-50%);
-  border: 1px solid gray;
-  background-color: #222;
+  border: 1px solid rgba(128,128,128,0.8);
+  background-color: rgba(17,17,17,0.8);
+  backdrop-filter: blur(50px);
   border-radius: 8px 8px 0 0;
   color: white;
   width: 484px;
