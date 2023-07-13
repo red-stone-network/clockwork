@@ -1162,9 +1162,9 @@ function checkFinder(str) {
       }
       ++i;
     }
-    for (let i=0; i<priorityLevel2.length;) {
+    for (let i=priorityLevel2.length; i>=0;) {
       match.unshift(priorityLevel2[i]);
-      ++i;
+      --i;
     }
   }
 
