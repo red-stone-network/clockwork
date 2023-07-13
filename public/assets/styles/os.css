@@ -423,6 +423,13 @@ a:hover {
 #apppanel\:sys_settings {
   background-color: rgba(17,17,17,0.8);
   backdrop-filter: blur(50px);
+  filter: opacity(0%);
+  transition: 0.2s;
+}
+
+#apppanel\:sys_settings .open {
+  filter: opacity(100%);
+  transition: 0.2s;
 }
 
 #apppanel\:sys_settings .left {
