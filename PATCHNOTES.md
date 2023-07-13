@@ -5,6 +5,7 @@
 > - ADDED: Enter to select first item in Finder
 
 > - CHANGED: New UI for Finder, highlighting first option and making window wider
+> - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
 > - CHANGED: Replaced all Icons8 icons with custom-made icons
 > - CHANGED: Fixed all icons to be hosted on site itself
 > - CHANGED: enc-dec.js is now hosted on site itself

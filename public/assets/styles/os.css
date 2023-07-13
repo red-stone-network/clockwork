@@ -67,6 +67,9 @@ body {
   box-sizing: border-box;
   padding-bottom: 1px; 
   filter: opacity(0%);
+  border: 1px solid gray;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
   transition: 0.2s;
 }
 #clockwork-notification-panel.visible {

@@ -116,15 +116,6 @@
           <a href="javascript:openApp('sys_devtools')">Developer Tools</a>
         </h3>
       </div>
-      <div class="app" id="apppanel:sys_settings_control">
-        <h1>
-          Taskbar Settings <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        Clock type: <select id="set_clockchange" onchange="settings.clockType = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
-          <option value="12h">12-hour</option>
-          <option value="24h">24-hour</option>
-        </select>
-      </div>
       <div class="app" id="apppanel:sys_settings_passcode">
         <h1>
           Passcode Settings <a href="javascript:openApp('sys_settings')">(back)</a>
@@ -136,18 +127,6 @@
         <btn onclick="passcodeSettingChange('change')">Change it!</btn>
         <h3>Remove passcode</h3>
         <btn onclick="passcodeSettingChange('remove')">Remove it!</btn>
-      </div>
-
-      <div class="app" id="apppanel:sys_settings_proxy">
-        <h1>
-          Proxy Settings <a target="_blank" href="https://github.com/red-stone-network/clockwork/wiki/User-Guide#use-an-ultraviolet-proxy-with-clockwork-apps">(read me)</a>
-          <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        Proxy: <select id="set_proxy" onchange="settings.proxy = this.value; localStorage.setItem('settings', JSON.stringify(settings));">
-          <option value="none">Don't use a proxy</option>
-          <option value="uv">Use an Ultraviolet proxy</option>
-        </select><br>
-        Proxy URL: <input id="set_proxyurl" placeholder="Using a default proxy..." onchange="settings.proxyUrl = this.value; localStorage.setItem('settings', JSON.stringify(settings));" style="max-width: 999px;text-align: left;">
       </div>
 
       <div class="app" id="apppanel:sys_devtools">
@@ -178,22 +157,6 @@
         <h3>Clockwork v<span id="versiontxt"></span></h3>
         <a href="https://icons8.com/">Icons by Icons8</a>
         <a href="https://redstonenetwrk.vercel.app/">Made by Redstone Network</a>
-      </div>
-      <div class="app" id="apppanel:sys_settings_apps">
-        <h1>
-          Manage Apps <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        <span id="cw_manageapps_span">
-
-        </span>
-      </div>
-      <div class="app" id="apppanel:sys_settings_themes">
-        <h1>
-          Manage Themes <a href="javascript:reloadThemes();">(reload themes)</a> <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        <span id="cw_managethemes_span">
-
-        </span>
       </div>
       <div class="app" id="apppanel:sys_settings_plugins">
         <h1>
