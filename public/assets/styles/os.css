@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
 
 
 @keyframes fadeoutlock {
@@ -30,7 +30,7 @@ body {
   padding: 0px;
   margin: 0px;
   background-color: black;
-  font-family: "Dosis", "Roboto Flex", Roboto, sans-serif;
+  font-family: "Asap", "Roboto Flex", Roboto, sans-serif;
 }
 
 .clockwork-notification {
@@ -227,7 +227,7 @@ progress::-webkit-progress-value {
 
 input,select {
   border: none;
-  font-family: "Dosis", "Roboto Flex", Roboto, sans-serif;
+  font-family: "Asap", "Roboto Flex", Roboto, sans-serif;
   background-color: #222;
   padding: 1px 2px;
 }
@@ -236,7 +236,7 @@ input {
   color: #fff;
   text-align: center;
   max-width: 120px;
-  font-family: "Dosis", "Roboto Flex", Roboto, sans-serif;
+  font-family: "Asap", "Roboto Flex", Roboto, sans-serif;
   border-radius: 4px;
 }
 
