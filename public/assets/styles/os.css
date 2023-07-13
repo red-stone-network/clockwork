@@ -43,6 +43,7 @@ body {
   color: white;
   padding: 4px;
   box-sizing: border-box;
+  border-radius: 8px 0 0 8px;
   padding-bottom: 1px;  
   filter: opacity(100%);
   animation-name: animnotif;
