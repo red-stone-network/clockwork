@@ -36,7 +36,8 @@ body {
   z-index: 99;
   position: fixed;
   width: 200px;
-  background-color: #222;
+  background-color: rgba(17,17,17,0.8);
+  border: 1px solid rgba(128,128,128,0.8);
   bottom: 48px;
   right: 0;
   color: white;
@@ -59,7 +60,6 @@ body {
   width: 200px;
   max-height: 300px;
   min-height: 128px;
-  background-color: #222;
   bottom: 48px;
   right: -200px;
   color: white;
@@ -67,7 +67,8 @@ body {
   box-sizing: border-box;
   padding-bottom: 1px; 
   filter: opacity(0%);
-  border: 1px solid gray;
+  background-color: rgba(17,17,17,0.8);
+  border: 1px solid rgba(128,128,128,0.8);
   border-right: none;
   border-radius: 8px 0 0 8px;
   transition: 0.2s;
@@ -150,10 +151,10 @@ progress::-webkit-progress-value {
 #contextmenu {
   position: fixed;
   width: 120px;
-  background-color: #111;
+  background-color: rgba(17,17,17,0.8);
   z-index: 999;
   color: white;
-  border: 1px solid gray;
+  border: 1px solid rgba(128,128,128,0.8);
   border-radius: 5px;
   filter: opacity(0%);
   transition: 0.2s;  
