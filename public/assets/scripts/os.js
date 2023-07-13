@@ -483,6 +483,7 @@ async function installApp(url,params) {
         version: json.version,
         encodedUrl: json.encodedUrl,
         permissions: json.permissions,
+        icon: json.icon
       }
       var finderTerms = json?.finderTerms;
       var myFinderData = {
