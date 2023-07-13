@@ -135,10 +135,12 @@ function loadSettingsScreen(screen) {
 
   for (let i=0; i<settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
-    let label = document.createElement("div");
-    label.className = "label";
-    label.innerText = settingsMenu[screen].screenContents[i].label;
-    div.appendChild(label);
+    if (settingsMenu[screen].screenContents[i].label) {
+      let label = document.createElement("div");
+      label.className = "label";
+      label.innerText = settingsMenu[screen].screenContents[i].label;
+      div.appendChild(label);
+    }
 
     if (settingsMenu[screen].screenContents[i].type == "text") {
       let textbox = document.createElement("input");
