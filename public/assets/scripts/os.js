@@ -155,7 +155,10 @@ const settingsMenu = [
     ]
   },
 ]
+var settingsCurrentScreen = null;
+
 function loadSettingsScreen(screen) {
+  settingsCurrentScreen = screen;
   while (settingsRightBox.firstChild) {
     settingsRightBox.removeChild(settingsRightBox.lastChild);
   }
@@ -816,7 +819,7 @@ async function installTheme(url) {
         title: title,
         desc: desc,
       })
-      document.getElementById("cw_managethemes_span").innerHTML += `<details class="mngthmspnl" id="mngthms:${url}">
+      /*document.getElementById("cw_managethemes_span").innerHTML += `<details class="mngthmspnl" id="mngthms:${url}">
       <summary>
       <span>${title}</span> `+
       (function() {
@@ -832,7 +835,8 @@ async function installTheme(url) {
       <btn onclick="moveTheme('${url}','add',-1)">Move Up</btn> <btn onclick="moveTheme('${url}','add',1)">Move Down</btn><br>
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
-      </details>`
+      </details>`*/
+      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Themes") loadSettingsMenu(settingsCurrentScreen);
       document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
         themes.push(url);
