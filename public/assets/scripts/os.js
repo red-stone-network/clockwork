@@ -350,7 +350,7 @@ const searchables = [
   {
     searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes","theme settings"],
     name: "Manage Themes",
-    icon: "/assets/images/ui/paintbrush-on-app-winow.png",
+    icon: "/assets/images/ui/paintbrush-on-app-window.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Manage Themes");
