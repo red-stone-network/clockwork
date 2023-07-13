@@ -153,9 +153,8 @@ progress::-webkit-progress-value {
   background-color: #111;
   z-index: 999;
   color: white;
+  border: 1px solid gray;
   border-radius: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   filter: opacity(0%);
   transition: 0.2s;  
 }
@@ -163,12 +162,16 @@ progress::-webkit-progress-value {
   filter: opacity(100%);
   transition: 0.2s;  
 }
-#contextmenu>btn {
+#contextmenu btn {
   width: 100%;
   transition: 0.2s;
   border-radius: 5px;
   padding: 0;
-  background-color: #222;
+  background-color: #111;
+  border-bottom: 1px solid gray;
+}
+#contextmenu btn:last-child {
+  border-bottom: none;
 }
 .clockwork-panel {
   color: white;
