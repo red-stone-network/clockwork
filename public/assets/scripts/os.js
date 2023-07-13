@@ -191,6 +191,24 @@ const settingsMenu = [
       }
     ]
   },
+  {
+    screenName: "About Clockwork",
+    screenIcon: "/assets/images/icon.png",
+    screenContents: [
+      {
+        type: "scriptbox",
+        value: function(div) {
+          div.innerHTML = `v${version} at ${document.location.hostname}<br>
+          Running ${navigator.userAgent}<br>
+          <br>
+          <h2>Credits</h2>
+          lukasexists<br>
+          l413<br>
+          hellscaped`
+        }
+      }
+    ]
+  },
 ]
 var settingsCurrentScreen = null;
 
