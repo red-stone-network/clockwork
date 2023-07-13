@@ -841,7 +841,7 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
-      document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
+      reloadThemes();
       if (themes.includes(url) == false) {
         themes.push(url);
         localStorage.setItem("themes", JSON.stringify(themes));
