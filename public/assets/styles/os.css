@@ -132,7 +132,7 @@ btn, select {
   cursor: pointer;
   display: inline-block;
   user-select: none;
-  background-color: #222;
+  background-color: rgba(0,0,0,0);
   color: #fff;
   padding: 4px 4px;
   border-radius: 4px;
