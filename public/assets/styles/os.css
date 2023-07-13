@@ -532,6 +532,13 @@ a:hover {
   padding-left: 10px;
 }
 
+#settings-wallpaper-box div {
+  background-color: #111;
+  border-radius: 8px;
+  width: 128px;
+  height: 60px;
+}
+
 .finder-box div {
   padding: 5px;
   border-radius: 0;

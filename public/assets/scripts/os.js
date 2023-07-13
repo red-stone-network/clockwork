@@ -49,6 +49,7 @@ contextMenu.style.display = "none";
 
 - scriptbox is used for scripted items.
 - it should contain a function value under the name "value"
+- can also contain a function value under the name "interval", will run every clock update [NOT MADE YET]
 - the first parameter is always the content box
 
 - dropdown is a dropdown obviously
@@ -132,6 +133,13 @@ const settingsMenu = [
         type: "dropdown",
         linkedSetting: "settings.clockType",
         values: [["12h","12-hour"],["24h", "24-hour"]]
+      },
+      {
+        label: "Wallpaper",
+        type: "scriptbox",
+        value: function(div) {
+          div.id = "settings-wallpaper-box"
+        }
       },
     ]
   },
