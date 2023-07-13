@@ -290,7 +290,7 @@ btn>.appbtnopen {
 }
 
 #appbar btn {
-  width: 48px;
+  width: 44px;
   height: 48px;
   background-color: #222;
   color: white;
@@ -304,10 +304,11 @@ btn>.appbtnopen {
   border-radius: 0;
   margin-left: 0;
   margin-right: 4px;
+  border-bottom: 2px solid gray;
 }
 #appbar btn img {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   filter: none;
   transition: 0.2s;
   border-radius: 5px;
@@ -317,7 +318,16 @@ btn>.appbtnopen {
   filter: opacity(80%);
 }
 #appbar btn:hover {
-  background-color: #888;
+  background-color: #555;
+  border-bottom: 4px solid gray;
+  transition: 0.2s;
+}
+#appbar btn.open {
+  border-bottom: 2px solid white;
+}
+#appbar btn.open:hover {
+  background-color: #555;
+  border-bottom: 4px solid white;
   transition: 0.2s;
 }
 iframe {
