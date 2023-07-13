@@ -679,6 +679,9 @@ function openApp(app, url, encoded) {
       }
     }
   }
+  for (const child of appBar.children) {
+    child.className = child.id == "appbar:"+app ? "open" : "";
+  }
 }
 function closeApp(app) {
   if (app == null || app == undefined) {
