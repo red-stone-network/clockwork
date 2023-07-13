@@ -38,8 +38,6 @@ var plugins = null;
 
 var version = "2.0.0.0-beta13-indev";
 
-document.getElementById("versiontxt").innerText = version;
-
 contextMenu.style.display = "none";
 
 // The Settings app uses this to load its UI
