@@ -138,7 +138,8 @@ const settingsMenu = [
         label: "Wallpaper",
         type: "scriptbox",
         value: function(div) {
-          div.id = "settings-wallpaper-box"
+          div.id = "settings-wallpaper-box";
+          div.innerHTML = "<div>test</div>"
         }
       },
     ]
