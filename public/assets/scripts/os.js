@@ -204,7 +204,9 @@ const settingsMenu = [
           <h2>Credits</h2>
           lukasexists<br>
           l413<br>
-          hellscaped`
+          hellscaped<br>
+          stolas<br>
+          and you for using our stuff`
         }
       }
     ]
