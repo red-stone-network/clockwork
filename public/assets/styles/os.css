@@ -132,7 +132,7 @@ btn, select {
   cursor: pointer;
   display: inline-block;
   user-select: none;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0).;
   color: #fff;
   padding: 4px 4px;
   border-radius: 4px;
@@ -527,6 +527,7 @@ a:hover {
   font-size: 18px;
   text-align: left;
   padding: 4px;
+  background-color: #222;
 }
 
 #apppanel\:sys_settings .right div .label {
