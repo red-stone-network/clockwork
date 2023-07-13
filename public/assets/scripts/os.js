@@ -43,6 +43,22 @@ document.getElementById("versiontxt").innerText = version;
 contextMenu.style.display = "none";
 
 // The Settings app uses this to load its UI
+
+/*
+--- TYPES OF CONTENTS ---
+
+- scriptbox is used for scripted items.
+- it should contain a function value under the name "value"
+- the first parameter is always the content box
+
+- dropdown is a dropdown obviously
+- should contain a label value and a linkedSetting value
+- should contain a values value, which is an array containing arrays formatted as ["id","label"]
+
+- text is used as a one-line text box
+- should contain a label value and a linkedSetting value
+- should also contain a placeholderText value
+*/
 const settingsMenu = [
   {
     screenName: "Manage Apps",
@@ -51,7 +67,27 @@ const settingsMenu = [
       {
         type: "scriptbox",
         value: function(div) {
-          div.innerHTML = "test!!!";
+          for (let i=0; i<apps.length;) {
+            div.innerHTML += `<details class="mngappspnl" id="mngapps:${appData[i].url}">
+            <summary>
+            <img src="${appData[i].icon}"> 
+            <span>${appData[i].name}</span> `+
+            (function () {
+              if (typeof appData[i].desc == "string") {
+                return appData[i].desc;
+              } else {
+                return "No description";
+              }
+            })()
+            +`
+            </summary>
+            <p>
+            <btn onclick="closeApp('${appData[i].url}')">Close app</btn><br>
+            <btn onclick="uninstallApp('${appData[i].url}')">Uninstall app</btn>
+            </p>
+            </details>`;
+            ++i;
+          }
         }
       },
     ]
@@ -106,7 +142,7 @@ function loadSettingsScreen(screen) {
 
     if (settingsMenu[screen].screenContents[i].type == "text") {
       let textbox = document.createElement("input");
-      textbox.placeholder = settingsMenu[screen].screenContents[i]?.placeholderText;
+      textbox.placeholder = settingsMenu[screen].screenContents[i].placeholderText;
       textbox.value = eval(settingsMenu[screen].screenContents[i].linkedSetting);
       textbox.className = "text";
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
@@ -471,7 +507,7 @@ async function installApp(url,params) {
       <img draggable="false" src="${json.icon}"></btn>`;
 
       // THIS IS IN THE MANAGE APPS PART OF SETTINGS
-      document.getElementById("cw_manageapps_span").innerHTML += `<details class="mngappspnl" id="mngapps:${url}">
+      /*document.getElementById("cw_manageapps_span").innerHTML += `<details class="mngappspnl" id="mngapps:${url}">
       <summary>
       <img src="${json.icon}"> 
       <span>${json.name}</span> `+
@@ -488,7 +524,7 @@ async function installApp(url,params) {
       <btn onclick="closeApp('${url}')">Close app</btn><br>
       <btn onclick="uninstallApp('${url}')">Uninstall app</btn>
       </p>
-      </details>`
+      </details>`*/
 
       if (apps.includes(url) == false) {
         apps.push(url);
