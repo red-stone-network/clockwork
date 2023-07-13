@@ -157,8 +157,8 @@ const settingsMenu = [
 ]
 var settingsCurrentScreen = null;
 
-function loadSettingsScreen(screen) {
-  if (typeof screen == "string") screen = settingsMenu.find((me) => me.screenName == screen);
+function loadSettingsScreen(prescreen) {
+  var screen = typeof prescreen == "string" ? settingsMenu.find((me) => me.screenName == prescreen) : prescreen;
   settingsCurrentScreen = screen;
   while (settingsRightBox.firstChild) {
     settingsRightBox.removeChild(settingsRightBox.lastChild);
