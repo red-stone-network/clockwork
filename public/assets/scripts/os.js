@@ -1045,7 +1045,7 @@ function sendNotification(title, content) {
   document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="https://redstonenw.vercel.app/assets/clockwork/close.png" 
   onclick="notifDestroy(this);"></b>\n${content}</div>`;
   if (!notifPanelOpen) {
-    document.getElementById("appsidebar:notifs").src = "https://redstonenw.vercel.app/assets/clockwork/new-notifs.png"
+    document.getElementById("appsidebar:notifs").src = "/assets/images/ringing-bell.png"
   }
 }
 
@@ -1057,7 +1057,7 @@ function openNotificationPanel() {
       notificationPanel.className = "visible";
       console.log(notificationPanel.className);
     },10)
-    document.getElementById("appsidebar:notifs").src = "https://redstonenw.vercel.app/assets/clockwork/notifs.png"
+    document.getElementById("appsidebar:notifs").src = "/assets/images/bell.png"
     notifPanelOpen = true;
   } else {
     notificationPanel.className = "invisible";
