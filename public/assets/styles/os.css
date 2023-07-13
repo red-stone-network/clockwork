@@ -168,7 +168,7 @@ progress::-webkit-progress-value {
   padding: 0;
   background-color: #111;
   border-bottom: 1px solid gray;
-  border-radius: none;
+  border-radius: 0;
 }
 #contextmenu btn:first-child {  
   border-radius: 5px 5px 0 0;
