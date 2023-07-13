@@ -114,6 +114,15 @@ t {
   width: 100%;
 }
 
+#clockwork-content {
+  background-image: url("/assets/images/wallpapers/default.png");
+  background-size: 100%;
+  background-position: center;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
 btn, select {
   cursor: pointer;
   display: inline-block;
@@ -199,9 +208,6 @@ progress::-webkit-progress-value {
 #apppanel {
   width: 100%; 
   height: calc(100vh - 48px);
-  background-image: url("/assets/images/wallpapers/default.png");
-  background-size: 100%;
-  background-position: center;
   color: white;
   position: fixed;
   top: 0;
@@ -245,7 +251,7 @@ btn>.appbtnopen {
 #appsidebar {
   width: 256px;
   height: 48px;
-  background-color: rgba(17,17,17,0.69);
+  background-color: rgba(17,17,17,0.8);
   position: fixed;
   bottom: 0;
   right: 0;
@@ -289,7 +295,7 @@ btn>.appbtnopen {
 #appbar {
   width: calc(100% - 256px);
   height: 48px;
-  background-color: rgba(17,17,17,0.69);
+  background-color: rgba(17,17,17,0.8);
   position: fixed;
   bottom: 0;
   font-size: 0px;
