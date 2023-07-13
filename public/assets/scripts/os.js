@@ -631,6 +631,8 @@ async function promptInstallApp(url,params) {
     prompt.style = "";
 
     document.body.appendChild(prompt);
+
+    if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
   } else {
     var retry = confirm("HTTP error while getting app data: " + response.status + "\nApp url: "+url+"\nRetry?");
     if (retry == true) {
@@ -747,6 +749,8 @@ function uninstallApp(app) {
   if (app == currentApp) {
     openApp("sys_home")
   }
+
+  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Apps") loadSettingsScreen(settingsCurrentScreen);
 }
 
 // context menu when u right click an app icon
@@ -789,6 +793,7 @@ async function reloadThemes() {
   for (let i = 0; i < themes.length; i++) {
     await installTheme(themes[i]);
   }
+  if (settingsMenu[settingsCurrentScreen].screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
 }
 
 async function installTheme(url) {
@@ -836,7 +841,6 @@ async function installTheme(url) {
       <btn onclick="uninstallTheme('${url}')">Uninstall Theme</btn>
       </p>
       </details>`*/
-      if (settingsMenu[settingsCurrentScreen].screenName == "Manage Themes") loadSettingsMenu(settingsCurrentScreen);
       document.querySelector("stylesheets").innerHTML = html + document.querySelector("stylesheets").innerHTML;
       if (themes.includes(url) == false) {
         themes.push(url);
