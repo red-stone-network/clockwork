@@ -143,6 +143,10 @@ const settingsMenu = [
             {
               title: "Default",
               url: "/assets/images/wallpapers/default.png"
+            },
+            {
+              title: "Mountains",
+              url: "/assets/images/wallpapers/mountains.png"
             }
           ]
           for (let i=0; i<defaultWallpapers.length;) {
