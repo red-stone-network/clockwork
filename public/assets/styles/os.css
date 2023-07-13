@@ -515,6 +515,7 @@ a:hover {
   width: calc(100% - 3px);
   font-size: 16px;
   text-align: left;
+  padding: 4px;
 }
 
 #apppanel\:sys_settings .right div .dropdown {
@@ -523,6 +524,7 @@ a:hover {
   display: inline-block;
   font-size: 18px;
   text-align: left;
+  padding: 4px;
 }
 
 #apppanel\:sys_settings .right div .label {
