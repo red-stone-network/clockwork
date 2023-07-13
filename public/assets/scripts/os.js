@@ -147,6 +147,10 @@ const settingsMenu = [
             {
               title: "Mountains",
               url: "/assets/images/wallpapers/mountains.png"
+            },
+            {
+              title: "Sunset",
+              url: "/assets/images/wallpapers/sunset.jpg"
             }
           ]
           for (let i=0; i<defaultWallpapers.length;) {
@@ -210,6 +214,7 @@ const settingsMenu = [
           l413<br>
           hellscaped<br>
           stolas<br>
+          teamb8<br>
           and you for using our stuff`
         }
       }
