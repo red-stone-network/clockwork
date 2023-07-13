@@ -1167,8 +1167,6 @@ function checkFinder(str) {
       --i;
     }
   }
-
-  console.error(match);
   
   finderBox.innerHTML = "";
   for (let i=0; i<match.length&&i<12;) {
