@@ -258,6 +258,7 @@ btn>.appbtnopen {
   font-size: 0px;
   display: flex;
   justify-content: right;
+  backdrop-filter: blur(50px);
 }
 #appsidebar div {
   font-size: 21px;
@@ -296,6 +297,7 @@ btn>.appbtnopen {
   width: calc(100% - 256px);
   height: 48px;
   background-color: rgba(17,17,17,0.8);
+  backdrop-filter: blur(50px);
   position: fixed;
   bottom: 0;
   font-size: 0px;
