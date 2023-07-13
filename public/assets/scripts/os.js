@@ -201,7 +201,7 @@ function loadSettingsScreen(prescreen) {
   for (let i=0; i<settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
     if (settingsMenu[screen].screenContents[i].label) {
-      let label = document.createElement("div");
+      let label = document.createElement("span");
       label.className = "label";
       label.innerText = settingsMenu[screen].screenContents[i].label;
       div.appendChild(label);

@@ -530,6 +530,7 @@ a:hover {
 #apppanel\:sys_settings .right div .label {
   font-size: 20px;
   padding-left: 10px;
+  display: block;
 }
 
 #settings-wallpaper-box div {
