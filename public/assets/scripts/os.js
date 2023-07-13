@@ -139,7 +139,13 @@ const settingsMenu = [
         type: "scriptbox",
         value: function(div) {
           div.id = "settings-wallpaper-box";
-          div.innerHTML = "<div>test</div>"
+          var defaultWallpapers = ["/assets/images/wallpapers/default.png"]
+          for (let i=0; i<defaultWallpapers.length;) {
+            var paper = document.createElement("DIV");
+            paper.innerHTML = "test";
+            div.appendChild(paper);
+            ++i;
+          }
         }
       },
     ]
