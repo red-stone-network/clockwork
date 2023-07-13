@@ -124,8 +124,8 @@ const settingsMenu = [
     ]
   },
   {
-    screenName: "Taskbar Settings",
-    screenIcon: "/assets/images/settings.png",
+    screenName: "Personalization",
+    screenIcon: "/assets/images/paintbrush.png",
     screenContents: [
       {
         label: "Clock type",
@@ -313,11 +313,11 @@ const searchables = [
   },
   {
     searchText: ["control center settings","time settings","24-hour time","12-hour time"],
-    name: "Taskbar Settings",
+    name: "Personalization",
     icon: "/assets/images/settings.png",
     onclick: function(){
       openApp('sys_settings');
-      loadSettingsScreen("Taskbar Settings");
+      loadSettingsScreen("Personalization");
     },
   },
   {
