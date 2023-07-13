@@ -83,21 +83,6 @@
           
         </div>
       </div>
-      <div class="app" id="apppanel:sys_settings_classic">
-        <h1>
-          Settings
-        </h1>
-        <h3>
-          <a href="javascript:openApp('sys_settings_apps')">Manage Apps</a><br>
-          <a href="javascript:openApp('sys_settings_themes')">Manage Themes</a><br>
-          <a href="javascript:openApp('sys_settings_plugins')">Manage Plugins</a><br>
-          <a href="javascript:openApp('sys_settings_control')">Taskbar Settings</a><br>
-          <a href="javascript:openApp('sys_settings_passcode')">Passcode Settings</a><br>
-          <a href="javascript:openApp('sys_settings_proxy')">Proxy Settings</a><br>
-          <a href="javascript:openApp('sys_about')">About Clockwork</a><br>
-          <a href="javascript:openApp('sys_devtools')">Developer Tools</a>
-        </h3>
-      </div>
       <div class="app" id="apppanel:sys_settings_passcode">
         <h1>
           Passcode Settings <a href="javascript:openApp('sys_settings')">(back)</a>
@@ -109,44 +94,6 @@
         <btn onclick="passcodeSettingChange('change')">Change it!</btn>
         <h3>Remove passcode</h3>
         <btn onclick="passcodeSettingChange('remove')">Remove it!</btn>
-      </div>
-
-      <div class="app" id="apppanel:sys_devtools">
-        <h1>
-          Devtools <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        <b>WARNING:</b> Don't mess with anything here unless you know what you're doing!
-        We are not liable for any damages caused to Clockwork by this menu.<br>
-        
-        <a onclick="installApp();">Click me to install an external app.</a>
-        <details>
-          <summary><b>OBSOLETED BUTTONS:</b> Buttons made for Clockwork developer testing, now no longer used.</summary>
-          <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', -1)">
-            moveApp(muenster, -1)
-          </a>
-          <a onclick="moveApp('https://gist.githubusercontent.com/lukasexists/835f37b04e05adafda1bc1b62c3d6b65/raw/795a6f156ba6aa76ee805caa3ec1d510bce6ef5e/muenster.json', 'add', 1)">
-            moveApp(muenster, 1)
-          </a>
-          <a onclick="installTheme('/clockwork-beta/restyle.css')">Click me to install test theme.</a>
-          <a onclick="changeSetting('lock.enabled', true);">Click me to turn on passcode.</a>
-          <a onclick="settings.lock.enabled = true; localStorage.setItem('settings', JSON.stringify(settings));">Click me to turn on passcode2.</a><br>
-        </details>
-      </div>
-      <div class="app" id="apppanel:sys_about">
-        <h1>
-          About Clockwork <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        <h3>Clockwork v<span id="versiontxt"></span></h3>
-        <a href="https://icons8.com/">Icons by Icons8</a>
-        <a href="https://redstonenetwrk.vercel.app/">Made by Redstone Network</a>
-      </div>
-      <div class="app" id="apppanel:sys_settings_plugins">
-        <h1>
-          Manage Plugins <a href="javascript:openApp('sys_settings')">(back)</a>
-        </h1>
-        <span id="cw_manageplugins_span">
-
-        </span>
       </div>
     </div>
 

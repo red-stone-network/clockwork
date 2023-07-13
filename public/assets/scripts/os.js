@@ -308,7 +308,7 @@ const searchables = [
   {
     searchText: ["prefs","preferences"],
     name: "Settings",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/ui/settings.png",
     onclick: function(){
       openApp('sys_settings');
     },
@@ -332,7 +332,7 @@ const searchables = [
   {
     searchText: ["apps","manage apps","uninstall apps","app settings"],
     name: "Manage Apps",
-    icon: "/assets/images/app-window.png",
+    icon: "/assets/images/ui/app-window.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Manage Apps");
@@ -341,7 +341,7 @@ const searchables = [
   {
     searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes","theme settings"],
     name: "Manage Themes",
-    icon: "/assets/images/paintbrush.png",
+    icon: "/assets/images/ui/paintbrush-on-app-winow.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Manage Themes");
@@ -350,7 +350,7 @@ const searchables = [
   {
     searchText: ["proxy settings","unblock settings","unblocking settings","ultraviolet settings"],
     name: "Proxy Settings",
-    icon: "/assets/images/ultraviolet.png",
+    icon: "/assets/images/ui/ultraviolet.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Proxy Settings");
@@ -359,7 +359,7 @@ const searchables = [
   {
     searchText: ["passcode settings","password settings","lock settings"],
     name: "Passcode Settings",
-    icon: "/assets/images/key.png",
+    icon: "/assets/images/ui/key.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Passcode Settings");
@@ -368,7 +368,7 @@ const searchables = [
   {
     searchText: ["control center settings","time settings","24-hour time","12-hour time"],
     name: "Personalization",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/ui/paintbrush.png",
     onclick: function(){
       openApp('sys_settings');
       loadSettingsScreen("Personalization");
@@ -377,9 +377,10 @@ const searchables = [
   {
     searchText: ["about clockwork","version clockwork","clockwork version"],
     name: "About Clockwork",
-    icon: "/assets/images/settings.png",
+    icon: "/assets/images/ui/clockwork.png",
     onclick: function(){
-      openApp('sys_about');
+      openApp('sys_settings');
+      loadSettingsScreen("About Clockwork");
     },
   },
 ]
