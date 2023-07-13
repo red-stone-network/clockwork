@@ -150,7 +150,7 @@ const settingsMenu = [
             paper.innerText = defaultWallpapers[i].title;
             paper.style.backgroundImage = `url(${defaultWallpapers[i].url})`;
             paper.onclick = function(e) {
-              settings.wallpaper = e.target.style.backgroundImage;
+              settings.wallpaper = e.target.style.backgroundImage.slice(4, -1);
               localStorage.setItem("settings", JSON.stringify(settings));
             }
             div.appendChild(paper);
