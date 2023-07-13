@@ -541,6 +541,7 @@ a:hover {
   background-image: url("/assets/images/wallpapers/default.png");
   background-size: cover;
   background-position: center center;
+  display: inline-block;
 }
 
 .finder-box div {
