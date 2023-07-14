@@ -1203,11 +1203,9 @@ function sendNotification(title, content) {
 var notifPanelOpen = false;
 
 function openNotificationPanel() {
-  console.log(notificationPanel.className);
   if (notifPanelOpen == false) {
     setTimeout(function() {
       notificationPanel.className = "visible";
-      console.log(notificationPanel.className);
     }, 10)
     document.getElementById("appsidebar:notifs").src = "/assets/images/ui/bell.png"
     notifPanelOpen = true;
