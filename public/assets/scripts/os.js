@@ -1294,13 +1294,11 @@ function checkFinder(str) {
     for (let i = 0; i < searchables.length;) {
       var sub = str.toLowerCase()
       if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
-        priorityLevel2.push(searchables[i]);
-        console.debug(match)
+        priorityLevel3.push(searchables[i]);
         ++i; continue;
       }
       if (searchables[i].name.toLowerCase().includes(sub)) {
-        match.push(searchables[i]);
-        console.debug(match)
+        priorityLevel2.push(searchables[i]);
         ++i; continue;
       }
       
@@ -1308,8 +1306,6 @@ function checkFinder(str) {
         console.log(searchables[i].searchText[i2] + ": " + searchables[i].searchText[i2].toLowerCase().includes(sub))
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
-          console.info("AAA")
-          console.debug(match)
           break;
         }
         
@@ -1317,10 +1313,8 @@ function checkFinder(str) {
       }
       ++i;
     }
-    while (priorityLevel2[0]) {
-      match.unshift(priorityLevel2[0]);
-      console.debug(match)
-    }
+    while (priorityLevel2[0]) match.unshift(priorityLevel2[0]);
+    while (priorityLevel3[0]) match.unshift(priorityLevel3[0]);
   }
 
   console.log(match);
