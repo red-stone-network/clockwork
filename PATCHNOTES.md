@@ -5,6 +5,7 @@
 > - ADDED: Enter to select first item in Finder
 > - ADDED: Wallpaper system, with wallpapers made by LukasExists, Quino Al
 > - ADDED: New UI design
+> - ADDED: Clock font setting
 
 > - CHANGED: New UI for Finder, highlighting first option and making window wider
 > - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
