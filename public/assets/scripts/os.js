@@ -182,7 +182,7 @@ const settingsMenu = [{
           paper.style.backgroundImage = `url("/assets/images/wallpaper-previews/custom.png")`;
           paper.onclick = function(e) {
             var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
-            if (!url) break;
+            if (!url) return;
             settings.wallpaper = url;
             localStorage.setItem("settings", JSON.stringify(settings));
           }
