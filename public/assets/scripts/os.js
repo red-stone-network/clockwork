@@ -1297,18 +1297,14 @@ function checkFinder(str) {
         priorityLevel2.push(searchables[i]);
         continue;
       }
+      if (searchables[i].name.toLowerCase().includes(sub)) {
+        match.push(searchables[i]);
+        continue;
+      }
 
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
-        
-
-        
-
+        console.log(searchables[i].searchText[i2])
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
-          match.push(searchables[i]);
-          break;
-        }
-
-        if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
