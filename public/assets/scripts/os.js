@@ -1317,7 +1317,7 @@ function checkFinder(str) {
       }
       ++i;
     }
-    for (let i = priorityLevel2.length; i >= 0;) {
+    for (let i = priorityLevel2.length; i > 0;) {
       match.unshift(priorityLevel2[i]);
       console.debug(match)
       --i;
