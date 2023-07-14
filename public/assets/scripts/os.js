@@ -1313,8 +1313,8 @@ function checkFinder(str) {
       }
       ++i;
     }
-    while (priorityLevel2[0]) { match.unshift(priorityLevel2[0]) };
-    while (priorityLevel3[0]) { match.unshift(priorityLevel3[0]) };
+    while (priorityLevel2[0]) { match.unshift(priorityLevel2[0]); priorityLevel2.splice(0,1) };
+    while (priorityLevel3[0]) { match.unshift(priorityLevel3[0]); priorityLevel3.splice(0,1) };
   }
 
   console.log(match);
