@@ -1306,6 +1306,7 @@ function checkFinder(str) {
         console.log(searchables[i].searchText[i2] + ": " + searchables[i].searchText[i2].toLowerCase().includes(sub))
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
+          console.info("AAA")
           break;
         }
 
