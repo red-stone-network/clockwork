@@ -1292,13 +1292,16 @@ function checkFinder(str) {
     var priorityLevel2 = [];
     var priorityLevel3 = [];
     for (let i = 0; i < searchables.length;) {
-      for (let i2 = 0; i2 < searchables[i].searchText.length;) {
-        var sub = str.toLowerCase()
+      var sub = str.toLowerCase()
+      if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
+        priorityLevel2.push(searchables[i]);
+        continue;
+      }
 
-        if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
-          priorityLevel2.push(searchables[i]);
-          break;
-        }
+      for (let i2 = 0; i2 < searchables[i].searchText.length;) {
+        
+
+        
 
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
