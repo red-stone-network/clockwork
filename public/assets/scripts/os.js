@@ -1324,6 +1324,7 @@ function checkFinder(str) {
   finderBox.innerHTML = "";
   for (let i = 0; i < match.length && i < 12;) {
     var div = document.createElement("div");
+    if (!match[i]) continue;
 
     if (i == 0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
 
