@@ -1,9 +1,9 @@
-# 2.0.0.0-beta13
+# 2.0.0.0-beta14
 
 > - ADDED: Revamped Settings app - now all in one app!
 > - ADDED: New search system for Finder 
 > - ADDED: Enter to select first item in Finder
-> - ADDED: Wallpaper system, with wallpapers made by LukasExists, Quino Al
+> - ADDED: Wallpaper system, with wallpapers made by LukasExists, Quino Al, Bernard Spragg
 > - ADDED: New UI design
 > - ADDED: Clock font setting
 > - ADDED: Console warning for pasting code
