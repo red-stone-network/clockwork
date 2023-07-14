@@ -360,7 +360,7 @@ const searchables = [{
   {
     searchText: ["chat", "discord"],
     name: "Chat on Discord",
-    icon: "/assets/images/discord.png",
+    icon: "/assets/images/ui/discord.png",
     onclick: function() {
       window.open("https://discord.gg/Sb8NzVbqX8", "_blank");
     },
