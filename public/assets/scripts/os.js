@@ -1295,11 +1295,11 @@ function checkFinder(str) {
       var sub = str.toLowerCase()
       if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
         priorityLevel2.push(searchables[i]);
-        continue;
+        ++i; continue;
       }
       if (searchables[i].name.toLowerCase().includes(sub)) {
         match.push(searchables[i]);
-        continue;
+        ++i; continue;
       }
 
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
