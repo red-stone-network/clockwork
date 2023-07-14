@@ -1295,27 +1295,31 @@ function checkFinder(str) {
       var sub = str.toLowerCase()
       if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
         priorityLevel2.push(searchables[i]);
+        console.debug(match)
         ++i; continue;
       }
       if (searchables[i].name.toLowerCase().includes(sub)) {
         match.push(searchables[i]);
+        console.debug(match)
         ++i; continue;
       }
-
+      
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
         console.log(searchables[i].searchText[i2] + ": " + searchables[i].searchText[i2].toLowerCase().includes(sub))
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           console.info("AAA")
+          console.debug(match)
           break;
         }
-
+        
         ++i2;
       }
       ++i;
     }
     for (let i = priorityLevel2.length; i >= 0;) {
       match.unshift(priorityLevel2[i]);
+      console.debug(match)
       --i;
     }
   }
