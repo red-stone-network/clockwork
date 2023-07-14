@@ -1320,6 +1320,7 @@ function checkFinder(str) {
     }
   }
 
+  console.log(match);
   finderBox.innerHTML = "";
   for (let i = 0; i < match.length && i < 12;) {
     var div = document.createElement("div");
