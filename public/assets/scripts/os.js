@@ -224,7 +224,7 @@ const settingsMenu = [{
   },
   {
     screenName: "Import & Export",
-    screenIcon: "/assets/images/ui/settings.png",
+    screenIcon: "/assets/images/ui/import-export.png",
     screenContents: [{
         label: "What is this?",
         type: "scriptbox",
