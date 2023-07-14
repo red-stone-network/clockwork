@@ -32,7 +32,7 @@
   You can also use <a href="https://freedns.afraid.org/">FreeDNS</a> to get free subdomains (only if you have a home computer, also don't use the short ones because most are taken)
 </p>
 <p align="center">
-  If you start having trouble, we suggest you ask in the Discord.
+  If you start having trouble, we suggest you contact <a href="mailto:support@mail.redstonenetwork.rit.cl">Support</a>] for assistance.
 </p>
 
 <!-- FOOTER -->
