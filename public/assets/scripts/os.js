@@ -223,6 +223,27 @@ const settingsMenu = [{
     ]
   },
   {
+    screenName: "Import & Export",
+    screenIcon: "/assets/images/ui/settings.png",
+    screenContents: [{
+        label: "What is this?",
+        type: "scriptbox",
+        value: function(div) {
+          div.innerHTML = `<p>
+          This is a tool that allows you to import and export all the data stored in Clockwork. Exporting will export your data in a .cws file, which can be imported easily. Importing will require a .cws file, and will force-restart Clockwork.
+          </p>`
+        }
+      },
+      {
+        label: "Tools",
+        type: "scriptbox",
+        value: function(div) {
+          div.innerHTML = "Coming soon..."
+        }
+      }
+    ]
+  },
+  {
     screenName: "About Clockwork",
     screenIcon: "/assets/images/ui/clockwork.png",
     screenContents: [{
