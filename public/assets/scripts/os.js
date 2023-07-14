@@ -58,93 +58,93 @@ contextMenu.style.display = "none";
 - should contain a label value and a linkedSetting value
 - should also contain a placeholderText value
 */
-const settingsMenu = [
-  {
+const settingsMenu = [{
     screenName: "Manage Apps",
     screenIcon: "/assets/images/ui/app-window.png",
-    screenContents: [
-      {
-        type: "scriptbox",
-        value: function(div) {
-          for (let i=0; i<apps.length;) {
-            div.innerHTML += `<details class="mngappspnl" id="mngapps:${appData[i].url}">
+    screenContents: [{
+      type: "scriptbox",
+      value: function(div) {
+        for (let i = 0; i < apps.length;) {
+          div.innerHTML += `<details class="mngappspnl" id="mngapps:${appData[i].url}">
             <summary>
             <img src="${appData[i].icon}"> 
-            <span>${appData[i].name}</span> `+
-            (function () {
+            <span>${appData[i].name}</span> ` +
+            (function() {
               if (typeof appData[i].desc == "string") {
                 return appData[i].desc;
               } else {
                 return "No description";
               }
-            })()
-            +`
+            })() +
+            `
             </summary>
             <p>
             <btn onclick="closeApp('${appData[i].url}')">Close app</btn><br>
             <btn onclick="uninstallApp('${appData[i].url}')">Uninstall app</btn>
             </p>
             </details>`;
-            ++i;
-          }
+          ++i;
         }
-      },
-    ]
+      }
+    }, ]
   },
   {
     screenName: "Manage Themes",
     screenIcon: "/assets/images/ui/paintbrush-on-app-window.png",
-    screenContents: [
-      {
-        type: "scriptbox",
-        value: function(div) {
-          for (let i=0; i<themes.length;) {
-            div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
+    screenContents: [{
+      type: "scriptbox",
+      value: function(div) {
+        for (let i = 0; i < themes.length;) {
+          div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
             <summary>
-            <span>${themeData[i].title}</span> `+
+            <span>${themeData[i].title}</span> ` +
             (function() {
               if (!themeData[i].desc) {
                 return "No description";
               } else {
                 return themeData[i].desc[1];
               }
-            })()
-            +`
+            })() +
+            `
             </summary>
             <p>
             <btn onclick="moveTheme('${themeData[i].url}','add',-1)">Move Up</btn> <btn onclick="moveTheme('${themeData[i].url}','add',1)">Move Down</btn><br>
             <btn onclick="uninstallTheme('${themeData[i].url}')">Uninstall Theme</btn>
             </p>
             </details>`;
-            ++i;
-          }
+          ++i;
         }
-      },
-    ]
+      }
+    }, ]
   },
   {
     screenName: "Personalization",
     screenIcon: "/assets/images/ui/paintbrush.png",
-    screenContents: [
-      {
+    screenContents: [{
         label: "Clock type",
         type: "dropdown",
         linkedSetting: "settings.clockType",
-        values: [["12h","12-hour"],["24h", "24-hour"]]
+        values: [
+          ["12h", "12-hour"],
+          ["24h", "24-hour"]
+        ]
       },
       {
         label: "Clock font",
         type: "dropdown",
         linkedSetting: "settings.clockFont",
-        values: [["varela","Display"],["asap", "Body"],["mono","Monospace"]]
+        values: [
+          ["varela", "Display"],
+          ["asap", "Body"],
+          ["mono", "Monospace"]
+        ]
       },
       {
         label: "Wallpaper",
         type: "scriptbox",
         value: function(div) {
           div.id = "settings-wallpaper-box";
-          var defaultWallpapers = [
-            {
+          var defaultWallpapers = [{
               title: "Default",
               url: "/assets/images/wallpapers/default.png",
               preview: "/assets/images/wallpaper-previews/default.png"
@@ -154,54 +154,64 @@ const settingsMenu = [
               url: "/assets/images/wallpapers/mountains.png",
               preview: "/assets/images/wallpaper-previews/mountains.png"
             },
-            {
-              title: "Sunset by Quino Al",
-              url: "/assets/images/wallpapers/sunset.png",
-              preview: "/assets/images/wallpaper-previews/sunset.png"
-            },
-            {
-              title: "Grand Canyon by Bernard Spragg",
-              url: "/assets/images/wallpapers/grand-canyon.jpg",
-              preview: "/assets/images/wallpaper-previews/grand-canyon.png"
-            }
-          ]
-          for (let i=0; i<defaultWallpapers.length;) {
+           {
+             title: "Sunset by Quino Al",
+             url: "/assets/images/wallpapers/sunset.png",
+             preview: "/assets/images/wallpaper-previews/sunset.png"
+           },
+           {
+             title: "Grand Canyon by Bernard Spragg",
+             url: "/assets/images/wallpapers/grand-canyon.jpg",
+             preview: "/assets/images/wallpaper-previews/grand-canyon.png"
+           }
+         ]
+         for (let i = 0; i < defaultWallpapers.length;) {
             var paper = document.createElement("DIV");
             paper.innerText = defaultWallpapers[i].title;
             paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
-            paper.dataset.url = defaultWallpapers[i].url;
-            paper.onclick = function(e) {
+           paper.dataset.url = defaultWallpapers[i].url;
+           paper.onclick = function(e) {
               settings.wallpaper = e.target.dataset.url;
               localStorage.setItem("settings", JSON.stringify(settings));
             }
             div.appendChild(paper);
             ++i;
-          }
-        }
+         }
+         var paper = document.createElement("DIV");
+         paper.innerText = "Custom wallpaper";
+         paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
+         paper.dataset.url = defaultWallpapers[i].url;
+         paper.onclick = function(e) {
+           var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
+           settings.wallpaper = url;
+           localStorage.setItem("settings", JSON.stringify(settings));
+         }
+         div.appendChild(paper);
+       }
       },
     ]
   },
   {
     screenName: "Passcode Settings",
     screenIcon: "/assets/images/ui/key.png",
-    screenContents: [
-      {
-        type: "scriptbox",
-        value: function(div) {
-          div.innerText = "We're working on it..."
-        }
-      },
-    ]
+    screenContents: [{
+      type: "scriptbox",
+      value: function(div) {
+        div.innerText = "We're working on it..."
+      }
+    }, ]
   },
   {
     screenName: "Proxy Settings",
     screenIcon: "/assets/images/ui/ultraviolet.png",
-    screenContents: [
-      {
+    screenContents: [{
         label: "Proxy",
         type: "dropdown",
         linkedSetting: "settings.proxy",
-        values: [["none","Don't use a proxy"],["uv", "Use an Ultraviolet proxy"]]
+        values: [
+          ["none", "Don't use a proxy"],
+          ["uv", "Use an Ultraviolet proxy"]
+        ]
       },
       {
         label: "Proxy URL",
@@ -215,11 +225,10 @@ const settingsMenu = [
   {
     screenName: "About Clockwork",
     screenIcon: "/assets/images/ui/clockwork.png",
-    screenContents: [
-      {
-        type: "scriptbox",
-        value: function(div) {
-          div.innerHTML = `v${version} at ${document.location.hostname}<br>
+    screenContents: [{
+      type: "scriptbox",
+      value: function(div) {
+        div.innerHTML = `v${version} at ${document.location.hostname}<br>
           Running ${navigator.userAgent}<br>
           <br>
           <h2>Credits</h2>
@@ -230,18 +239,17 @@ const settingsMenu = [
           Quino Al<br>
           Bernard Spragg<br>
           and you for using our stuff`
-        }
       }
-    ]
+    }]
   },
 ]
 var settingsCurrentScreen = null;
 
 function loadSettingsScreen(prescreen) {
-  var screen = typeof prescreen == "string" 
-    ? settingsMenu.indexOf(settingsMenu.find((me) => me.screenName == prescreen)) 
-    : prescreen;
-    
+  var screen = typeof prescreen == "string" ?
+    settingsMenu.indexOf(settingsMenu.find((me) => me.screenName == prescreen)) :
+    prescreen;
+
   settingsCurrentScreen = screen;
   while (settingsRightBox.firstChild) {
     settingsRightBox.removeChild(settingsRightBox.lastChild);
@@ -251,7 +259,7 @@ function loadSettingsScreen(prescreen) {
   h2.innerText = settingsMenu[screen].screenName;
   settingsRightBox.appendChild(h2);
 
-  for (let i=0; i<settingsMenu[screen].screenContents.length;) {
+  for (let i = 0; i < settingsMenu[screen].screenContents.length;) {
     let div = document.createElement("div");
     if (settingsMenu[screen].screenContents[i].label) {
       let label = document.createElement("span");
@@ -268,7 +276,7 @@ function loadSettingsScreen(prescreen) {
       textbox.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
 
       textbox.onchange = (e) => {
-        eval(`${e.target.dataset.linked} = "${e.target.value}"`); 
+        eval(`${e.target.dataset.linked} = "${e.target.value}"`);
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
@@ -277,7 +285,7 @@ function loadSettingsScreen(prescreen) {
     if (settingsMenu[screen].screenContents[i].type == "dropdown") {
       let dropdown = document.createElement("select");
 
-      for (let j=0; j<settingsMenu[screen].screenContents[i].values.length;) {
+      for (let j = 0; j < settingsMenu[screen].screenContents[i].values.length;) {
         let option = document.createElement("option");
         option.value = settingsMenu[screen].screenContents[i].values[j][0]
         option.innerText = settingsMenu[screen].screenContents[i].values[j][1]
@@ -290,7 +298,7 @@ function loadSettingsScreen(prescreen) {
       dropdown.dataset.linked = settingsMenu[screen].screenContents[i].linkedSetting;
 
       dropdown.onchange = (e) => {
-        eval(`${e.target.dataset.linked} = "${e.target.value}"`); 
+        eval(`${e.target.dataset.linked} = "${e.target.value}"`);
         localStorage.setItem('settings', JSON.stringify(settings));
       }
 
@@ -306,11 +314,13 @@ function loadSettingsScreen(prescreen) {
 }
 
 function loadSettingsMenu() { // Loads up the settings menu (shocker)
-  for (let i=0; i<settingsMenu.length;) {
+  for (let i = 0; i < settingsMenu.length;) {
     let div = document.createElement("div");
     div.innerHTML = `<img src="${settingsMenu[i].screenIcon}"> <span>${settingsMenu[i].screenName}</span>`
     div.dataset.num = i;
-    div.onclick = (e) => {loadSettingsScreen(Number(div.dataset.num))};
+    div.onclick = (e) => {
+      loadSettingsScreen(Number(div.dataset.num))
+    };
     settingsLeftBox.appendChild(div);
     ++i;
   }
@@ -318,81 +328,80 @@ function loadSettingsMenu() { // Loads up the settings menu (shocker)
 loadSettingsMenu();
 
 // The stuff that you can search up using the Finder
-const searchables = [
-  {
-    searchText: ["prefs","preferences"],
+const searchables = [{
+    searchText: ["prefs", "preferences"],
     name: "Settings",
     icon: "/assets/images/ui/settings.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
     },
   },
   {
-    searchText: ["chat","discord"],
+    searchText: ["chat", "discord"],
     name: "Chat on Discord",
     icon: "/assets/images/discord.png",
-    onclick: function(){
-      window.open("https://discord.gg/Sb8NzVbqX8","_blank");
+    onclick: function() {
+      window.open("https://discord.gg/Sb8NzVbqX8", "_blank");
     },
   },
   {
-    searchText: ["email","support"],
+    searchText: ["email", "support"],
     name: "Contact Support",
     icon: "/assets/images/support.png",
-    onclick: function(){
-      window.open("mailto:support@mail.redstonenetwork.rit.cl","_blank");
+    onclick: function() {
+      window.open("mailto:support@mail.redstonenetwork.rit.cl", "_blank");
     },
   },
   {
-    searchText: ["apps","manage apps","uninstall apps","app settings"],
+    searchText: ["apps", "manage apps", "uninstall apps", "app settings"],
     name: "Manage Apps",
     icon: "/assets/images/ui/app-window.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("Manage Apps");
     },
   },
   {
-    searchText: ["themes","manage themes","uninstall themes","reorder themes","set themes","theme settings"],
+    searchText: ["themes", "manage themes", "uninstall themes", "reorder themes", "set themes", "theme settings"],
     name: "Manage Themes",
     icon: "/assets/images/ui/paintbrush-on-app-window.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("Manage Themes");
     },
   },
   {
-    searchText: ["proxy settings","unblock settings","unblocking settings","ultraviolet settings"],
+    searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings"],
     name: "Proxy Settings",
     icon: "/assets/images/ui/ultraviolet.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("Proxy Settings");
     },
   },
   {
-    searchText: ["passcode settings","password settings","lock settings"],
+    searchText: ["passcode settings", "password settings", "lock settings"],
     name: "Passcode Settings",
     icon: "/assets/images/ui/key.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("Passcode Settings");
     },
   },
   {
-    searchText: ["control center settings","time settings","24-hour time","12-hour time"],
+    searchText: ["control center settings", "time settings", "24-hour time", "12-hour time"],
     name: "Personalization",
     icon: "/assets/images/ui/paintbrush.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("Personalization");
     },
   },
   {
-    searchText: ["about clockwork","version clockwork","clockwork version"],
+    searchText: ["about clockwork", "version clockwork", "clockwork version"],
     name: "About Clockwork",
     icon: "/assets/images/ui/clockwork.png",
-    onclick: function(){
+    onclick: function() {
       openApp('sys_settings');
       loadSettingsScreen("About Clockwork");
     },
@@ -402,13 +411,14 @@ const searchables = [
 
 // ULTRAVIOLET ENCODING AND DECODING
 // THIS IS REQUIRED FOR USING A PROXY
-function encodeUV(str){
+function encodeUV(str) {
   if (!str) return str;
   return encodeURIComponent(str.toString().split('').map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(''));
 }
-function decodeUV(str){
+
+function decodeUV(str) {
   if (!str) return str;
-  let [ input, ...search ] = str.split('?');
+  let [input, ...search] = str.split('?');
 
   return decodeURIComponent(input).split('').map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 2) : char).join('') + (search.length ? '?' + search.join('?') : '');
 }
@@ -431,9 +441,9 @@ var settings = null;
 // moveInArray
 function moveInArray(arr, old_index, new_index) {
   var old_item = arr[old_index];
-  arr.splice(old_index, 1);  
-  
-  arr.splice(new_index, 0, old_item);  
+  arr.splice(old_index, 1);
+
+  arr.splice(new_index, 0, old_item);
   return arr;
 }
 
@@ -494,7 +504,9 @@ if (localStorage.getItem("apps") == null || localStorage.getItem("apps") == "!!r
 loadBar.max = apps.length + themes.length + plugins.length;
 loadBar.value = 0;
 for (let i = 0; i < apps.length; i++) {
-  installApp(apps[i], {start: true});
+  installApp(apps[i], {
+    start: true
+  });
 }
 var themeData = [];
 for (let i = 0; i < themes.length; i++) {
@@ -513,14 +525,14 @@ document.getElementById("clockwork-content").style = "display: none;";
 function checkForFinish() {
   if (loadBar.max == loadBar.value) {
     checkFinder();
-  	document.getElementById("clockwork-loading").style = "display: none;";
-		if (settings.lock.enabled == true || settings.lock.enabled == "true") {
+    document.getElementById("clockwork-loading").style = "display: none;";
+    if (settings.lock.enabled == true || settings.lock.enabled == "true") {
       document.getElementById("clockwork-lock").style = "";
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadein";
       pcodeInput.focus();
     } else {
       document.getElementById("clockwork-content").style = "";
-      sendNotification("Welcome to Clockwork", "Clockwork is currently running "+version)
+      sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
     }
   } else {
     setTimeout(checkForFinish, 500);
@@ -536,24 +548,27 @@ function sideBarClock() {
   let s = today.getSeconds();
   m = checkTime(m);
   s = checkTime(s);
-  
+
   if (settings.clockFont == "asap") document.getElementById('appsidebar-clock').style.fontFamily = '"Asap", sans-serif'
   else if (settings.clockFont == "varela") document.getElementById('appsidebar-clock').style.fontFamily = '"Varela Round", sans-serif'
   else document.getElementById('appsidebar-clock').style.fontFamily = 'monospace'
 
   if (settings.clockType == "12h") {
     if (h > 12) {
-   	  document.getElementById('appsidebar-clock').innerHTML =  (h - 12) + ":" + m + ":" + s + " PM";
+      document.getElementById('appsidebar-clock').innerHTML = (h - 12) + ":" + m + ":" + s + " PM";
     } else {
-      document.getElementById('appsidebar-clock').innerHTML =  h + ":" + m + ":" + s + " AM";
+      document.getElementById('appsidebar-clock').innerHTML = h + ":" + m + ":" + s + " AM";
     }
   } else {
-    document.getElementById('appsidebar-clock').innerHTML =  h + ":" + m + ":" + s;
+    document.getElementById('appsidebar-clock').innerHTML = h + ":" + m + ":" + s;
   }
   document.querySelector('#clockwork-content').style.backgroundImage = `url(${settings.wallpaper})`
 }
+
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10) {
+    i = "0" + i
+  }; // add zero in front of numbers < 10
   return i;
 }
 sideBarClock();
@@ -587,27 +602,30 @@ function uninstallPlugin(url) {
 }
 
 // apps
-async function installApp(url,params) {
+async function installApp(url, params) {
   if (url === null | url === undefined) {
     url = prompt("ID is undefined or null, enter a URL (or leave blank to cancel)");
   }
   if (url === null || url === undefined) {
     throw "ID is undefined or null";
   }
-	try {
-	  let response = await fetch(url, {cache: "reload", mode: "cors",});
+  try {
+    let response = await fetch(url, {
+      cache: "reload",
+      mode: "cors",
+    });
 
-		if (response.ok) {
+    if (response.ok) {
       if (appData.find(function(o) {
           return o.url == url
-        })){
+        })) {
         throw "App already installed!";
       }
-		  let json = await response.text();
+      let json = await response.text();
       json = JSON.parse(json);
       let myIframe = document.createElement("IFRAME");
       myIframe.src = "about:blank";
-      myIframe.id = "apppanel:"+url;
+      myIframe.id = "apppanel:" + url;
       myIframe.className = "app";
       appPanel.appendChild(myIframe);
       var myAppData = {
@@ -622,7 +640,7 @@ async function installApp(url,params) {
       }
       var finderTerms = json?.finderTerms;
       var myFinderData = {
-        searchText: (function(){
+        searchText: (function() {
           if (finderTerms == null) {
             return [json.name.toLowerCase()];
           } else {
@@ -635,8 +653,8 @@ async function installApp(url,params) {
       }
       appData.push(myAppData);
       searchables.unshift(myFinderData);
-      
-	    appBar.innerHTML += `<btn id="appbar:${url}" 
+
+      appBar.innerHTML += `<btn id="appbar:${url}" 
       onclick="openApp('${url}','${json.url}',${json.encodedUrl})" 
       oncontextmenu="appContextMenu('${url}')"
       draggable="true">
@@ -667,7 +685,7 @@ async function installApp(url,params) {
         apps.push(url);
         localStorage.setItem("apps", JSON.stringify(apps));
       }
-      document.getElementById("appbar:"+url).style = "order: "+apps.indexOf(url)+";";
+      document.getElementById("appbar:" + url).style = "order: " + apps.indexOf(url) + ";";
       /*document.getElementById("appbar:"+url).addEventListener("dragstart", (event) =>{
   		event.dataTransfer.setData("text/plain", url);
       });
@@ -682,8 +700,8 @@ async function installApp(url,params) {
             alert(daita);
           });*/
 
-		} else {
-		  var retry = confirm("HTTP error while installing app: " + response.status + "\nApp url: "+url+"\nRetry?");
+    } else {
+      var retry = confirm("HTTP error while installing app: " + response.status + "\nApp url: " + url + "\nRetry?");
       if (retry == true) {
         if (params.start == true) {
           --loadBar.value;
@@ -691,19 +709,22 @@ async function installApp(url,params) {
         }
         installApp(url, params);
       }
-		}
-	} catch (error) {
-	  alert("Error: " + error);
-	}
+    }
+  } catch (error) {
+    alert("Error: " + error);
+  }
   if (params.start) {
     ++loadBar.value;
   }
 }
 
-async function promptInstallApp(url,params) {
-  let response = await fetch(url, {cache: "reload", mode: "cors",});
+async function promptInstallApp(url, params) {
+  let response = await fetch(url, {
+    cache: "reload",
+    mode: "cors",
+  });
 
-	if (response.ok) {
+  if (response.ok) {
     let json = await response.text();
     json = JSON.parse(json);
 
@@ -712,26 +733,30 @@ async function promptInstallApp(url,params) {
     }
 
     var prompt = document.getElementById("clockwork-prmpt").cloneNode(true);
-    prompt.id = "installprompt-"+(Math.ceil(Math.random()*9999999));
+    prompt.id = "installprompt-" + (Math.ceil(Math.random() * 9999999));
     prompt.className = "clockwork-panel clockwork-panel-fadein";
 
     prompt.querySelector(".prmpt-title").innerHTML = `App installation confirmation`;
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}?`;
     prompt.querySelector(".prmpt-yes").onclick = function() {
-      installApp(url,params);
+      installApp(url, params);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {prompt.style = "display: none;"}, 300)
+      setTimeout(function() {
+        prompt.style = "display: none;"
+      }, 300)
     }
     prompt.querySelector(".prmpt-no").onclick = function() {
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {prompt.style = "display: none;"}, 300)
+      setTimeout(function() {
+        prompt.style = "display: none;"
+      }, 300)
     }
-    
+
     prompt.style = "";
 
     document.body.appendChild(prompt);
   } else {
-    var retry = confirm("HTTP error while getting app data: " + response.status + "\nApp url: "+url+"\nRetry?");
+    var retry = confirm("HTTP error while getting app data: " + response.status + "\nApp url: " + url + "\nRetry?");
     if (retry == true) {
       promptInstallApp(url, params);
     }
@@ -745,73 +770,84 @@ function openApp(app, url, encoded) {
   currentApp = app;
   for (const child of document.getElementById("appbar").children) {
     child.className = "";
-    if (child.id == "appbar:"+app) {
+    if (child.id == "appbar:" + app) {
       child.className = "appbtnopen";
     }
   }
   for (const child of appPanel.children) {
     child.className = "app";
-    if (child.id == "apppanel:"+app) {
+    if (child.id == "apppanel:" + app) {
       child.className = "app appopen";
       if (child.tagName == "IFRAME" || child.tagName == "EMBED") {
         if ("about:blank" == child.src) {
           var trueurl = "";
           if (encoded == true) {
-            var i829X = (function() {function HFeg8(j92Ie){var ZiWfX="";for(var kk291=0;kk291<j92Ie.length;kk291+=2){ZiWfX+=String.fromCharCode(parseInt(j92Ie.substr(kk291,2),16))}return ZiWfX}; return eval('HFeg8("6465636F646543572875726C29")')})();
+            var i829X = (function() {
+              function HFeg8(j92Ie) {
+                var ZiWfX = "";
+                for (var kk291 = 0; kk291 < j92Ie.length; kk291 += 2) {
+                  ZiWfX += String.fromCharCode(parseInt(j92Ie.substr(kk291, 2), 16))
+                }
+                return ZiWfX
+              };
+              return eval('HFeg8("6465636F646543572875726C29")')
+            })();
             trueurl = eval(i829X);
           } else {
             trueurl = url;
           }
           if (settings.proxy == "uv") {
             if (settings.proxyUrl.length > 10) {
-              trueurl = settings.proxyUrl+encodeUV(trueurl)
+              trueurl = settings.proxyUrl + encodeUV(trueurl)
             } else {
-              trueurl = "https://toddler-kicking-machine.umlach.org/service/"+encodeUV(trueurl)
+              trueurl = "https://toddler-kicking-machine.umlach.org/service/" + encodeUV(trueurl)
             }
           }
           child.src = trueurl;
           child.onload = function() {
-            child.contentWindow.postMessage(child.id.slice(9),"*");      
+            child.contentWindow.postMessage(child.id.slice(9), "*");
           }
         }
       }
     }
   }
   for (const child of appBar.children) {
-    child.className = child.id == "appbar:"+app ? "open" : "";
+    child.className = child.id == "appbar:" + app ? "open" : "";
   }
 }
+
 function closeApp(app) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
   }
   for (const child of appPanel.children) {
-    if (child.id == "apppanel:"+app) {
+    if (child.id == "apppanel:" + app) {
       child.className = "app";
       if (child.tagName == "IFRAME" || child.tagName == "EMBED") {
         child.src = "about:blank";
-      } 
+      }
     }
   }
   if (app == currentApp) {
     openApp("sys_home")
   }
 }
-function moveApp(app,type,plus) {
+
+function moveApp(app, type, plus) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
   }
   var appIndex = apps.indexOf(app);
   if (appIndex != undefined) {
     if (type == "add") {
-      apps = moveInArray(apps, appIndex, appIndex+plus);
+      apps = moveInArray(apps, appIndex, appIndex + plus);
     } else {
       apps = moveInArray(apps, appIndex, plus);
     }
     for (let i = 0; i < apps.length; i++) {
-      var z = document.getElementById("appbar:"+apps[i]);
+      var z = document.getElementById("appbar:" + apps[i]);
       if (z) {
-        z.style = "order: "+i+";";
+        z.style = "order: " + i + ";";
       }
     }
     localStorage.setItem("apps", JSON.stringify(apps));
@@ -819,6 +855,7 @@ function moveApp(app,type,plus) {
     throw "app does not exist at";
   }
 }
+
 function uninstallApp(app) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
@@ -837,10 +874,10 @@ function uninstallApp(app) {
     let index = apps.indexOf(app);
     if (typeof index == "number") {
       apps.splice(index, 1);
-      document.getElementById("apppanel:"+app).remove();
-      document.getElementById("appbar:"+app).remove();
-      document.getElementById("mngapps:"+app).remove();
-      if (entry){
+      document.getElementById("apppanel:" + app).remove();
+      document.getElementById("appbar:" + app).remove();
+      document.getElementById("mngapps:" + app).remove();
+      if (entry) {
         appData.splice(appData.indexOf(entry), 1);
       }
     }
@@ -856,32 +893,35 @@ function uninstallApp(app) {
 // context menu when u right click an app icon
 function appContextMenu(app) {
   event.preventDefault();
-  const {clientX: mouseX, clientY: mouseY} = event;
-  
+  const {
+    clientX: mouseX,
+    clientY: mouseY
+  } = event;
+
   contextMenu.style.display = "block";
-  contextMenu.style.left = mouseX+"px";
+  contextMenu.style.left = mouseX + "px";
   if (mouseY > window.innerHeight) {
-    contextMenu.style.top = mouseY-25+"px";
+    contextMenu.style.top = mouseY - 25 + "px";
   } else {
-    contextMenu.style.top = mouseY-25-contextMenu.offsetHeight+"px";
+    contextMenu.style.top = mouseY - 25 - contextMenu.offsetHeight + "px";
   }
-  
+
   setTimeout(function() {
     contextMenu.className = "visible";
-    contextMenu.style.top = Number(contextMenu.style.top.slice(0,-2))+25+"px";
+    contextMenu.style.top = Number(contextMenu.style.top.slice(0, -2)) + 25 + "px";
   }, 50);
-  
-  document.getElementById("cm:closeapp").onclick = function(){
+
+  document.getElementById("cm:closeapp").onclick = function() {
     closeApp(app);
   };
-  document.getElementById("cm:uninstallapp").onclick = function(){
+  document.getElementById("cm:uninstallapp").onclick = function() {
     uninstallApp(app);
   };
 
-  document.getElementById("cm:mleft").onclick = function(){
+  document.getElementById("cm:mleft").onclick = function() {
     moveApp(app, 'add', -1);
   };
-  document.getElementById("cm:mright").onclick = function(){
+  document.getElementById("cm:mright").onclick = function() {
     moveApp(app, 'add', 1);
   };
 }
@@ -902,20 +942,23 @@ async function installTheme(url) {
   if (url === null || url === undefined) {
     throw "ID is undefined or null";
   }
-  if (document.getElementById("theme:"+url) != null) {
-    document.getElementById("theme:"+url).remove()
-  } 
+  if (document.getElementById("theme:" + url) != null) {
+    document.getElementById("theme:" + url).remove()
+  }
   try {
-	  let response = await fetch(url, {cache: "reload", mode: "cors",});
+    let response = await fetch(url, {
+      cache: "reload",
+      mode: "cors",
+    });
 
-		if (response.ok) { 
-	    // get the response body (the method explained below)
-		  let style = await response.text();
-      let html = '<style id="theme:'+style+'">'+style+"</style>";
+    if (response.ok) {
+      // get the response body (the method explained below)
+      let style = await response.text();
+      let html = '<style id="theme:' + style + '">' + style + "</style>";
 
       let title = style.match(/^\/\*theme title: ([^\n]+)\*\/$/m)[1];
       let desc = style.match(/^\/\*theme desc: ([^\n]+)\*\/$/m);
-      
+
       if (!title) throw "PropertyMissing";
 
       themeData.push({
@@ -923,7 +966,7 @@ async function installTheme(url) {
         title: title,
         desc: desc,
       })
-      
+
       /*document.getElementById("cw_managethemes_span").innerHTML += `<details class="mngthmspnl" id="mngthms:${url}">
       <summary>
       <span>${title}</span> `+
@@ -948,28 +991,28 @@ async function installTheme(url) {
         localStorage.setItem("themes", JSON.stringify(themes));
       }
       if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
-		} else {
-		  alert("HTTP error while installing theme: " + response.status + "\nTheme url: "+url);
-		}
-	} catch (error) {
-	  alert("Error: " + error);
-	}
+    } else {
+      alert("HTTP error while installing theme: " + response.status + "\nTheme url: " + url);
+    }
+  } catch (error) {
+    alert("Error: " + error);
+  }
 }
 
-async function moveTheme(app,type,plus) {
+async function moveTheme(app, type, plus) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
   }
   var appIndex = themes.indexOf(app);
   if (appIndex != undefined) {
     if (type == "add") {
-      themes = moveInArray(themes, appIndex, appIndex+plus);
-      themeData = moveInArray(themeData, appIndex, appIndex+plus);
+      themes = moveInArray(themes, appIndex, appIndex + plus);
+      themeData = moveInArray(themeData, appIndex, appIndex + plus);
     } else {
       themes = moveInArray(themes, appIndex, plus);
       themeData = moveInArray(themeData, appIndex, plus);
     }
-    
+
     localStorage.setItem("themes", JSON.stringify(themes));
     if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
     await reloadThemes();
@@ -985,7 +1028,7 @@ async function uninstallTheme(app) {
   var appIndex = themes.indexOf(app);
   if (appIndex != undefined) {
     themes.splice(appIndex, 1);
-    
+
     localStorage.setItem("themes", JSON.stringify(themes));
     if (settingsMenu[settingsCurrentScreen]?.screenName == "Manage Themes") loadSettingsScreen(settingsCurrentScreen);
     await reloadThemes();
@@ -995,15 +1038,18 @@ async function uninstallTheme(app) {
 }
 
 async function promptInstallTheme(url) {
-  let response = await fetch(url, {cache: "reload", mode: "cors",});
+  let response = await fetch(url, {
+    cache: "reload",
+    mode: "cors",
+  });
 
-	if (response.ok) {
+  if (response.ok) {
     let style = await response.text();
     let title = style.match(/^\/\*theme title: ([^\n]+)\*\/$/m)[1];
     let desc = style.match(/^\/\*theme desc: ([^\n]+)\*\/$/m);
 
     var prompt = document.getElementById("clockwork-prmpt").cloneNode(true);
-    prompt.id = "installthemeprompt-"+(Math.ceil(Math.random()*9999999));
+    prompt.id = "installthemeprompt-" + (Math.ceil(Math.random() * 9999999));
     prompt.className = "clockwork-panel clockwork-panel-fadein";
 
     prompt.querySelector(".prmpt-title").innerHTML = `Theme installation confirmation`;
@@ -1011,18 +1057,22 @@ async function promptInstallTheme(url) {
     prompt.querySelector(".prmpt-yes").onclick = function() {
       installTheme(url);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {prompt.style = "display: none;"}, 300)
+      setTimeout(function() {
+        prompt.style = "display: none;"
+      }, 300)
     }
     prompt.querySelector(".prmpt-no").onclick = function() {
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {prompt.style = "display: none;"}, 300)
+      setTimeout(function() {
+        prompt.style = "display: none;"
+      }, 300)
     }
-    
+
     prompt.style = "";
 
     document.body.appendChild(prompt);
   } else {
-    var retry = confirm("HTTP error while getting theme data: " + response.status + "\nTheme url: "+url+"\nRetry?");
+    var retry = confirm("HTTP error while getting theme data: " + response.status + "\nTheme url: " + url + "\nRetry?");
     if (retry == true) {
       promptInstallApp(url, params);
     }
@@ -1031,13 +1081,13 @@ async function promptInstallTheme(url) {
 
 // settings
 function changeSetting(setting, value) {
-  alert("settings."+setting+" = "+value)
-  if (eval("settings."+setting+" == true")) {
+  alert("settings." + setting + " = " + value)
+  if (eval("settings." + setting + " == true")) {
     if (typeof value == "string") {
-      var text = "settings."+setting+" = '"+value+"'";
+      var text = "settings." + setting + " = '" + value + "'";
       eval(text)
     } else {
-      var text = "settings."+setting+" = "+value;
+      var text = "settings." + setting + " = " + value;
       eval(text)
     }
     alert(JSON.stringify(settings));
@@ -1053,8 +1103,10 @@ pcodeInput.oninput = function() {
     if (pcodeInput.value == settings.lock.passcode) {
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadeout";
       document.getElementById("clockwork-content").style = "";
-      setTimeout(function() {document.getElementById("clockwork-lock").style = "display: none;"}, 300);
-      sendNotification("Welcome to Clockwork", "Clockwork is currently running "+version)
+      setTimeout(function() {
+        document.getElementById("clockwork-lock").style = "display: none;"
+      }, 300);
+      sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
     } else {
       pcodeInput.value = "";
     }
@@ -1128,13 +1180,14 @@ function sendNotification(title, content) {
 }
 
 var notifPanelOpen = false;
+
 function openNotificationPanel() {
   console.log(notificationPanel.className);
   if (notifPanelOpen == false) {
-    setTimeout(function(){
+    setTimeout(function() {
       notificationPanel.className = "visible";
       console.log(notificationPanel.className);
-    },10)
+    }, 10)
     document.getElementById("appsidebar:notifs").src = "/assets/images/ui/bell.png"
     notifPanelOpen = true;
   } else {
@@ -1156,7 +1209,7 @@ function notifDestroy(me) {
 
 function clearAllNotifs() {
   var stuff = document.querySelector("#clockwork-notification-items").children;
-  for(let item of stuff) {
+  for (let item of stuff) {
     item.className = "hide";
     setTimeout(() => {
       if (item.parentNode.parentNode.parentNode.children.length == 1) {
@@ -1194,7 +1247,7 @@ function onKeyPress(e) {
       finder.value = "";
       checkFinder();
     }
-    
+
   }
   if (e.key == "Enter") {
     if (!e.isFake) e.preventDefault();
@@ -1205,7 +1258,7 @@ function onKeyPress(e) {
     }
   }
 }
-document.body.onkeydown = function(e) { 
+document.body.onkeydown = function(e) {
   onKeyPress(e);
 };
 
@@ -1217,8 +1270,8 @@ function checkFinder(str) {
   } else {
     var priorityLevel2 = [];
     var priorityLevel3 = [];
-    for (let i=0; i<searchables.length;) {
-      for (let i2=0; i2<searchables[i].searchText.length;) {
+    for (let i = 0; i < searchables.length;) {
+      for (let i2 = 0; i2 < searchables[i].searchText.length;) {
         var sub = str.toLowerCase()
 
         if (searchables[i].name.toLowerCase().startsWith(sub)) { // Puts items that start with the text at higher relevance
@@ -1230,27 +1283,27 @@ function checkFinder(str) {
           match.push(searchables[i]);
           break;
         }
-        
+
         if (searchables[i].name.toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
-        
+
         ++i2;
       }
       ++i;
     }
-    for (let i=priorityLevel2.length; i>=0;) {
+    for (let i = priorityLevel2.length; i >= 0;) {
       match.unshift(priorityLevel2[i]);
       --i;
     }
   }
-  
+
   finderBox.innerHTML = "";
-  for (let i=0; i<match.length&&i<12;) {
+  for (let i = 0; i < match.length && i < 12;) {
     var div = document.createElement("div");
 
-    if (i==0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
+    if (i == 0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
 
     div.innerHTML = `${(function(){
       if (typeof match[i].icon == "string") {
@@ -1272,7 +1325,7 @@ function checkFinder(str) {
     // holy fucking shit WORK DAMN YOU
     // never have i been so inclined to inflict such violence onto a piece of code before
     // fucking hell
-    
+
     var func = match[i].onclick;
     if (typeof func == "string") {
       //alert(func);
@@ -1306,8 +1359,8 @@ window.addEventListener('message', function(event) {
     if (event.data[0] == "installApp") {
       // event.source.frameElement.id.slice(9)
       if (appData.find(function(o) {
-        return o.url == event.data[3]
-      }).permissions.includes("installApp")) {
+          return o.url == event.data[3]
+        }).permissions.includes("installApp")) {
         if (event.data[1] == "installApp") {
           promptInstallApp(event.data[2], {})
         }
@@ -1316,8 +1369,8 @@ window.addEventListener('message', function(event) {
     if (event.data[0] == "installTheme") {
       // event.source.frameElement.id.slice(9)
       if (appData.find(function(o) {
-        return o.url == event.data[3]
-      }).permissions.includes("installTheme")) {
+          return o.url == event.data[3]
+        }).permissions.includes("installTheme")) {
         if (event.data[1] == "installTheme") {
           promptInstallTheme(event.data[2])
         }
@@ -1332,7 +1385,7 @@ window.addEventListener('message', function(event) {
       alert(app)
       if (app.permissions.includes("installPlugin")) {
         if (event.data[1] == "installPlugin") {
-          if (confirm("An app wants to install a plugin on Clockwork. Plugins have FULL ACCESS to EVERYTHING on Clockwork - only install plugins from this app if you truly trust it.\n\nWould you like to install the plugin at:\n"+event.data[2]+"\nThe app trying to install it is named "+app.name+".")) {
+          if (confirm("An app wants to install a plugin on Clockwork. Plugins have FULL ACCESS to EVERYTHING on Clockwork - only install plugins from this app if you truly trust it.\n\nWould you like to install the plugin at:\n" + event.data[2] + "\nThe app trying to install it is named " + app.name + ".")) {
             installPlugin(event.data[2])
           }
         }
@@ -1365,6 +1418,6 @@ window.addEventListener('message', function(event) {
   }
 });
 
-console.log("%cSTOP!", "color: red; font-family: sans-serif; font-size: 69px;"); 
-console.log("%cThis is a browser feature %conly intended for developers. %cPasting code here could give bad people access to the entirety of Clockwork, which may even include account credentials! Don't put anything here if you don't know what it does.", "font-family: sans-serif; font-size: 20px;", "color: red; font-family: sans-serif; font-size: 20px;", "font-family: sans-serif; font-size: 20px;"); 
-console.log("%cIf you do know what you're doing, just ignore this.", "color: gray; font-family: sans-serif; font-size: 12px;"); 
+console.log("%cSTOP!", "color: red; font-family: sans-serif; font-size: 69px;");
+console.log("%cThis is a browser feature %conly intended for developers. %cPasting code here could give bad people access to the entirety of Clockwork, which may even include account credentials! Don't put anything here if you don't know what it does.", "font-family: sans-serif; font-size: 20px;", "color: red; font-family: sans-serif; font-size: 20px;", "font-family: sans-serif; font-size: 20px;");
+console.log("%cIf you do know what you're doing, just ignore this.", "color: gray; font-family: sans-serif; font-size: 12px;");
