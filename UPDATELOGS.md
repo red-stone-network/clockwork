@@ -1,6 +1,7 @@
 # 2.0.0.0-beta14
 
 > - ADDED: Revamped Settings app - now all in one app!
+> - ADDED: Revamped home page - it's no longer just text. Now it's the place for your home screen.
 > - ADDED: New search system for Finder 
 > - ADDED: Enter to select first item in Finder
 > - ADDED: Wallpaper system, with wallpapers made by LukasExists, Quino Al, Bernard Spragg
@@ -8,7 +9,6 @@
 > - ADDED: Clock font setting
 > - ADDED: Console warning for pasting code
 
-> - CHANGED: New UI for Finder, highlighting first option and making window wider
 > - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
 > - CHANGED: Replaced all Icons8 icons with custom-made icons
 > - CHANGED: Fixed all icons to be hosted on site itself
