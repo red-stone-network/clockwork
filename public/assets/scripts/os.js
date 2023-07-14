@@ -1303,7 +1303,6 @@ function checkFinder(str) {
       }
       
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
-        console.log(searchables[i].searchText[i2] + ": " + searchables[i].searchText[i2].toLowerCase().includes(sub))
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
@@ -1317,7 +1316,6 @@ function checkFinder(str) {
     while (priorityLevel3[0]) { match.unshift(priorityLevel3[0]); priorityLevel3.splice(0,1) };
   }
 
-  console.log(match);
   finderBox.innerHTML = "";
   for (let i = 0; i < match.length && i < 12;) {
     var div = document.createElement("div");
