@@ -1303,7 +1303,7 @@ function checkFinder(str) {
       }
 
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
-        console.log(searchables[i].searchText[i2])
+        console.log(searchables[i].searchText[i2] + ": " + searchables[i].searchText[i2].toLowerCase().includes(sub))
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
