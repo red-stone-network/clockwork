@@ -154,40 +154,39 @@ const settingsMenu = [{
               url: "/assets/images/wallpapers/mountains.png",
               preview: "/assets/images/wallpaper-previews/mountains.png"
             },
-           {
-             title: "Sunset by Quino Al",
-             url: "/assets/images/wallpapers/sunset.png",
-             preview: "/assets/images/wallpaper-previews/sunset.png"
-           },
-           {
-             title: "Grand Canyon by Bernard Spragg",
-             url: "/assets/images/wallpapers/grand-canyon.jpg",
-             preview: "/assets/images/wallpaper-previews/grand-canyon.png"
-           }
-         ]
-         for (let i = 0; i < defaultWallpapers.length;) {
+            {
+              title: "Sunset by Quino Al",
+              url: "/assets/images/wallpapers/sunset.png",
+              preview: "/assets/images/wallpaper-previews/sunset.png"
+            },
+            {
+              title: "Grand Canyon by Bernard Spragg",
+              url: "/assets/images/wallpapers/grand-canyon.jpg",
+              preview: "/assets/images/wallpaper-previews/grand-canyon.png"
+            }
+          ]
+          for (let i = 0; i < defaultWallpapers.length;) {
             var paper = document.createElement("DIV");
             paper.innerText = defaultWallpapers[i].title;
             paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
-           paper.dataset.url = defaultWallpapers[i].url;
-           paper.onclick = function(e) {
+            paper.dataset.url = defaultWallpapers[i].url;
+            paper.onclick = function(e) {
               settings.wallpaper = e.target.dataset.url;
               localStorage.setItem("settings", JSON.stringify(settings));
             }
             div.appendChild(paper);
             ++i;
-         }
-         var paper = document.createElement("DIV");
-         paper.innerText = "Custom wallpaper";
-         paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
-         paper.dataset.url = defaultWallpapers[i].url;
-         paper.onclick = function(e) {
-           var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
-           settings.wallpaper = url;
-           localStorage.setItem("settings", JSON.stringify(settings));
-         }
-         div.appendChild(paper);
-       }
+          }
+          var paper = document.createElement("DIV");
+          paper.innerText = "Custom wallpaper";
+          paper.style.backgroundImage = `url("/assets/images/wallpaper-previews/custom.png")`;
+          paper.onclick = function(e) {
+            var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
+            settings.wallpaper = url;
+            localStorage.setItem("settings", JSON.stringify(settings));
+          }
+          div.appendChild(paper);
+        }
       },
     ]
   },
