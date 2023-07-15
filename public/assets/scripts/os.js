@@ -1395,12 +1395,10 @@ window.addEventListener('message', function(event) {
       }
     }
     if (event.data[0] == "installPlugin") {
-      alert("aaa")
       // event.source.frameElement.id.slice(9)
       var app = appData.find(function(o) {
         return o.url == event.data[3]
       });
-      alert(app)
       if (app.permissions.includes("installPlugin")) {
         if (event.data[1] == "installPlugin") {
           if (confirm("An app wants to install a plugin on Clockwork. Plugins have FULL ACCESS to EVERYTHING on Clockwork - only install plugins from this app if you truly trust it.\n\nWould you like to install the plugin at:\n" + event.data[2] + "\nThe app trying to install it is named " + app.name + ".")) {
