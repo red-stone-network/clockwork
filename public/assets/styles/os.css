@@ -121,7 +121,7 @@ t {
 
 #clockwork-content {
   background-image: url("/assets/images/wallpapers/default.png");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   display: block;
   width: 100vw;
