@@ -37,8 +37,8 @@ body {
   z-index: 99;
   position: fixed;
   width: 200px;
-  background-color: rgba(17,17,17,0.8);
-  border: 1px solid rgba(128,128,128,0.8);
+  background-color: rgba(17,17,17,0.65);
+  border: 1px solid rgba(128,128,128,0.65);
   backdrop-filter: blur(50px);
   bottom: 48px;
   right: 0;
@@ -70,8 +70,8 @@ body {
   box-sizing: border-box;
   padding-bottom: 1px; 
   filter: opacity(0%);
-  background-color: rgba(17,17,17,0.8);
-  border: 1px solid rgba(128,128,128,0.8);
+  background-color: rgba(17,17,17,0.65);
+  border: 1px solid rgba(128,128,128,0.65);
   backdrop-filter: blur(50px);
   border-right: none;
   border-radius: 8px 0 0 8px;
@@ -155,10 +155,10 @@ progress::-webkit-progress-value {
 #contextmenu {
   position: fixed;
   width: 120px;
-  background-color: rgba(17,17,17,0.8);
+  background-color: rgba(17,17,17,0.65);
   z-index: 999;
   color: white;
-  border: 1px solid rgba(128,128,128,0.8);
+  border: 1px solid rgba(128,128,128,0.65);
   border-radius: 5px;
   filter: opacity(0%);
   transition: 0.2s;  
@@ -263,7 +263,7 @@ btn>.appbtnopen {
 #appsidebar {
   width: 256px;
   height: 48px;
-  background-color: rgba(17,17,17,0.8);
+  background-color: rgba(17,17,17,0.65);
   position: fixed;
   bottom: 0;
   right: 0;
@@ -308,7 +308,7 @@ btn>.appbtnopen {
 #appbar {
   width: calc(100% - 256px);
   height: 48px;
-  background-color: rgba(17,17,17,0.8);
+  background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
   position: fixed;
   bottom: 0;
@@ -390,8 +390,8 @@ a:hover {
   bottom: 49px;
   padding: 5px;
   transform: translateX(-50%);
-  border: 1px solid rgba(128,128,128,0.8);
-  background-color: rgba(17,17,17,0.8);
+  border: 1px solid rgba(128,128,128,0.65);
+  background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
   border-radius: 8px;
   color: white;
@@ -419,8 +419,8 @@ a:hover {
   bottom: 76px;
   height: 160px;
   transform: translateX(-50%);
-  border: 1px solid rgba(128,128,128,0.8);
-  background-color: rgba(17,17,17,0.8);
+  border: 1px solid rgba(128,128,128,0.65);
+  background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
   border-radius: 8px 8px 0 0;
   color: white;
@@ -435,7 +435,7 @@ a:hover {
 }
 
 #apppanel\:sys_settings {
-  background-color: rgba(17,17,17,0.8);
+  background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
   filter: opacity(0%);
   transition: 0.2s;
