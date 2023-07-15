@@ -148,7 +148,7 @@ progress::-webkit-progress-bar {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 progress::-webkit-progress-value {
-  background-color: #f00;
+  background-color: #c51d4d;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
@@ -364,15 +364,15 @@ iframe {
 }
 
 a {
-  color: red;
+  color: #c51d4d;
 }
 
 a:link {
-  color: red;
+  color: #c51d4d;
 }
 
 a:hover {
-  color: #f66
+  color: #c8778e
 }
 
 .mngappspnl summary img {
