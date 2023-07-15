@@ -8,6 +8,7 @@
 > - ADDED: New UI design
 > - ADDED: Clock font setting
 > - ADDED: Console warning for pasting code
+> - ADDED: 2 new fonts, replacing Roboto
 
 > - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
 > - CHANGED: Replaced all Icons8 icons with custom-made icons
