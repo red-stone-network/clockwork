@@ -7,7 +7,7 @@
   <a href="https://gitlab.com/lukasexists/redstone-nw.netlify.app/-/tree/main/clockwork-app">SOURCE</a> - <a href="https://clockwork-os.vercel.app/">WEBSITE</a> - <a href="https://discord.gg/Sb8NzVbqX8">DISCORD</a><br>
 </h4>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT SECTION --> 
 <p align="center">
   <img src="https://black_hole-3kf-1-v0606342.deta.app/api/photo/kfsbywrgp46y.png" align="center">
 </p>
