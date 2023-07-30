@@ -19,3 +19,5 @@
 > - BUGFIX: Favicon URL changed to work correctly on /os/
 > - BUGFIX: Fixed console logs not showing
 > - BUGFIX: "You're all caught up!" message would show up regardless of notification count
+
+> - REMOVED: Herobrine
