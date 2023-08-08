@@ -564,6 +564,7 @@ a:hover {
   height: 20px;
   width: 20px;
   float: left;
+  padding-right: 4px;
 }
 .finder-box div.best {
   border-radius: 8px 8px 0px 0px;
