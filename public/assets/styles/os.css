@@ -161,6 +161,7 @@ progress::-webkit-progress-value {
   border: 1px solid rgba(128,128,128,0.65);
   filter: opacity(0%);
   transition: 0.2s;  
+  backdrop-filter: blur(50px);
 }
 #contextmenu.visible {
   filter: opacity(100%);
@@ -567,7 +568,7 @@ a:hover {
 }
 .finder-box div.best {
   border-radius: 8px 8px 0px 0px;
-  background-color: #444;
+  background-color: rgba(78,78,78,0.65);
   font-size: 20px;
 }
 .finder-box div.best img {
@@ -577,6 +578,6 @@ a:hover {
   border-bottom: none;
 }
 .finder-box div:hover {
-  background-color: gray;
+  background-color: rgba(128,128,128,0.65);
   transition: 0.2s;
 }
