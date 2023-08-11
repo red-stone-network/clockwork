@@ -154,12 +154,11 @@ progress::-webkit-progress-value {
 }
 #contextmenu {
   position: fixed;
-  width: 120px;
+  width: 124px;
   background-color: rgba(17,17,17,0.65);
   z-index: 999;
   color: white;
   border: 1px solid rgba(128,128,128,0.65);
-  border-radius: 5px;
   filter: opacity(0%);
   transition: 0.2s;  
 }
@@ -168,19 +167,19 @@ progress::-webkit-progress-value {
   transition: 0.2s;  
 }
 #contextmenu btn {
-  width: 100%;
+  width: 120px;
   transition: 0.2s;
   padding: 0;
-  background-color: #111;
-  border-bottom: 1px solid gray;
+  background-color: none;
+  border-bottom: 1px solid rgba(128,128,128,0.65);
+  padding: 2px;
   border-radius: 0;
 }
-#contextmenu btn:first-child {  
-  border-radius: 5px 5px 0 0;
-}
-#contextmenu btn:last-child {  
-  border-radius: 0 0 5px 5px;
+#contextmenu btn:last-child {
   border-bottom: none;
+}
+#contextmenu btn:hover {
+  background-color: rgba(128,128,128,0.65) !important;
 }
 .clockwork-panel {
   color: white;
@@ -318,45 +317,45 @@ btn>.appbtnopen {
 }
 
 #appbar btn {
-  width: 44px;
+  width: 48px;
   height: 48px;
   background-color: rgba(17,17,17,0);
   color: white;
   text-align: center;
   word-break: break-all;
   vertical-align: middle;
-  transition: 0.2s;
+  transition: 0.15s;
   user-select: none;
   box-sizing: border-box;
   padding: 0;
   border-radius: 0;
   margin-left: 0;
-  margin-right: 4px;
-  border-bottom: 2px solid gray;
+  margin-right: 0;
+  border-bottom: 0px solid gray;
 }
 #appbar btn img {
   width: 44px;
   height: 44px;
   filter: none;
-  transition: 0.2s;
+  transition: 0.15s;
   border-radius: 5px;
 }
 #appbar btn:hover img {
-  transition: 0.2s;
+  transition: 0.15s;
   filter: opacity(80%);
 }
 #appbar btn:hover {
   background-color: #555;
-  border-bottom: 4px solid gray;
-  transition: 0.2s;
+  border-bottom: 4px solid rgba(155,155,155,0.75);
+  transition: 0.15s;
 }
 #appbar btn.open {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgba(255,255,255,0.75);
 }
 #appbar btn.open:hover {
   background-color: #555;
-  border-bottom: 4px solid white;
-  transition: 0.2s;
+  border-bottom: 4px solid rgba(255,255,255,0.75);
+  transition: 0.15s;
 }
 iframe {
   border: none;
