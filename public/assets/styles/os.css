@@ -54,7 +54,7 @@ body {
 }
 .clockwork-notification.hide {
   transition: 0.2s;
-  right: -220px; 
+  top: -560px;
   filter: opacity(0%);
 }
 #clockwork-notification-panel {
