@@ -446,11 +446,8 @@ a:hover {
 #apppanel\:sys_settings .left {
   position: fixed;
   width: 16vw;
-  border-bottom: 1px gray solid;
   border-right: 1px gray solid;
   height: calc(100vh - 49px);
-  background-color: #222;
-  border-radius: 0 0 8px;
   overflow-y: auto;
 }
 
@@ -462,12 +459,11 @@ a:hover {
   border-bottom: 1px gray solid;
   height: 48px;
   position: relative;
-  background-color: #222;
   transition: 0.2s;
 }
 
 #apppanel\:sys_settings .left .selections div:hover {
-  background-color: #444;
+  background-color: rgba(128,128,128,0.65);
   transition: 0.2s;
 }
 
