@@ -45,6 +45,7 @@ body {
   color: white;
   padding: 4px;
   box-sizing: border-box;
+  border-radius: 8px 0 0 8px;
   padding-bottom: 1px;  
   filter: opacity(100%);
   animation-name: animnotif;
@@ -61,7 +62,7 @@ body {
   position: fixed;
   width: 200px;
   max-height: 300px;
-  min-height: 128px;
+  height: calc(100% - 48px);
   bottom: 48px;
   right: -200px;
   color: white;
@@ -70,7 +71,7 @@ body {
   padding-bottom: 1px; 
   filter: opacity(0%);
   background-color: rgba(17,17,17,0.65);
-  border: 1px solid rgba(128,128,128,0.65);
+  border-left: 1px solid rgba(128,128,128,0.65);
   backdrop-filter: blur(50px);
   border-right: none;
   transition: 0.2s;
