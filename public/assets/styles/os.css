@@ -393,7 +393,6 @@ a:hover {
   border: 1px solid rgba(128,128,128,0.65);
   background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
-  border-radius: 8px;
   color: white;
   width: 500px;
   max-width: 50vw;
@@ -422,7 +421,6 @@ a:hover {
   border: 1px solid rgba(128,128,128,0.65);
   background-color: rgba(17,17,17,0.65);
   backdrop-filter: blur(50px);
-  border-radius: 8px 8px 0 0;
   color: white;
   width: 484px;
   max-width: calc(50vw - 32px);
