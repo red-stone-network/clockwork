@@ -13,11 +13,11 @@
 }
 @keyframes animnotif {
   from {
-    right: -220px; 
+    top: -560px; 
     filter: opacity(0%);
   }
   to {
-    right: 0; 
+    top: 0; 
     filter: opacity(100%);
   }
 }
