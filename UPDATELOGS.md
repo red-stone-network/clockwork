@@ -10,6 +10,7 @@
 > - ADDED: Console warning for pasting code
 > - ADDED: 2 new fonts, replacing Roboto
 > - ADDED: Prompt when closing tab (helps circumvent certain blocks)
+> - ADDED: Option to export user data to a .cws file - importing will be added at a later date.
 
 > - CHANGED: Edited app buttons on the taskbar - the active app is highlighted
 > - CHANGED: Replaced all Icons8 icons with custom-made icons
