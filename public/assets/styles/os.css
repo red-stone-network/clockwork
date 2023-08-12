@@ -245,6 +245,8 @@ input {
 .app {
   width: 100%; 
   height: calc(100vh - 48px);
+  background-color: rgba(17,17,17,0.65) !important;
+  backdrop-filter: blur(50px);
   position: fixed;
   top: 0;
   color: white;
