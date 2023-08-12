@@ -237,6 +237,7 @@ const settingsMenu = [{
         loadSettingsMenu()
         alert("Success!");
       }
+      div.appendChild(btn);
     }
   }]
 },
