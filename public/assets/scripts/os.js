@@ -236,6 +236,7 @@ const settingsMenu = [{
         settings.lock.passcode = newPasscode;
         loadSettingsMenu()
         alert("Success!");
+        localStorage.setItem("settings", JSON.stringify(settings));
       }
       div.appendChild(btn);
     }
