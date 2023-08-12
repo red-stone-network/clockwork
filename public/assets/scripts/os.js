@@ -218,27 +218,36 @@ const settingsMenu = [{
         }
 
         var newPasscode = prompt("Enter your new passcode (between 4 and 6 characters, numbers only)")
-        if (!newPasscode.match(/^[0-9]{4,6}$/)) {
-          alert("Passcode must be a number!")
-          return;
-        }
-        if (newPasscode.length > 6 || 4 > newPasscode.length) {
-          alert("Passcode must be between 4 and 6 characters!")
-          return;
-        }
-
-        if (prompt("Type it again to confirm.") != newPasscode) {
-          alert("Passcodes do not match!")
-          return;
-        }
+        
+        if (!newPasscode.match(/^[0-9]{4,6}$/)) { alert("Passcode must be a number!"); return; }
+        if (newPasscode.length > 6 || 4 > newPasscode.length) { alert("Passcode must be between 4 and 6 characters!"); return; }
+        if (prompt("Type it again to confirm.") != newPasscode) { alert("Passcodes do not match!"); return; }
 
         settings.lock.enabled = true;
         settings.lock.passcode = newPasscode;
-        loadSettingsMenu()
+
+        loadSettingsScreen(3);
         alert("Success!");
         localStorage.setItem("settings", JSON.stringify(settings));
       }
       div.appendChild(btn);
+      var btn = document.createElement("btn");
+      btn.innerText = "Remove passcode";
+      btn.onclick = function () {
+        if (settings.lock.enabled) {
+          if (prompt("Enter your passcode.") != settings.lock.passcode) {
+            alert("Incorrect passcode!")
+            return;
+          }
+        }
+
+        settings.lock.enabled = false;
+        
+        loadSettingsScreen(3);
+        alert("Success!");
+        localStorage.setItem("settings", JSON.stringify(settings));
+      }
+      if (settings.lock.enabled) div.appendChild(btn);
     }
   }]
 },
