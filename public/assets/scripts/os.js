@@ -59,197 +59,201 @@ contextMenu.style.display = "none";
 - should also contain a placeholderText value
 */
 const settingsMenu = [{
-    screenName: "Manage Apps",
-    screenIcon: "/assets/images/ui/app-window.png",
-    screenContents: [{
-      type: "scriptbox",
-      value: function(div) {
-        for (let i = 0; i < apps.length;) {
-          div.innerHTML += `<details class="mngappspnl" id="mngapps:${appData[i].url}">
+  screenName: "Manage Apps",
+  screenIcon: "/assets/images/ui/app-window.png",
+  screenContents: [{
+    type: "scriptbox",
+    value: function (div) {
+      for (let i = 0; i < apps.length;) {
+        div.innerHTML += `<details class="mngappspnl" id="mngapps:${appData[i].url}">
             <summary>
             <img src="${appData[i].icon}"> 
             <span>${appData[i].name}</span> ` +
-            (function() {
-              if (typeof appData[i].desc == "string") {
-                return appData[i].desc;
-              } else {
-                return "No description";
-              }
-            })() +
-            `
+          (function () {
+            if (typeof appData[i].desc == "string") {
+              return appData[i].desc;
+            } else {
+              return "No description";
+            }
+          })() +
+          `
             </summary>
             <p>
             <btn onclick="closeApp('${appData[i].url}')">Close app</btn><br>
             <btn onclick="uninstallApp('${appData[i].url}')">Uninstall app</btn>
             </p>
             </details>`;
-          ++i;
-        }
+        ++i;
       }
-    }, ]
-  },
-  {
-    screenName: "Manage Themes",
-    screenIcon: "/assets/images/ui/paintbrush-on-app-window.png",
-    screenContents: [{
-      type: "scriptbox",
-      value: function(div) {
-        for (let i = 0; i < themes.length;) {
-          div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
+    }
+  },]
+},
+{
+  screenName: "Manage Themes",
+  screenIcon: "/assets/images/ui/paintbrush-on-app-window.png",
+  screenContents: [{
+    type: "scriptbox",
+    value: function (div) {
+      for (let i = 0; i < themes.length;) {
+        div.innerHTML += `<details class="mngthmspnl" id="mngthms:${themeData[i].url}">
             <summary>
             <span>${themeData[i].title}</span> ` +
-            (function() {
-              if (!themeData[i].desc) {
-                return "No description";
-              } else {
-                return themeData[i].desc[1];
-              }
-            })() +
-            `
+          (function () {
+            if (!themeData[i].desc) {
+              return "No description";
+            } else {
+              return themeData[i].desc[1];
+            }
+          })() +
+          `
             </summary>
             <p>
             <btn onclick="moveTheme('${themeData[i].url}','add',-1)">Move Up</btn> <btn onclick="moveTheme('${themeData[i].url}','add',1)">Move Down</btn><br>
             <btn onclick="uninstallTheme('${themeData[i].url}')">Uninstall Theme</btn>
             </p>
             </details>`;
-          ++i;
-        }
+        ++i;
       }
-    }, ]
-  },
-  {
-    screenName: "Personalization",
-    screenIcon: "/assets/images/ui/paintbrush.png",
-    screenContents: [{
-        label: "Clock type",
-        type: "dropdown",
-        linkedSetting: "settings.clockType",
-        values: [
-          ["12h", "12-hour"],
-          ["24h", "24-hour"]
-        ]
-      },
-      {
-        label: "Clock font",
-        type: "dropdown",
-        linkedSetting: "settings.clockFont",
-        values: [
-          ["varela", "Display"],
-          ["asap", "Body"],
-          ["mono", "Monospace"]
-        ]
-      },
-      {
-        label: "Wallpaper",
-        type: "scriptbox",
-        value: function(div) {
-          div.id = "settings-wallpaper-box";
-          var defaultWallpapers = [{
-              title: "Default",
-              url: "/assets/images/wallpapers/default.png",
-              preview: "/assets/images/wallpaper-previews/default.png"
-            },
-            {
-              title: "Mountains",
-              url: "/assets/images/wallpapers/mountains.png",
-              preview: "/assets/images/wallpaper-previews/mountains.png"
-            },
-            {
-              title: "Sunset by Quino Al",
-              url: "/assets/images/wallpapers/sunset.png",
-              preview: "/assets/images/wallpaper-previews/sunset.png"
-            },
-            {
-              title: "Grand Canyon by Bernard Spragg",
-              url: "/assets/images/wallpapers/grand-canyon.jpg",
-              preview: "/assets/images/wallpaper-previews/grand-canyon.png"
-            }
-          ]
-          for (let i = 0; i < defaultWallpapers.length;) {
-            var paper = document.createElement("DIV");
-            paper.innerText = defaultWallpapers[i].title;
-            paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
-            paper.dataset.url = defaultWallpapers[i].url;
-            paper.onclick = function(e) {
-              settings.wallpaper = e.target.dataset.url;
-              localStorage.setItem("settings", JSON.stringify(settings));
-            }
-            div.appendChild(paper);
-            ++i;
-          }
-          var paper = document.createElement("DIV");
-          paper.innerText = "Custom wallpaper";
-          paper.style.backgroundImage = `url("/assets/images/wallpaper-previews/custom.png")`;
-          paper.onclick = function(e) {
-            var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
-            if (!url) return;
-            settings.wallpaper = url;
-            localStorage.setItem("settings", JSON.stringify(settings));
-          }
-          div.appendChild(paper);
-        }
-      },
+    }
+  },]
+},
+{
+  screenName: "Personalization",
+  screenIcon: "/assets/images/ui/paintbrush.png",
+  screenContents: [{
+    label: "Clock type",
+    type: "dropdown",
+    linkedSetting: "settings.clockType",
+    values: [
+      ["12h", "12-hour"],
+      ["24h", "24-hour"]
     ]
   },
   {
-    screenName: "Passcode Settings",
-    screenIcon: "/assets/images/ui/key.png",
-    screenContents: [{
-      type: "scriptbox",
-      value: function(div) {
-        div.innerText = "We're working on it..."
-      }
-    }, ]
-  },
-  {
-    screenName: "Proxy Settings",
-    screenIcon: "/assets/images/ui/ultraviolet.png",
-    screenContents: [{
-        label: "Proxy",
-        type: "dropdown",
-        linkedSetting: "settings.proxy",
-        values: [
-          ["none", "Don't use a proxy"],
-          ["uv", "Use an Ultraviolet proxy"]
-        ]
-      },
-      {
-        label: "Proxy URL",
-        type: "text",
-        linkedSetting: "settings.proxyUrl",
-        fallbackSetting: "",
-        placeholderText: "Leave blank to use a public proxy."
-      }
+    label: "Clock font",
+    type: "dropdown",
+    linkedSetting: "settings.clockFont",
+    values: [
+      ["varela", "Display"],
+      ["asap", "Body"],
+      ["mono", "Monospace"]
     ]
   },
   {
-    screenName: "Import & Export",
-    screenIcon: "/assets/images/ui/import-export.png",
-    screenContents: [{
-        label: "What is this?",
-        type: "scriptbox",
-        value: function(div) {
-          div.innerHTML = `<p>
+    label: "Wallpaper",
+    type: "scriptbox",
+    value: function (div) {
+      div.id = "settings-wallpaper-box";
+      var defaultWallpapers = [{
+        title: "Default",
+        url: "/assets/images/wallpapers/default.png",
+        preview: "/assets/images/wallpaper-previews/default.png"
+      },
+      {
+        title: "Mountains",
+        url: "/assets/images/wallpapers/mountains.png",
+        preview: "/assets/images/wallpaper-previews/mountains.png"
+      },
+      {
+        title: "Sunset by Quino Al",
+        url: "/assets/images/wallpapers/sunset.png",
+        preview: "/assets/images/wallpaper-previews/sunset.png"
+      },
+      {
+        title: "Grand Canyon by Bernard Spragg",
+        url: "/assets/images/wallpapers/grand-canyon.jpg",
+        preview: "/assets/images/wallpaper-previews/grand-canyon.png"
+      }
+      ]
+      for (let i = 0; i < defaultWallpapers.length;) {
+        var paper = document.createElement("DIV");
+        paper.innerText = defaultWallpapers[i].title;
+        paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
+        paper.dataset.url = defaultWallpapers[i].url;
+        paper.onclick = function (e) {
+          settings.wallpaper = e.target.dataset.url;
+          localStorage.setItem("settings", JSON.stringify(settings));
+        }
+        div.appendChild(paper);
+        ++i;
+      }
+      var paper = document.createElement("DIV");
+      paper.innerText = "Custom wallpaper";
+      paper.style.backgroundImage = `url("/assets/images/wallpaper-previews/custom.png")`;
+      paper.onclick = function (e) {
+        var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
+        if (!url) return;
+        settings.wallpaper = url;
+        localStorage.setItem("settings", JSON.stringify(settings));
+      }
+      div.appendChild(paper);
+    }
+  },
+  ]
+},
+{
+  screenName: "Passcode Settings",
+  screenIcon: "/assets/images/ui/key.png",
+  screenContents: [{
+    label: "What is this?",
+    type: "scriptbox",
+    value: function (div) {
+      div.innerHTML = `<p>
+        Clockwork now supports setting a passcode, which lets you lock down Clockwork for anyone but you. Note that if you lose your passcode, there is <b>no way to recover,</b> so please write it down somewhere!
+        </p>`;
+      //var btn = document.createElement("")
+    }
+  }]
+},
+{
+  screenName: "Proxy Settings",
+  screenIcon: "/assets/images/ui/ultraviolet.png",
+  screenContents: [{
+    label: "Proxy",
+    type: "dropdown",
+    linkedSetting: "settings.proxy",
+    values: [
+      ["none", "Don't use a proxy"],
+      ["uv", "Use an Ultraviolet proxy"]
+    ]
+  },
+  {
+    label: "Proxy URL",
+    type: "text",
+    linkedSetting: "settings.proxyUrl",
+    fallbackSetting: "",
+    placeholderText: "Leave blank to use a public proxy."
+  }
+  ]
+},
+{
+  screenName: "Import & Export",
+  screenIcon: "/assets/images/ui/import-export.png",
+  screenContents: [{
+    label: "What is this?",
+    type: "scriptbox",
+    value: function (div) {
+      div.innerHTML = `<p>
           This is a tool that allows you to import and export all the data stored in Clockwork. Exporting will export your data in a .cws file, which can be imported easily. Importing will require a .cws file, and will force-restart Clockwork.
           </p>`
-        }
-      },
-      {
-        label: "Tools",
-        type: "scriptbox",
-        value: function(div) {
-          div.innerHTML = "Coming soon..."
-        }
-      }
-    ]
+    }
   },
   {
-    screenName: "About Clockwork",
-    screenIcon: "/assets/images/ui/clockwork.png",
-    screenContents: [{
-      type: "scriptbox",
-      value: function(div) {
-        div.innerHTML = `v${version} at ${document.location.hostname}<br>
+    label: "Tools",
+    type: "scriptbox",
+    value: function (div) {
+      div.innerHTML = "Coming soon..."
+    }
+  }
+  ]
+},
+{
+  screenName: "About Clockwork",
+  screenIcon: "/assets/images/ui/clockwork.png",
+  screenContents: [{
+    type: "scriptbox",
+    value: function (div) {
+      div.innerHTML = `v${version} at ${document.location.hostname}<br>
           Running ${navigator.userAgent}<br>
           <br>
           <h2>Credits</h2>
@@ -260,9 +264,9 @@ const settingsMenu = [{
           Quino Al<br>
           Bernard Spragg<br>
           and you for using our stuff`
-      }
-    }]
-  },
+    }
+  }]
+},
 ]
 var settingsCurrentScreen = null;
 
@@ -350,83 +354,83 @@ loadSettingsMenu();
 
 // The stuff that you can search up using the Finder
 const searchables = [{
-    searchText: ["prefs", "preferences"],
-    name: "Settings",
-    icon: "/assets/images/ui/settings.png",
-    onclick: function() {
-      openApp('sys_settings');
-    },
+  searchText: ["prefs", "preferences"],
+  name: "Settings",
+  icon: "/assets/images/ui/settings.png",
+  onclick: function () {
+    openApp('sys_settings');
   },
-  {
-    searchText: ["chat", "discord"],
-    name: "Chat on Discord",
-    icon: "/assets/images/ui/discord.png",
-    onclick: function() {
-      window.open("https://discord.gg/Sb8NzVbqX8", "_blank");
-    },
+},
+{
+  searchText: ["chat", "discord"],
+  name: "Chat on Discord",
+  icon: "/assets/images/ui/discord.png",
+  onclick: function () {
+    window.open("https://discord.gg/Sb8NzVbqX8", "_blank");
   },
-  {
-    searchText: ["email", "support"],
-    name: "Contact Support",
-    icon: "/assets/images/support.png",
-    onclick: function() {
-      window.open("mailto:support@mail.redstonenetwork.rit.cl", "_blank");
-    },
+},
+{
+  searchText: ["email", "support"],
+  name: "Contact Support",
+  icon: "/assets/images/support.png",
+  onclick: function () {
+    window.open("mailto:support@mail.redstonenetwork.rit.cl", "_blank");
   },
-  {
-    searchText: ["apps", "manage apps", "uninstall apps", "app settings"],
-    name: "Manage Apps",
-    icon: "/assets/images/ui/app-window.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("Manage Apps");
-    },
+},
+{
+  searchText: ["apps", "manage apps", "uninstall apps", "app settings"],
+  name: "Manage Apps",
+  icon: "/assets/images/ui/app-window.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("Manage Apps");
   },
-  {
-    searchText: ["themes", "manage themes", "uninstall themes", "reorder themes", "set themes", "theme settings"],
-    name: "Manage Themes",
-    icon: "/assets/images/ui/paintbrush-on-app-window.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("Manage Themes");
-    },
+},
+{
+  searchText: ["themes", "manage themes", "uninstall themes", "reorder themes", "set themes", "theme settings"],
+  name: "Manage Themes",
+  icon: "/assets/images/ui/paintbrush-on-app-window.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("Manage Themes");
   },
-  {
-    searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings"],
-    name: "Proxy Settings",
-    icon: "/assets/images/ui/ultraviolet.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("Proxy Settings");
-    },
+},
+{
+  searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings"],
+  name: "Proxy Settings",
+  icon: "/assets/images/ui/ultraviolet.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("Proxy Settings");
   },
-  {
-    searchText: ["passcode settings", "password settings", "lock settings"],
-    name: "Passcode Settings",
-    icon: "/assets/images/ui/key.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("Passcode Settings");
-    },
+},
+{
+  searchText: ["passcode settings", "password settings", "lock settings"],
+  name: "Passcode Settings",
+  icon: "/assets/images/ui/key.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("Passcode Settings");
   },
-  {
-    searchText: ["control center settings", "time settings", "24-hour time", "12-hour time"],
-    name: "Personalization",
-    icon: "/assets/images/ui/paintbrush.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("Personalization");
-    },
+},
+{
+  searchText: ["control center settings", "time settings", "24-hour time", "12-hour time"],
+  name: "Personalization",
+  icon: "/assets/images/ui/paintbrush.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("Personalization");
   },
-  {
-    searchText: ["about clockwork", "version clockwork", "clockwork version"],
-    name: "About Clockwork",
-    icon: "/assets/images/ui/clockwork.png",
-    onclick: function() {
-      openApp('sys_settings');
-      loadSettingsScreen("About Clockwork");
-    },
+},
+{
+  searchText: ["about clockwork", "version clockwork", "clockwork version"],
+  name: "About Clockwork",
+  icon: "/assets/images/ui/clockwork.png",
+  onclick: function () {
+    openApp('sys_settings');
+    loadSettingsScreen("About Clockwork");
   },
+},
 ]
 
 
@@ -637,9 +641,9 @@ async function installApp(url, params) {
     });
 
     if (response.ok) {
-      if (appData.find(function(o) {
-          return o.url == url
-        })) {
+      if (appData.find(function (o) {
+        return o.url == url
+      })) {
         throw "App already installed!";
       }
       let json = await response.text();
@@ -661,7 +665,7 @@ async function installApp(url, params) {
       }
       var finderTerms = json?.finderTerms;
       var myFinderData = {
-        searchText: (function() {
+        searchText: (function () {
           if (finderTerms == null) {
             return [json.name.toLowerCase()];
           } else {
@@ -708,16 +712,16 @@ async function installApp(url, params) {
       }
       document.getElementById("appbar:" + url).style = "order: " + apps.indexOf(url) + ";";
       /*document.getElementById("appbar:"+url).addEventListener("dragstart", (event) =>{
-  		event.dataTransfer.setData("text/plain", url);
+      event.dataTransfer.setData("text/plain", url);
       });
       document.getElementById("appbar:"+url).addEventListener("dragover", (event) => {
         event.preventDefault();
         return false;
       });
           document.getElementById("appbar:"+url).addEventListener("drop", (event) => {
-          	var daita = event.dataTransfer.getData("text/plain");
-  			//daita = event.target.textContent;
-  			event.preventDefault();
+            var daita = event.dataTransfer.getData("text/plain");
+        //daita = event.target.textContent;
+        event.preventDefault();
             alert(daita);
           });*/
 
@@ -759,16 +763,16 @@ async function promptInstallApp(url, params) {
 
     prompt.querySelector(".prmpt-title").innerHTML = `App installation confirmation`;
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}?`;
-    prompt.querySelector(".prmpt-yes").onclick = function() {
+    prompt.querySelector(".prmpt-yes").onclick = function () {
       installApp(url, params);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {
+      setTimeout(function () {
         prompt.style = "display: none;"
       }, 300)
     }
-    prompt.querySelector(".prmpt-no").onclick = function() {
+    prompt.querySelector(".prmpt-no").onclick = function () {
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {
+      setTimeout(function () {
         prompt.style = "display: none;"
       }, 300)
     }
@@ -803,7 +807,7 @@ function openApp(app, url, encoded) {
         if ("about:blank" == child.src) {
           var trueurl = "";
           if (encoded == true) {
-            var i829X = (function() {
+            var i829X = (function () {
               function HFeg8(j92Ie) {
                 var ZiWfX = "";
                 for (var kk291 = 0; kk291 < j92Ie.length; kk291 += 2) {
@@ -825,7 +829,7 @@ function openApp(app, url, encoded) {
             }
           }
           child.src = trueurl;
-          child.onload = function() {
+          child.onload = function () {
             child.contentWindow.postMessage(child.id.slice(9), "*");
           }
         }
@@ -881,7 +885,7 @@ function uninstallApp(app) {
   if (app == null || app == undefined) {
     throw "app ID is undefined";
   }
-  var entry = appData.find(function(o) {
+  var entry = appData.find(function (o) {
     return o.url == app
   });
 
@@ -927,22 +931,22 @@ function appContextMenu(app) {
     contextMenu.style.top = mouseY - 25 - contextMenu.offsetHeight + "px";
   }
 
-  setTimeout(function() {
+  setTimeout(function () {
     contextMenu.className = "visible";
     contextMenu.style.top = Number(contextMenu.style.top.slice(0, -2)) + 25 + "px";
   }, 50);
 
-  document.getElementById("cm:closeapp").onclick = function() {
+  document.getElementById("cm:closeapp").onclick = function () {
     closeApp(app);
   };
-  document.getElementById("cm:uninstallapp").onclick = function() {
+  document.getElementById("cm:uninstallapp").onclick = function () {
     uninstallApp(app);
   };
 
-  document.getElementById("cm:mleft").onclick = function() {
+  document.getElementById("cm:mleft").onclick = function () {
     moveApp(app, 'add', -1);
   };
-  document.getElementById("cm:mright").onclick = function() {
+  document.getElementById("cm:mright").onclick = function () {
     moveApp(app, 'add', 1);
   };
 }
@@ -1075,16 +1079,16 @@ async function promptInstallTheme(url) {
 
     prompt.querySelector(".prmpt-title").innerHTML = `Theme installation confirmation`;
     prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${title}?`;
-    prompt.querySelector(".prmpt-yes").onclick = function() {
+    prompt.querySelector(".prmpt-yes").onclick = function () {
       installTheme(url);
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {
+      setTimeout(function () {
         prompt.style = "display: none;"
       }, 300)
     }
-    prompt.querySelector(".prmpt-no").onclick = function() {
+    prompt.querySelector(".prmpt-no").onclick = function () {
       prompt.className = "clockwork-panel clockwork-panel-fadeout";
-      setTimeout(function() {
+      setTimeout(function () {
         prompt.style = "display: none;"
       }, 300)
     }
@@ -1119,12 +1123,12 @@ function changeSetting(setting, value) {
 // some stuff for passcodes
 const pcodeInput = document.getElementById("passcode");
 
-pcodeInput.oninput = function() {
+pcodeInput.oninput = function () {
   if (pcodeInput.value.length == 4) {
     if (pcodeInput.value == settings.lock.passcode) {
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadeout";
       document.getElementById("clockwork-content").style = "";
-      setTimeout(function() {
+      setTimeout(function () {
         document.getElementById("clockwork-lock").style = "display: none;"
       }, 300);
       sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
@@ -1160,7 +1164,7 @@ notificationPanel.className = "";
 //onclick
 function onClick(event) {
   contextMenu.className = "invisible";
-  setTimeout(function() {
+  setTimeout(function () {
     contextMenu.style.display = "none";
   }, 250);
   if ((event.isFake || !notificationPanel.contains(event.target.offsetParent)) && notificationPanel.className == "visible") {
@@ -1169,7 +1173,7 @@ function onClick(event) {
   if (event.isFake || !finderBox.contains(event.target.offsetParent)) {
     finder.className = "finder invisible";
     finderBox.className = "finder-box invisible";
-    setTimeout(function() {
+    setTimeout(function () {
       finder.style = "display: none;";
       finderBox.style = "display: none;";
     }, 250);
@@ -1184,10 +1188,10 @@ function sendNotification(title, content) {
   el.className = "clockwork-notification";
   el.innerHTML = `<b>${title}</b><br>\n${content}`;
   document.body.appendChild(el);
-  setTimeout(function() {
+  setTimeout(function () {
     el.className = "clockwork-notification hide";
   }, 5000);
-  setTimeout(function() {
+  setTimeout(function () {
     el.remove();
   }, 5500);
   if (document.getElementById("clockwork-notification-items").innerText == "You're all caught up!") {
@@ -1204,7 +1208,7 @@ var notifPanelOpen = false;
 
 function openNotificationPanel() {
   if (notifPanelOpen == false) {
-    setTimeout(function() {
+    setTimeout(function () {
       notificationPanel.className = "visible";
     }, 10)
     document.getElementById("appsidebar:notifs").src = "/assets/images/ui/bell.png"
@@ -1252,7 +1256,7 @@ function onKeyPress(e) {
     if (finder.className == "finder") {
       finder.className = "finder invisible";
       finderBox.className = "finder-box invisible";
-      setTimeout(function() {
+      setTimeout(function () {
         finder.style = "display: none;";
         finderBox.style = "display: none;";
       }, 250);
@@ -1277,7 +1281,7 @@ function onKeyPress(e) {
     }
   }
 }
-document.body.onkeydown = function(e) {
+document.body.onkeydown = function (e) {
   onKeyPress(e);
 };
 
@@ -1299,19 +1303,19 @@ function checkFinder(str) {
         priorityLevel2.push(searchables[i]);
         ++i; continue;
       }
-      
+
       for (let i2 = 0; i2 < searchables[i].searchText.length;) {
         if (searchables[i].searchText[i2].toLowerCase().includes(sub)) {
           match.push(searchables[i]);
           break;
         }
-        
+
         ++i2;
       }
       ++i;
     }
-    while (priorityLevel2[0]) { match.unshift(priorityLevel2[0]); priorityLevel2.splice(0,1) };
-    while (priorityLevel3[0]) { match.unshift(priorityLevel3[0]); priorityLevel3.splice(0,1) };
+    while (priorityLevel2[0]) { match.unshift(priorityLevel2[0]); priorityLevel2.splice(0, 1) };
+    while (priorityLevel3[0]) { match.unshift(priorityLevel3[0]); priorityLevel3.splice(0, 1) };
   }
 
   finderBox.innerHTML = "";
@@ -1323,21 +1327,21 @@ function checkFinder(str) {
 
     if (i == 0 && str != null && str != "") div.className = "best"; // Best result will not turn gray without this!
 
-    div.innerHTML = `${(function(){
+    div.innerHTML = `${(function () {
       if (typeof match[i].icon == "string") {
         if (match[i].icon.length > 4) {
           return `<img src="${match[i].icon}">`;
         } else {
           return "";
         }
-        
+
       } else {
         return "";
       }
-    })()} ${match[i].name}${(function(){
-      if (i==0 && str != null && str != "")
+    })()} ${match[i].name}${(function () {
+      if (i == 0 && str != null && str != "")
         return ' <span style="font-size:8px">Best result</span>'
-        else return "";
+      else return "";
     })()}`
 
     // holy fucking shit WORK DAMN YOU
@@ -1351,10 +1355,10 @@ function checkFinder(str) {
     } else {
       div.addEventListener("click", func);
     }
-    div.addEventListener("click", function() {
+    div.addEventListener("click", function () {
       finder.className = "finder invisible";
       finderBox.className = "finder-box invisible";
-      setTimeout(function() {
+      setTimeout(function () {
         finder.style = "display: none;";
         finderBox.style = "display: none;";
       }, 250);
@@ -1367,18 +1371,18 @@ function checkFinder(str) {
     finderBox.innerHTML = "No results - try a less specific search"
   }
 }
-finder.oninput = function() {
+finder.oninput = function () {
   checkFinder(finder.value.toLowerCase());
 }
 
 // clockwork.js functions
-window.addEventListener('message', function(event) {
+window.addEventListener('message', function (event) {
   if (event.data.length > 1) {
     if (event.data[0] == "installApp") {
       // event.source.frameElement.id.slice(9)
-      if (appData.find(function(o) {
-          return o.url == event.data[3]
-        }).permissions.includes("installApp")) {
+      if (appData.find(function (o) {
+        return o.url == event.data[3]
+      }).permissions.includes("installApp")) {
         if (event.data[1] == "installApp") {
           promptInstallApp(event.data[2], {})
         }
@@ -1386,9 +1390,9 @@ window.addEventListener('message', function(event) {
     }
     if (event.data[0] == "installTheme") {
       // event.source.frameElement.id.slice(9)
-      if (appData.find(function(o) {
-          return o.url == event.data[3]
-        }).permissions.includes("installTheme")) {
+      if (appData.find(function (o) {
+        return o.url == event.data[3]
+      }).permissions.includes("installTheme")) {
         if (event.data[1] == "installTheme") {
           promptInstallTheme(event.data[2])
         }
@@ -1396,7 +1400,7 @@ window.addEventListener('message', function(event) {
     }
     if (event.data[0] == "installPlugin") {
       // event.source.frameElement.id.slice(9)
-      var app = appData.find(function(o) {
+      var app = appData.find(function (o) {
         return o.url == event.data[3]
       });
       if (app.permissions.includes("installPlugin")) {
@@ -1409,7 +1413,7 @@ window.addEventListener('message', function(event) {
     }
     if (event.data[0] == "notifications") {
       // event.source.frameElement.id.slice(9)
-      var app = appData.find(function(o) {
+      var app = appData.find(function (o) {
         return o.url == event.data[3]
       });
       if (app.permissions.includes("notifications")) {
@@ -1434,7 +1438,7 @@ window.addEventListener('message', function(event) {
   }
 });
 
-window.onbeforeunload = function(event) { return false };
+window.onbeforeunload = function (event) { return false };
 
 console.log("%cSTOP!", "color: red; font-family: sans-serif; font-size: 69px;");
 console.log("%cThis is a browser feature %conly intended for developers. %cPasting code here could give bad people access to the entirety of Clockwork, which may even include account credentials! Don't put anything here if you don't know what it does.", "font-family: sans-serif; font-size: 20px;", "color: red; font-family: sans-serif; font-size: 20px;", "font-family: sans-serif; font-size: 20px;");
