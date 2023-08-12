@@ -1434,6 +1434,8 @@ window.addEventListener('message', function(event) {
   }
 });
 
+addEventListener("beforeunload", event => preventDefault());
+
 console.log("%cSTOP!", "color: red; font-family: sans-serif; font-size: 69px;");
 console.log("%cThis is a browser feature %conly intended for developers. %cPasting code here could give bad people access to the entirety of Clockwork, which may even include account credentials! Don't put anything here if you don't know what it does.", "font-family: sans-serif; font-size: 20px;", "color: red; font-family: sans-serif; font-size: 20px;", "font-family: sans-serif; font-size: 20px;");
 console.log("%cIf you do know what you're doing, just ignore this.", "color: gray; font-family: sans-serif; font-size: 12px;");
