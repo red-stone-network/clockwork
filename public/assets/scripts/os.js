@@ -218,7 +218,7 @@ const settingsMenu = [{
         }
 
         var newPasscode = prompt("Enter your new passcode (between 4 and 6 characters, numbers only)")
-        
+
         if (!newPasscode.match(/^[0-9]{4,6}$/)) { alert("Passcode must be a number!"); return; }
         if (newPasscode.length > 6 || 4 > newPasscode.length) { alert("Passcode must be between 4 and 6 characters!"); return; }
         if (prompt("Type it again to confirm.") != newPasscode) { alert("Passcodes do not match!"); return; }
@@ -243,7 +243,7 @@ const settingsMenu = [{
         }
 
         settings.lock.enabled = false;
-        
+
         loadSettingsScreen(3);
         alert("Success!");
         localStorage.setItem("settings", JSON.stringify(settings));
@@ -283,13 +283,22 @@ const settingsMenu = [{
       div.innerHTML = `<p>
           This is a tool that allows you to import and export all the data stored in Clockwork. Exporting will export your data in a .cws file, which can be imported easily. Importing will require a .cws file, and will force-restart Clockwork.
           </p>`
-    }
-  },
-  {
-    label: "Tools",
-    type: "scriptbox",
-    value: function (div) {
-      div.innerHTML = "Coming soon..."
+      var btn = document.createElement("btn");
+      btn.innerText = "Export"
+      btn.onclick = function () {
+        var myFile = new Blob([JSON.stringify({
+          settings: settings,
+          apps: apps,
+          themes: themes,
+        })], { type: 'text/json' });
+        var dlBtn = document.createElement("a");
+
+        dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+        dlBtn.setAttribute("download", "exportedUserData.cws");
+        dlBtn.click();
+        dlBtn.remove();
+      }
+      div.appendChild(btn);
     }
   }
   ]
