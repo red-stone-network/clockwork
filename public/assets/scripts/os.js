@@ -231,6 +231,7 @@ const settingsMenu = [{
         localStorage.setItem("settings", JSON.stringify(settings));
       }
       div.appendChild(btn);
+      div.innerHTML += " "
       var btn = document.createElement("btn");
       btn.innerText = "Remove passcode";
       btn.onclick = function () {
