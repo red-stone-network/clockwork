@@ -40,6 +40,10 @@ var version = "2.0.0.0-beta14-indev";
 
 contextMenu.style.display = "none";
 
+Number.prototype.clamp = function (min, max) {
+  return Math.min(Math.max(this, min), max)
+}
+
 // The Settings app uses this to load its UI
 
 /*
@@ -201,7 +205,38 @@ const settingsMenu = [{
       div.innerHTML = `<p>
         Clockwork now supports setting a passcode, which lets you lock down Clockwork for anyone but you. Note that if you lose your passcode, there is <b>no way to recover,</b> so please write it down somewhere!
         </p>`;
-      //var btn = document.createElement("")
+
+      var btn = document.createElement("btn");
+      if (settings.lock.enabled) btn.innerText = "Change passcode"
+      else btn.innerText = "Create new passcode";
+      btn.onclick = function () {
+        if (settings.lock.enabled) {
+          if (prompt("Enter your old passcode.") != settings.lock.passcode) {
+            alert("Incorrect passcode!")
+            return;
+          }
+        }
+
+        var newPasscode = prompt("Enter your new passcode (between 4 and 6 characters, numbers only)")
+        if (!newPasscode.match(/^[0-9]{4,6}$/)) {
+          alert("Passcode must be a number!")
+          return;
+        }
+        if (newPasscode.length > 6 || 4 > newPasscode.length) {
+          alert("Passcode must be between 4 and 6 characters!")
+          return;
+        }
+
+        if (prompt("Type it again to confirm.") != newPasscode) {
+          alert("Passcodes do not match!")
+          return;
+        }
+
+        settings.lock.enabled = true;
+        settings.lock.passcode = newPasscode;
+        loadSettingsMenu()
+        alert("Success!");
+      }
     }
   }]
 },
@@ -1124,7 +1159,7 @@ function changeSetting(setting, value) {
 const pcodeInput = document.getElementById("passcode");
 
 pcodeInput.oninput = function () {
-  if (pcodeInput.value.length == 4) {
+  if (pcodeInput.value.length == settings.lock.passcode.length) {
     if (pcodeInput.value == settings.lock.passcode) {
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadeout";
       document.getElementById("clockwork-content").style = "";
