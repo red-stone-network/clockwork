@@ -1161,7 +1161,6 @@ function changeSetting(setting, value) {
 const pcodeInput = document.getElementById("passcode");
 
 pcodeInput.oninput = function () {
-  pcodeInput.maxlength = settings.lock.passcode.length;
   if (pcodeInput.value.length == settings.lock.passcode.length) {
     if (pcodeInput.value == settings.lock.passcode) {
       document.getElementById("clockwork-lock").className = "clockwork-panel clockwork-panel-fadeout";
