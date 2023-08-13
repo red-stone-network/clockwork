@@ -52,10 +52,10 @@ h1,h2,h3,h4,h5,h6 {
   text-align: center;
 }
 h1 {
-  color: red;
+  color: #9B0022;
 }
 h2 {
-  color: #f88;
+  color: #69343f;
 }
 p {
   padding-left: 25vw;
@@ -102,14 +102,14 @@ div.withimgright > div {
   transform: translateY(-50%);
 }
 a {
-  color: red;
+  color: #9B0022;
 }
 a:link {
-  color: red;
+  color: #9B0022;
   transition: 0.2s;
 }
 a:hover {
-  color: #f88;
+  color: #69343f;
   transition: 0.2s;
 }
 details[open] summary ~ * {
@@ -118,7 +118,7 @@ details[open] summary ~ * {
 }
 details > summary {
   display: block;
-  color: #f88;
+  color: #69343f;
   text-align: center;
   font-size: 30px;
   user-select: none;
@@ -126,7 +126,7 @@ details > summary {
   transition: 0.2s;
 }
 details[open] > summary {
-  color: red;
+  color: #9B0022;
   transition: 0.2s;
 }
 summary::marker {

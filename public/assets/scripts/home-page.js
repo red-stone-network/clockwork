@@ -4,7 +4,7 @@ const bannerTextOptions = [
   ["proxies", "green"],
   ["apps", "yellow"],
   ["tools", "orange"],
-  ["everything", "red"]
+  ["everything", "#9B0022"]
 ]
 
 var tick = 0;
