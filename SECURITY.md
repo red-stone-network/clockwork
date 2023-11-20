@@ -1,6 +1,6 @@
 # Security Policy
 
-Only the latest minor/patch versions of each major version are supported. The latest beta version is also supported. The latest beta version is also supported. As of writing, this is 1.0.4 and 2.0.0.0-beta13.
+Only the latest beta version is supported. As of writing, this is 2.0.0.0-beta15.
 
 ## Reporting a Vulnerability
 

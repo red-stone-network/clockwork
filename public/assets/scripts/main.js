@@ -7,20 +7,20 @@ document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Sb8Nz
 
 // for /converter/
 function generateV2Code() {
-  var v1c = document.querySelector("textarea").value;
+    var v1c = document.querySelector("textarea").value;
 
-  var appName = v1c.match(/title {0,1}= {0,1}"([^"]+)"/);
-  if (appName) appName = appName[1];
+    var appName = v1c.match(/title {0,1}= {0,1}"([^"]+)"/);
+    if (appName) appName = appName[1];
 
-  var appLink = v1c.match(/link {0,1}= {0,1}"([^"]+)"/);
-  if (appLink) appLink = appLink[1];
+    var appLink = v1c.match(/link {0,1}= {0,1}"([^"]+)"/);
+    if (appLink) appLink = appLink[1];
 
-  if (!appName || !appLink) {
-    alert("Invalid app!");
-    throw "InvalidApp";
-  }
+    if (!appName || !appLink) {
+        alert("Invalid app!");
+        throw "InvalidApp";
+    }
 
-  var v2c = `{
+    var v2c = `{
   "name": "${appName}",
   "desc": "Converted from v1 to v2",
   "url": "${appLink}",
@@ -30,14 +30,14 @@ function generateV2Code() {
   "permissions": []
 }`;
 
-  document.querySelector("textarea").value = v2c;
-  document.querySelector("#instruction").innerHTML = "Now, you can copy the contents of the textarea into a .JSON file and save it somewhere. Make sure the service you use serves the correct Content-Type headers for .JSON files, such as Github Pages or Vercel.";
+    document.querySelector("textarea").value = v2c;
+    document.querySelector("#instruction").innerHTML = "Now, you can copy the contents of the textarea into a .JSON file and save it somewhere. Make sure the service you use serves the correct Content-Type headers for .JSON files, such as Github Pages or Vercel.";
 }
 
 // for /get-started/
 if (document.location.pathname.startsWith("/get-started")) {
-  const url = "https://"+document.location.hostname+"/os/"
-  const htmlPage = `
+    const url = "https://" + document.location.hostname + "/os/"
+    const htmlPage = `
   <!DOCTYPE html>
   <html>
   <body>
@@ -54,25 +54,23 @@ if (document.location.pathname.startsWith("/get-started")) {
     border: none;
   }
   </style>
+  <script src="https://${document.location.hostname}/assets/scripts/hidden-name.js"></script>
   <script>
   document.querySelector("iframe").src = atob(
     document.querySelector("iframe").id
-  );
+  ) + (function () {
+    if (document.location.href.endsWith("?debug")) return "?debug" else return ""
+  })();
+  window.onbeforeunload = function (event) { return false };
   </script>
   </body>
-  </html>`.replace(/\n/g,"").replace(/  /g,"");
-  
-  const aboutBlanker = `javascript:
+  </html>`.replace(/\n/g, "").replace(/  /g, "");
+
+    const aboutBlanker = `javascript:
   var win = window.open("","_blank","popup=yes");
   win.location.origin = 'https://google.com';
-  win.document.write(\`<!DOCTYPE html>
-  <html>
-  <body>
-  <iframe src="\${atob('${btoa(url)}')}"></iframe>
-  <style>* {margin: 0;padding: 0;overflow-y: hidden;}iframe {width: 100%;height: 100vh;border: none;}</style>
-  </body>
-  </html>\`);`
-  document.querySelector("#blanker").href = aboutBlanker;
-  document.querySelector("#file").href = "data:text/html,"+htmlPage;
-  document.querySelector("#file2").href = "data:text/html,"+htmlPage;
+  win.document.write(\`${htmlPage}\`);`
+    document.querySelector("#blanker").href = aboutBlanker;
+    document.querySelector("#file").href = "data:text/html," + htmlPage;
+    document.querySelector("#file2").href = "data:text/html," + htmlPage;
 }

@@ -3,115 +3,209 @@
 
 <head>
 
-  <title>Clockwork V2 Beta</title>
-  <script src="/assets/scripts/enc-dec.js"></script>
-  <link rel="stylesheet" href="/assets/styles/os.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/assets/images/icon.png">
-  <meta name="description" content="The newest version of Clockwork">
-  <meta name="slingcode-tags" content="beta,redstone,redstone-network">
+    <title>Clockwork V2 Beta</title>
 
-  <stylesheets>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/images/icon.png">
+    <meta name="description" content="The newest version of Clockwork">
+    <meta name="slingcode-tags" content="beta,redstone,redstone-network">
 
-  </stylesheets>
+    <link rel="preload" href="/assets/styles/os.css" as="stylesheet">
 
-  <script src="https://takeback-1-b5552992.deta.app/api/kit/YL9YM0E3PGO6O57IQ67KF"></script>
+    <link rel="stylesheet" href="/assets/styles/os.css">
+
+    <link rel="preload" href="//cdn.jsdelivr.net/npm/less" as="script">
+    <link rel="preload" href="/assets/scripts/os.js" as="script">
+    <link rel="preload" href="/assets/scripts/enc-dec.js" as="script">
+
+    <link rel="preload" href="/assets/scripts/modules/settings.js" as="script">
+    <link rel="preload" href="/assets/scripts/modules/finder.js" as="script">
+    <link rel="preload" href="/assets/scripts/enc-dec.js" as="script">
+    <link rel="preload" href="/assets/scripts/os.js" as="script">
+
+    <script src="/assets/scripts/modules/settings.js"></script>
+    <script src="/assets/scripts/modules/finder.js"></script>
+
+    <script src="/assets/scripts/enc-dec.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/less"></script>
+    <script src="https://takeback-1-b5552992.deta.app/api/kit/YL9YM0E3PGO6O57IQ67KF"></script>
+
+    <stylesheets>
+
+    </stylesheets>
 </head>
 
 <body>
 
-  <span id="clockwork-loading" class="clockwork-panel">
+    <span id="clockwork-loading" class="clockwork-panel">
 
-    <div>
-      <h1>
-        CLOCKWORK
-      </h1>
-      If this doesn't load in a few seconds, reload.<br>
-      <progress id="cw-load-bar" value="0" max="100"> 32% </progress>
-    </div>
-
-  </span>
-
-  <span id="clockwork-prmpt" class="clockwork-panel" style="display: none;">
-
-    <div>
-      <h1 class="prmpt-title">
-        App installation confirmation
-      </h1>
-      <span class="prmpt-text"></span><br>
-      <btn class="prmpt-yes">Yes</btn>
-      <btn class="prmpt-no">No</btn>
-    </div>
-
-  </span>
-
-  <span id="clockwork-lock" class="clockwork-panel" style="display: none;">
-
-    <div>
-      <h1>
-        Welcome.
-      </h1>
-      For your security, please enter your passcode.<br><br>
-      <input type="password" maxlength="6" id="passcode">
-    </div>
-
-  </span>
-
-  <span id="clockwork-content" style="display: none;">
-    <input class="finder" placeholder="Type something..." style="display: none;">
-    <div class="finder-box" style="display: none;">
-      Type something in the box, and items will appear here.
-    </div>
-    <div id="contextmenu" class="invisible" style="display: none;">
-      <btn id="cm:closeapp">Close app</btn>
-      <btn id="cm:uninstallapp">Uninstall app</btn>
-      <btn id="cm:mleft">Move left</btn>
-      <btn id="cm:mright">Move right</btn>
-    </div>
-    <div id="apppanel">
-      <div class="app appopen" id="apppanel:sys_home">
-        
-      </div>
-      <div class="app" id="apppanel:sys_settings">
-        <div class="left">
-          <h1>Settings</h1>
-          <div class="selections">
-            
-          </div>
-          
+        <div>
+            <h1>
+                <img src="/assets/images/icon.png">
+            </h1>
+            <progress id="cw-load-bar" value="0" max="100"> 32% </progress>
         </div>
-        <div class="right">
-          
+
+    </span>
+
+    <span id="clockwork-prmpt" class="clockwork-panel" style="display: none;">
+
+        <div>
+            <h1 class="prmpt-title">
+                App installation confirmation
+            </h1>
+            <span class="prmpt-text"></span><br>
+            <btn class="prmpt-yes">Yes</btn>
+            <btn class="prmpt-no">No</btn>
         </div>
-      </div>
-    </div>
 
-    <div id="appbar">
-      <btn id="appbar:sys_home" onclick="openApp('sys_home');" class="open">
-        <img src="/assets/images/ui/home.png">
-      </btn>
-      <btn id="appbar:sys_settings" onclick="openApp('sys_settings');">
-        <img src="/assets/images/ui/settings.png">
-      </btn>
-    </div>
-    <div id="appsidebar">
-      <div id="appsidebar-clock">...</div>
-      <btn onclick="openNotificationPanel();">
-        <img id="appsidebar:notifs" src="/assets/images/ui/bell.png">
-      </btn>
-    </div>
-    <div id="clockwork-notification-panel" class="visible">
-      <t>Notifications
-        <img src="/assets/images/ui/trash-can.png" onclick="clearAllNotifs();">
-      </t>
-      <span id="clockwork-notification-items">You're all caught up!</span>
-    </div>
-    </div>
+    </span>
+
+    <span id="clockwork-lock" class="clockwork-panel" style="display: none;">
+
+        <div>
+            <h1>
+                Welcome back!
+            </h1>
+            For your security, please enter your passcode.<br><br>
+            <input type="password" maxlength="6" id="passcode">
+        </div>
+
+    </span>
+
+    <span id="clockwork-setup" class="clockwork-panel" style="display: none;">
+
+        <div class="setup-screen" id="setup-screen-welcome">
+            <h1>
+                Welcome to Clockwork
+            </h1>
+            <p>
+                Thanks for picking Clockwork! For best experience, we suggest you use our setup to get the most common
+                apps installed.
+            </p>
+            <btn onclick="setupScreenSwap('apps')">Continue</btn><br>
+            <a href="javascript:void(0)" onclick="setupScreenClose()">...or skip the setup</a>
+        </div>
+
+        <div class="setup-screen" id="setup-screen-apps">
+            <h1>
+                Install some apps
+            </h1>
+            <p>
+                First, you should install some of the most installed apps. You'll be able to install more in the Store
+                later.
+            </p>
+            <div class="apps-to-install">
+                <div>
+                    <p>
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWydnTN7LkHkCONWHU_k6W6Fx7Yj4ByRIubvxZZnXDoA&s">
+                        <b>Rammerhead Browser</b> Browse privately and evade content filters
+                    </p>
+                    <btn onclick="promptInstallApp('/assets/apps/rammer.json')">Install</btn>
+                </div>
+                <div>
+                    <p>
+                        <img src="https://www.metalsdepot.com/assets/files/Catalog_Photos/copper-round-bar.webp">
+                        <b>Copper</b> Curated, high-quality games for everyone
+                    </p>
+                    <btn onclick="promptInstallApp('/assets/apps/copper.json')">Install</btn>
+                </div>
+                <div>
+                    <p>
+                        <img src="/assets/images/bitplanes.svg">
+                        <b>Bitplanes</b> Fly a plane and try not to dive bomb into the ground
+                    </p>
+                    <btn onclick="promptInstallApp('@gh/Ender-Ghost-Craft/kbhgames-clockwork@main/bitplanes.json')">
+                        Install</btn>
+                </div>
+            </div>
+            <btn onclick="setupScreenSwap('proxy')">Continue</btn>
+        </div>
+
+        <div class="setup-screen" id="setup-screen-proxy">
+            <h1>
+                Important stuff
+            </h1>
+            <p>
+                Some apps might end up getting blocked, which means you'll need to use a proxy. You can set this up (and
+                plenty more, like wallpapers, clock type, etc.) in the Settings app.
+            </p>
+            <p>
+                The Clockwork Store's guidelines for apps and themes can be found <a href="/get-started"
+                    target="_blank">here.</a> Malicious apps and themes should be reported to
+                trustsafety@mail.redstonenetwork.rit.cl.
+            </p>
+            <btn onclick="setupScreenSwap('finish')">Continue</btn>
+        </div>
+
+        <div class="setup-screen" id="setup-screen-finish">
+            <h1>
+                You're good to go!
+            </h1>
+            <p>
+                You've finished the setup. Enjoy using Clockwork!
+            </p>
+            <btn onclick="setupScreenClose()">Exit</btn>
+        </div>
+
+    </span>
+
+    <span id="clockwork-content" style="display: none;">
+        <input class="finder" placeholder="Type something..." style="display: none;">
+        <div class="finder-box" style="display: none;">
+            Type something in the box, and items will appear here.
+        </div>
+        <div id="contextmenu" class="invisible" style="display: none;">
+            <btn id="cm:closeapp">Close app</btn>
+            <btn id="cm:uninstallapp">Uninstall app</btn>
+            <btn id="cm:mleft">Move left</btn>
+            <btn id="cm:mright">Move right</btn>
+        </div>
+        <div id="apppanel">
+            <div class="app appopen" id="apppanel:sys_home">
+
+            </div>
+            <div class="app" id="apppanel:sys_settings">
+                <div class="left">
+                    <h1>Settings</h1>
+                    <div class="selections">
+
+                    </div>
+
+                </div>
+                <div class="right">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="appbar">
+            <btn id="appbar:sys_home" onclick="openApp('sys_home');" class="open">
+                <img src="/assets/images/ui/home.png">
+            </btn>
+            <btn id="appbar:sys_settings" onclick="openApp('sys_settings');">
+                <img src="/assets/images/ui/settings.png">
+            </btn>
+        </div>
+        <div id="appsidebar">
+            <div id="appsidebar-clock">...</div>
+            <btn onclick="openNotificationPanel();">
+                <img id="appsidebar:notifs" src="/assets/images/ui/bell.png">
+            </btn>
+        </div>
+        <div id="clockwork-notification-panel" class="visible">
+            <t>Notifications
+                <img src="/assets/images/ui/trash-can.png" onclick="clearAllNotifs();">
+            </t>
+            <span id="clockwork-notification-items">You're all caught up!</span>
+        </div>
+        </div>
 
 
-  </span>
+    </span>
 
-  <!--<script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/red-stone-network/altconsole@main/altconsole.js"></script>-->
 </body>
 
 </html>
