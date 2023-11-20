@@ -1,165 +1,211 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+/* test */
 
 @keyframes detailsopen {
-  0%    {opacity: 0; left: -10px}
-  100%  {opacity: 1; left: 0px}
+    0% {
+        opacity: 0;
+        left: -10px
+    }
+
+    100% {
+        opacity: 1;
+        left: 0px
+    }
 }
 
 body {
-  background-color: black;
-  color: white;
-  font-family: "Asap", "Roboto Flex", "Roboto", Arial, sans-serif;
-  padding: 0;
-  margin: 0;
+    background-color: black;
+    color: white;
+    font-family: "Asap", "Roboto Flex", "Roboto", Arial, sans-serif;
+    padding: 0;
+    margin: 0;
 }
-.home-banner {
-  width: 100%;
-  height: 100vh;
-  background-image: url("//clockwork-os.vercel.app/assets/images/banner.svg");
-  background-color: black;
-  background-size: cover;
-  background-position: 50%;
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    background-size: cover;
+    background-position: 50%;
 }
-.home-banner > span {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-family: "Varela Round", Arial, sans-serif;
-  font-size: 3vw;
-  backdrop-filter: blur(2px);
-  border-radius: 24px;
+
+.banner.home {
+    background-image: url("/assets/images/home-page/banner.svg");
 }
+
+.banner.bogos {
+    background-image: url("/assets/images/home-page/bogos.svg");
+}
+
+.banner.bogos div {
+    width: calc(50% - 24px);
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+    outline: 1px rgba(128, 128, 128, 0.5) solid;
+    box-sizing: border-box;
+    text-align: center;
+    left: 50%;
+    backdrop-filter: blur(50px);
+    padding: 4px;
+    font-size: 24px;
+    top: 20px;
+}
+
+.banner.bogos div p {
+    margin: 0;
+    padding: 20px;
+    width: calc(100% - 32px);
+}
+
+.banner.bogos div p a.big {
+    display: block;
+    font-size: 48px;
+}
+
+.banner.home>span {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: "Varela Round", Arial, sans-serif;
+    font-size: 3vw;
+    border-radius: 24px;
+}
+
 .content {
-  font-size: 20px;
-  padding-top: 6px;
-  min-height: calc(100vh - 37px);
-  box-sizing: border-box;
-  max-width: 100vw;
+    font-size: 20px;
+    padding-top: 6px;
+    box-sizing: border-box;
+    max-width: 100vw;
 }
+
 .navbar {
-  width: 100%;
-  padding: 6px;
-  font-size: 16px;
-  box-sizing: border-box;
-  background-color: #111;
+    width: 100%;
+    padding: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #111;
 }
-h1,h2,h3,h4,h5,h6 {
-  font-family: "Varela Round", Arial, sans-serif;
-  text-align: center;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Varela Round", Arial, sans-serif;
+    text-align: center;
 }
+
 h1 {
-  color: #9B0022;
+    color: #9B0022;
 }
+
 h2 {
-  color: #69343f;
+    color: #69343f;
 }
-p {
-  padding-left: 25vw;
-  padding-right: 25vw;
+
+.content p {
+    padding-left: 25vw;
+    padding-right: 25vw;
 }
-div.withimgleft,div.withimgright {
-  display: block;
-  padding: 6px 10px;
-  position: relative;
-  height: 100vh;
-}
-div.withimgleft > img {
-  width: 50%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  max-height: 100vh;
-  object-fit: cover;
-  transform: translateY(-50%);
-}
-div.withimgleft > div {
-  width: 50%;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-div.withimgright > img {
-  width: 50%;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  max-height: 100vh;
-  object-fit: cover;
-  transform: translateY(-50%);
-}
-div.withimgright > div {
-  width: 50%;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
+
 a {
-  color: #9B0022;
+    color: #9B0022;
 }
+
 a:link {
-  color: #9B0022;
-  transition: 0.2s;
+    color: #9B0022;
+    transition: 0.2s;
 }
+
 a:hover {
-  color: #69343f;
-  transition: 0.2s;
+    color: #69343f;
+    transition: 0.2s;
 }
-details[open] summary ~ * {
-  position: relative;
-  animation: detailsopen .5s ease-in-out;
+
+details[open] summary~* {
+    position: relative;
+    animation: detailsopen .5s ease-in-out;
 }
-details > summary {
-  display: block;
-  color: #69343f;
-  text-align: center;
-  font-size: 30px;
-  user-select: none;
-  font-family: "Varela Round", Arial, sans-serif;
-  transition: 0.2s;
+
+details>summary {
+    display: block;
+    color: #69343f;
+    text-align: center;
+    font-size: 30px;
+    user-select: none;
+    font-family: "Varela Round", Arial, sans-serif;
+    transition: 0.2s;
 }
-details[open] > summary {
-  color: #9B0022;
-  transition: 0.2s;
+
+details[open]>summary {
+    color: #9B0022;
+    transition: 0.2s;
 }
+
 summary::marker {
-  content: "";
+    content: "";
 }
+
 .letsgo {
-  font-size: 7vw;
-  padding: 0;
-  text-align: center;
-  font-family: "Varela Round", Arial, sans-serif;
+    font-size: 7vw;
+    padding: 0;
+    text-align: center;
+    font-family: "Varela Round", Arial, sans-serif;
 }
+
 textarea {
-  background-color: #111;
-  color: white;
-  border: 1px solid #222;
-  width: 100%;
-  height: 400px;
-  outline: none;
-  font-family: 'Courier New', Courier, monospace;
+    background-color: #111;
+    color: white;
+    border: 1px solid #222;
+    width: 100%;
+    height: 400px;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+div.partners {
+    width: 100%;
+    margin: 0 0 96px 0;
+    background-color: #111;
+    border-radius: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.1px;
+    background: linear-gradient(#000, #090002, #000);
+}
+
+div.partners h1 {
+    color: white;
+}
+
+div.partners a {
+    padding: 0.1px 16px 32px;
+    display: inline-block;
+}
+
+div.partners a img {
+    width: 256px;
+    height: 256px;
+    border-radius: 16px;
 }
 
 input {
-  background-color: #111;
-  color: white;
-  border: 1px solid #222;
-  border-radius: 0;
-  outline: none;
-  font-size: 16px;
-  font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
+    background-color: #111;
+    color: white;
+    border: 1px solid #222;
+    border-radius: 0;
+    outline: none;
+    font-size: 16px;
+    font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
 }
 
 iframe.a.xy.d.lo.bnr {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
