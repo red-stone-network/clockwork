@@ -56,6 +56,9 @@ if (document.location.pathname.startsWith("/get-started")) {
   </style>
   <script src="https://${document.location.hostname}/assets/scripts/hidden-name.js"></script>
   <script>
+  document.querySelector("iframe").src = atob(
+    document.querySelector("iframe").id
+  );
   window.onbeforeunload = function (event) { return false };
   </script>
   </body>
