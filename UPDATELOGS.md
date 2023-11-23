@@ -4,7 +4,6 @@
 > - ADDED: Setup screen when first booting up Clockwork
 > - ADDED: Clockwork's store and apps now has a special behavior for getting files from Github and Gitlab repos. Branch is required, you can also replace gh with gl to use Gitlab. You should *always* use the Github/Gitlab link method when it's available. `@gh/username/repo@branch/path/to/your/file`
 > - ADDED: Added Import button to Import & Export settings
-> - ADDED: Debug mode - add ?debug to end of url of /os or html file
 > - ADDED: Dyslexia-friendly font face in Settings (does not apply to apps, and doesn't work on everything yet)
 > - ADDED: New Starry wallpaper to celebrate 100 stars
 

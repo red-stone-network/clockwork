@@ -37,7 +37,7 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta15";
+var version = "2.0.0.0-beta15.1";
 var versionNickname = "New Shoe"
 
 contextMenu.style.display = "none";
