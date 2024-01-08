@@ -37,7 +37,7 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta15.1";
+var version = "2.0.0.0-beta15.2";
 var versionNickname = "New Shoe"
 
 contextMenu.style.display = "none";
@@ -216,15 +216,15 @@ function decodeUV(str) {
 
 const cdns = [
     [
-        "https://cdn.statically.io/gh/mrdoob/three.js/dev/build/three.min.js",
+        "https://cdn.statically.io/gh/red-stone-network/clockwork/main/README.md",
         "https://cdn.statically.io/%g/%u/%r/%b/%p"
     ],
     [
-        "https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/build/three.min.js",
+        "https://cdn.jsdelivr.net/gh/red-stone-network/clockwork@main/README.md",
         "https://cdn.jsdelivr.net/%g/%u/%r@%b/%p"
     ],
     [
-        "https://rawcdn.githack.com/mrdoob/three.js/dev/build/three.min.js",
+        "https://rawcdn.githack.com/red-stone-network/clockwork/main/README.md",
         "https://%Gcdn.githack.com/%u/%r/%b/%p"
     ]
 ]

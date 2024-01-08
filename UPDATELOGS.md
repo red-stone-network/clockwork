@@ -13,6 +13,7 @@
 
 > - BUGFIX: Apps could not be uninstalled
 > - BUGFIX: Themes can now be installed
+> - BUGFIX: CDNs would not return a response when testing and would crash Clockwork
 
 > - REMOVED: Herobrine
 
