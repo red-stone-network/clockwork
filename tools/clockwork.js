@@ -1,4 +1,4 @@
-// Basically this is the script that allows Clockwork apps to communicate with Clockwork. Mainly 
+// Basically this is the script that allows Clockwork apps to communicate with Clockwork. Mainly (???)
 
 var clockwork_my_id = null;
 
