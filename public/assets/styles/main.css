@@ -80,6 +80,7 @@ body {
     padding-top: 6px;
     box-sizing: border-box;
     max-width: 100vw;
+    text-align: center;
 }
 
 .navbar {
@@ -204,8 +205,6 @@ input {
     font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
 }
 
-iframe.a.xy.d.lo.bnr {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+iframe {
+    display: inline;
 }
