@@ -206,5 +206,7 @@ input {
 }
 
 span.aframe {
-    display: inline;
+    display: inline-block;
+    outline: 2px solid green;
+    padding: 4px 4px 1px 4px;
 }
