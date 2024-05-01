@@ -205,6 +205,6 @@ input {
     font-family: "Roboto Flex", "Roboto", Arial, sans-serif;
 }
 
-iframe {
+span.aframe {
     display: inline;
 }
