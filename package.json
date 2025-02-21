@@ -1,0 +1,14 @@
+{
+  "name": "clockwork-v2",
+  "version": "1.0.0",
+  "description": "Codespaces-related stuff, don't mess with this",
+  "author": "cmuto09",
+  "license": "MIT",
+  "devDependencies": {
+    "static-server": "^2.2.1",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon --exec static-server -p 3000 -e html"
+  }
+}

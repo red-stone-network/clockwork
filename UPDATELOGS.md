@@ -1,3 +1,19 @@
+# 2.0.0.0-beta16
+> - ADDED: Spoofed text containing the word "proxy" to bypass word filters
+> - ADDED: Direct access method for Clockwork
+> - ADDED: More links on the navbar
+> - ADDED: Permissions for apps now show on the install prompt.
+> - ADDED: Setting that allows you to toggle between iframe and embed apps ([#76](https://github.com/red-stone-network/clockwork/issues/76))
+
+> - CHANGED: Another stylistic update (to match with the v3 store design!) Everything is now rounder, glossy & modern.
+> - CHANGED: Changed wording on /get-started/ to give easier-to-understand instructions
+
+> - BUGFIX: Navbar for website is now forced to the bottom of the page
+> - BUGFIX: You can now set your password again (with less jank!) ([#82](https://github.com/red-stone-network/clockwork/issues/82))
+
+> - REMOVED: "Welcome to Clockwork" notification (it was pointless)
+> - REMOVED: Herobrine
+
 # 2.0.0.0-beta15
 > - ADDED: Part 2 of the redesign - redesigning all the display pages
 > - ADDED: Factory reset option is here again, in Import & Export settings
