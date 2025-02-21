@@ -1,6 +1,8 @@
 /* Used across the Clockwork main pages */
 
 document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Sb8NzVbqX8">Discord</a> | 
+<a href="https://github.com/red-stone-network/clockwork">Github</a> |
+<a href="/get-started/">Get started</a> |
 <a href="/converter/">Convert v1 apps to v2</a> |
 © 2023 <a href="https://redstonenetwork.rit.cl/">Redstone Network</a>`
 
@@ -48,6 +50,7 @@ if (document.location.pathname.startsWith("/get-started")) {
     padding: 0;
     overflow-y: hidden;
   }
+  body { background-color: #000 }
   iframe {
     width: 100%;
     height: 100vh;

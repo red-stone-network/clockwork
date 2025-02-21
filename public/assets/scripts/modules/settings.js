@@ -1,4 +1,4 @@
-const settingsMenu = [
+var settingsMenu = [
     {
         screenName: "Manage Apps",
         screenIcon: "/assets/images/ui/app-window.png",
@@ -159,32 +159,14 @@ const settingsMenu = [
         </p>`;
 
                 var btn = document.createElement("btn");
-                if (settings.lock.enabled) btn.innerText = "Change passcode"
-                else btn.innerText = "Create new passcode";
-                btn.onclick = function (e) {
-                    if (settings.lock.enabled) {
-                        if (prompt("Enter your old passcode.") != settings.lock.passcode) {
-                            alert("Incorrect passcode!")
-                            return;
-                        }
+                if (!settings.lock.enabled) {
+                    btn.innerText = "Create new passcode";
+                    btn.onclick = function (e) {
+                        initCreatePasscode()
                     }
-
-                    var newPasscode = prompt("Enter your new passcode (between 4 and 6 characters, numbers only)")
-
-                    if (!newPasscode.match(/^[0-9]{4,6}$/)) { alert("Passcode must be a number!"); return; }
-                    if (newPasscode.length > 6 || 4 > newPasscode.length) { alert("Passcode must be between 4 and 6 characters!"); return; }
-                    if (prompt("Type it again to confirm.") != newPasscode) { alert("Passcodes do not match!"); return; }
-
-                    settings.lock.enabled = true;
-                    settings.lock.passcode = newPasscode;
-
-                    loadSettingsScreen(3);
-                    alert("Success!");
-                    localStorage.setItem("settings", JSON.stringify(settings));
+                    div.appendChild(btn);
                 }
-                div.appendChild(btn);
 
-                div.innerHTML += " "
                 var btn = document.createElement("btn");
                 btn.innerText = "Remove passcode";
                 btn.onclick = function () {
@@ -206,24 +188,33 @@ const settingsMenu = [
         }]
     },
     {
-        screenName: "Proxy Settings",
+        screenName: "Unblockers",
         screenIcon: "/assets/images/ui/ultraviolet.png",
         screenContents: [{
-            label: "Proxy",
+            label: "Prоху",
             type: "dropdown",
             linkedSetting: "settings.proxy",
             values: [
-                ["none", "Don't use a proxy"],
-                ["uv", "Use an Ultraviolet proxy"]
+                ["none", "Don't use a prоху"],
+                ["uv", "Use an Ultraviolet prоху"]
             ]
         },
         {
-            label: "Proxy URL",
+            label: "Prоху URL",
             type: "text",
             linkedSetting: "settings.proxyUrl",
             fallbackSetting: "",
-            placeholderText: "Leave blank to use a public proxy."
-        }
+            placeholderText: "Leave blank to use a public prоху."
+        },
+        {
+            label: "App frame type (requires a restart to apply!)",
+            type: "dropdown",
+            linkedSetting: "settings.embed",
+            values: [
+                [false, "Use <iframe> (default)"],
+                [true, "Use <embed> (not recommended)"]
+            ]
+        },
         ]
     },
     {
@@ -319,7 +310,8 @@ Factory resets will remove ALL your data from Clockwork, including apps, themes 
           <br>
           <h2>Credits</h2>
           lukasexists<br>
-          l413<br>
+          OnShelf<br>
+          iddu01<br>
           hellscaped<br>
           stolas<br>
           Quino Al<br>

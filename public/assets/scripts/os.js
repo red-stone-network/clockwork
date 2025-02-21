@@ -37,8 +37,8 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta15.2";
-var versionNickname = "New Shoe"
+var version = "2.0.0.0-beta16";
+var versionNickname = "League of Legends Edition"
 
 contextMenu.style.display = "none";
 
@@ -64,36 +64,6 @@ Number.prototype.clamp = function (min, max) {
 - should contain a label value and a linkedSetting value
 - should also contain a placeholderText value
 */
-
-
-if (document.location.href.endsWith("?debug")) {
-    window.onerror = function (e) {
-        alert(e)
-    }
-    settingsMenu.push({
-        screenName: "Debug Mode",
-        screenIcon: "/assets/images/ui/clockwork.png",
-        screenContents: [{
-            type: "scriptbox",
-            value: function (div) {
-                var btn = document.createElement("btn")
-                btn.innerText = "Eval"
-                btn.onclick = function () { var a = prompt(); eval(a) }
-                div.appendChild(btn);
-
-                var btn = document.createElement("btn")
-                btn.innerText = "Install app"
-                btn.onclick = function () { var a = prompt("json url"); promptInstallApp(a) }
-                div.appendChild(btn);
-
-                var btn = document.createElement("btn")
-                btn.innerText = "Install theme"
-                btn.onclick = function () { var a = prompt("css url"); promptInstallTheme(a) }
-                div.appendChild(btn);
-            }
-        }]
-    })
-}
 
 function loadSettingsScreen(prescreen) {
     var screen = typeof prescreen == "string" ?
@@ -175,7 +145,6 @@ function loadSettingsMenu() { // Loads up the settings menu (shocker)
         ++i;
     }
 }
-loadSettingsMenu();
 
 function setupScreenSwap(screen) {
     var children = document.querySelectorAll("div.setup-screen");
@@ -260,6 +229,8 @@ var defaultSettings = {
     proxy: "none",
     proxyUrl: "",
     wallpaper: "/assets/images/wallpapers/default.png",
+    developerMode: false,
+    embed: false,
 }
 var settings = null;
 
@@ -284,15 +255,68 @@ if (localStorage.getItem("settings") == null || localStorage.getItem("settings")
     settings = JSON.parse(localStorage.getItem("settings"));
 }
 
+// make it so dev mode is detected/saved
+const params = new URLSearchParams(document.location.search);
+
+if (params.get('dev') == 'true') {
+    settings.developerMode = true
+    localStorage.setItem("settings", JSON.stringify(settings));
+} else if (params.get('dev') == 'false') {
+    settings.developerMode = false
+    localStorage.setItem("settings", JSON.stringify(settings));
+}
+
+// the dev mode part of dev mode - adds new menu to settings
+if (settings.developerMode) {
+    window.onerror = function (e) {
+        alert(e)
+    }
+    settingsMenu.push({
+        screenName: "Developer Mode",
+        screenIcon: "/assets/images/ui/clockwork.png",
+        screenContents: [{
+            type: "scriptbox",
+            value: function (div) {
+                var btn = document.createElement("btn")
+                btn.innerText = "Eval"
+                btn.onclick = function () { var a = prompt(); eval(a) }
+                div.appendChild(btn);
+
+                var btn = document.createElement("btn")
+                btn.innerText = "Install app"
+                btn.onclick = function () { var a = prompt("json url"); promptInstallApp(a) }
+                div.appendChild(btn);
+
+                var btn = document.createElement("btn")
+                btn.innerText = "Install theme"
+                btn.onclick = function () { var a = prompt("css url"); promptInstallTheme(a) }
+                div.appendChild(btn);
+            }
+        }]
+    })
+}
+
+loadSettingsMenu()
+
 // make sure all required settings for clockwork are there
 if (settings.dyslexicFont == null) {
     settings.dyslexicFont = false
     localStorage.setItem("settings", JSON.stringify(settings));
 }
 
+if (settings.developerMode == null) {
+    settings.developerMode = false
+    localStorage.setItem("settings", JSON.stringify(settings));
+}
+
 if (!settings.proxy) {
     settings.proxy = "none";
     settings.proxyUrl = "";
+    localStorage.setItem("settings", JSON.stringify(settings));
+}
+
+if (settings.embed == undefined) {
+    settings.embed = false
     localStorage.setItem("settings", JSON.stringify(settings));
 }
 
@@ -373,14 +397,39 @@ function checkForFinish() {
             pcodeInput.focus();
         } else {
             document.getElementById("clockwork-content").style = "";
-            sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version + " " + versionNickname)
-            sendNotification("Please update your bookmarklet or file", "beta15 adds useful changes to the bookmarklet - please update it if you haven't!")
         }
     } else {
         setTimeout(checkForFinish, 500);
     }
 }
 setTimeout(checkForFinish, 500);
+
+function initCreatePasscode() {
+    document.getElementById("clockwork-passcode-create").style = "";
+    document.getElementById("clockwork-passcode-create").className = "clockwork-panel clockwork-panel-fadein";
+}
+
+function initConfirmPasscode() {
+    document.getElementById("clockwork-passcode-create").className = "clockwork-panel clockwork-panel-fadeout";
+    setTimeout(function () {
+        document.getElementById("clockwork-passcode-create").style = "display: none;"
+    }, 300)
+
+    document.getElementById("clockwork-passcode-confirm").style = "";
+    document.getElementById("clockwork-passcode-confirm").className = "clockwork-panel clockwork-panel-fadein";
+}
+
+function exitPasswordPrompt() {
+    document.getElementById("clockwork-passcode-create").className = "clockwork-panel clockwork-panel-fadeout";
+    setTimeout(function () {
+        document.getElementById("clockwork-passcode-create").style = "display: none;"
+    }, 300)
+
+    document.getElementById("clockwork-passcode-confirm").className = "clockwork-panel clockwork-panel-fadeout";
+    setTimeout(function () {
+        document.getElementById("clockwork-passcode-confirm").style = "display: none;"
+    }, 300)
+}
 
 // sidebar clock
 function sideBarClock() {
@@ -474,7 +523,8 @@ async function installApp(url, params) {
             }
             let json = await response.text();
             json = JSON.parse(json);
-            let myIframe = document.createElement("IFRAME");
+            console.log((settings.embed == 'true') ? "EMBED" : "IFRAME")
+            let myIframe = document.createElement((settings.embed == 'true') ? "EMBED" : "IFRAME");
             myIframe.src = "about:blank";
             myIframe.id = "apppanel:" + url;
             myIframe.className = "app";
@@ -588,7 +638,42 @@ async function promptInstallApp(url, params) {
         prompt.className = "clockwork-panel clockwork-panel-fadein";
 
         prompt.querySelector(".prmpt-title").innerHTML = `App installation confirmation`;
-        prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}?`;
+        prompt.querySelector(".prmpt-text").innerHTML = `Are you sure you want to install ${json.name}? ${(function () {
+            if (!json.permissions || !json.permissions.length) {
+                return ""
+            } else {
+                let result = "The app will have to ability to: <div class='permission-box'>"
+
+                if (json.permissions.includes("installApp")) {
+                    result += `<div class="permission-item">
+                    <img class="icon" src="/assets/images/ui/download-app.png">
+                    <div class="text">Prompt you to install apps</div>
+                    </div>`
+                }
+                if (json.permissions.includes("installTheme")) {
+                    result += `<div class="permission-item">
+                    <img class="icon" src="/assets/images/ui/download-theme.png">
+                    <div class="text">Prompt you to install themes</div>
+                    </div>`
+                }
+                if (json.permissions.includes("sendNotification")) {
+                    result += `<div class="permission-item">
+                    <img class="icon" src="/assets/images/ui/bell.png">
+                    <div class="text">Send you notifications</div>
+                    </div>`
+                }
+                if (json.permissions.includes("unsafePermissions")) {
+                    result += `<div class="permission-item">
+                    <img class="icon" src="/assets/images/ui/missing-texture.png">
+                    <div class="text">Run code directly inside Clockwork - this can be dangerous,
+                    so only install this app if you trust the developers!</div>
+                    </div>`
+                }
+
+                result += "</div>"
+                return result
+            }
+        })()}`;
         prompt.querySelector(".prmpt-yes").onclick = function () {
             installApp(url, params);
             prompt.className = "clockwork-panel clockwork-panel-fadeout";
@@ -643,6 +728,8 @@ function openApp(app, url, encoded) {
                             };
                             return eval('HFeg8("6465636F646543572875726C29")')
                         })();
+                        // what in the fuck is this shit /\/\/\
+
                         trueurl = eval(i829X);
                     } else {
                         trueurl = url;
@@ -654,9 +741,11 @@ function openApp(app, url, encoded) {
                             trueurl = "https://toddler-kicking-machine.umlach.org/service/" + encodeUV(trueurl)
                         }
                     }
-                    child.src = trueurl;
+                    child.src = (settings.embed == 'true') ?
+                        `${trueurl}?clockwork-app-id=${encodeURIComponent(child.id.slice(9))}`
+                        : trueurl
                     child.onload = function () {
-                        child.contentWindow.postMessage(child.id.slice(9), "*");
+                        child.contentWindow.postMessage(["id", child.id.slice(9)], "*");
                     }
                 }
             }
@@ -955,10 +1044,38 @@ pcodeInput.oninput = function () {
             setTimeout(function () {
                 document.getElementById("clockwork-lock").style = "display: none;"
             }, 300);
-            sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
-            sendNotification("Please update your bookmarklet or file", "beta15 adds useful changes to the bookmarklet - please update it if you haven't!")
+            //sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
+            //sendNotification("Please update your bookmarklet or file", "beta15 adds useful changes to the bookmarklet - please update it if you haven't!")
         } else {
             pcodeInput.value = "";
+        }
+    }
+};
+
+
+var pcodeCreateInput = document.getElementById("passcode-create")
+pcodeCreateInput.onkeyup = function (e) {
+    if (e.key == "Enter") {
+        if (pcodeCreateInput.value.length > 3) {
+            initConfirmPasscode()
+        }
+    }
+};
+
+var pcodeConfirmInput = document.getElementById("passcode-confirm")
+pcodeConfirmInput.onkeyup = function (e) {
+    if (e.key == "Enter") {
+        if (pcodeCreateInput.value.length > 3) {
+            if (pcodeConfirmInput.value == pcodeCreateInput.value) {
+                settings.lock.enabled = true
+                settings.lock.passcode = pcodeCreateInput.value
+                localStorage.setItem('settings', JSON.stringify(settings));
+            } else {
+                sendNotification("Failed to set passcode", "The passcodes provided did not match!")
+            }
+
+            loadSettingsScreen(3)
+            exitPasswordPrompt()
         }
     }
 };
@@ -1205,7 +1322,12 @@ window.addEventListener('message', function (event) {
     if (event.data.length > 1) {
         if (event.data[0] == "installApp") {
             // event.source.frameElement.id.slice(9)
+            console.log(appData.find(function (o) {
+                return o.url == event.data[3]
+            }), event.data)
             if (appData.find(function (o) {
+                return o.url == event.data[3]
+            }) && appData.find(function (o) {
                 return o.url == event.data[3]
             }).permissions.includes("installApp")) {
                 if (event.data[1] == "installApp") {
@@ -1258,6 +1380,8 @@ window.addEventListener('message', function (event) {
                 onClick({
                     isFake: true
                 })
+            } else if (event.data[1] == "isActiveApp") {
+                event.source.postMessage(["isActiveApp", true, event.data[2]], "*");
             }
         }
     }

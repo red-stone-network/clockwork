@@ -42,12 +42,12 @@ const searchables = [
         },
     },
     {
-        searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings"],
-        name: "Proxy Settings",
+        searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings", "iframe", "embed"],
+        name: "Unblockers",
         icon: "/assets/images/ui/ultraviolet.png",
         onclick: function () {
             openApp('sys_settings');
-            loadSettingsScreen("Proxy Settings");
+            loadSettingsScreen("Unblockers");
         },
     },
     {
