@@ -1,0 +1,12 @@
+{
+    "name": "ClockAI",
+    "desc": "ClockAI, the AI that helps you in school.",
+    "url": "https://hf.co/chat/assistant/67b7a5cd561dc21db310ae9e",
+    "encodedUrl": "no",
+    "icon": "https://hollowtechnology.github.io/clockhax/public/assets/images/icon.png",
+    "version": "1.0.0",
+    "author": "iddu01",
+    "permissions": [
+        "installApp"
+    ]
+}
