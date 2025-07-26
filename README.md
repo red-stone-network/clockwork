@@ -1,3 +1,11 @@
+Clockwork is no longer officially supported. It hasn't been for a long time now, and frankly I wouldn't want to support this codebase much more (it's not particularly good.)
+
+Now that Glitch is shutting down their free hosting (which is frankly tragic), the Clockwork store has been shut down, removing most of Clockwork's functionality. I have nowhere to host this other than Glitch at this time, and frankly Clockwork's (and Redstone Network's) heyday was two years ago.
+
+Thanks for everything. I hope to see you soon.
+
+<hr>
+
 <h1 align="center">Clockwork OS</h1>
 
 <h4 align="center">
